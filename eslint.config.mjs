@@ -3,6 +3,7 @@ import tseslint from 'typescript-eslint';
 import eslintPluginPrettier from 'eslint-plugin-prettier';
 import importPlugin from 'eslint-plugin-import';
 import spellcheck from 'eslint-plugin-spellcheck';
+import eslintPluginAstro from 'eslint-plugin-astro';
 
 export default tseslint.config(
   [
@@ -20,10 +21,11 @@ export default tseslint.config(
     },
 
     {
-      files: ['**/*.ts'],
+      files: ['**/*.ts', '**/*.astro'],
       languageOptions: {
         parserOptions: {
           project: './tsconfig.json',
+          extraFileExtensions: ['.astro'],
         },
       },
       plugins: {
@@ -150,6 +152,15 @@ export default tseslint.config(
             alwaysTryTypes: true,
             project: './tsconfig.json',
           },
+        },
+      },
+    },
+    {
+      files: ['**/*.astro'],
+      languageOptions: {
+        parser: eslintPluginAstro.parser,
+        parserOptions: {
+          parser: tseslint.parser,
         },
       },
     },
