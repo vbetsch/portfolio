@@ -1,4 +1,9 @@
-/node_modules/
+/.astro/
+/.idea/
+/.vscode/
 /dist/
-jest.config.js
+/docs/
+/node_modules/
+/public/
+jest.config.cjs
 README.md
