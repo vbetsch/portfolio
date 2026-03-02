@@ -10,12 +10,7 @@ export default tseslint.config(
     ...tseslint.configs.recommended,
 
     {
-      ignores: [
-        '.astro/',
-        'dist/',
-        'node_modules/',
-        'jest.config.cjs'
-      ],
+      ignores: ['.astro/', 'dist/', 'node_modules/', 'jest.config.cjs'],
     },
 
     {
