@@ -15,8 +15,7 @@
     "lint": "eslint . --ext .ts",
     "lint:strict": "eslint . --ext .ts --max-warnings=0",
     "test": "jest --passWithNoTests",
-    "test:cov": "jest --passWithNoTests --coverage",
-    "start:prod": "node dist/index.js"
+    "test:cov": "jest --passWithNoTests --coverage"
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
