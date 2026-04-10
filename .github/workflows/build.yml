@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  tsc:
+  astro:
     runs-on: ubuntu-latest
 
     steps:
