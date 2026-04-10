@@ -6,11 +6,14 @@
   },
   "description": "My official personal website",
   "devDependencies": {
+    "@swc/jest": "^0.2.39",
+    "@types/jest": "^30.0.0",
     "@vbetsch/config-eslint": "^1.0.4",
     "@vbetsch/config-jest": "^1.0.2",
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.3",
     "eslint-plugin-astro": "1.6.0",
+    "jest-environment-jsdom": "^30.3.0",
     "prettier-plugin-astro": "0.14.1"
   },
   "engines": {
