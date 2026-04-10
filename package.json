@@ -13,7 +13,7 @@
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.3",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-astro": "1.6.0",
+    "eslint-plugin-astro": "1.7.0",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.5.5",
