@@ -15,7 +15,6 @@ export default tseslint.config(
 
   /* IMPORTANT: You have to add these lines only for the strict module ! */
   {
-    files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
     languageOptions: {
       parserOptions: {
         project: './tsconfig.json',
