@@ -1,5 +1,17 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["coverage/", "dist/", "node_modules/"]
+  "exclude": ["**/node_modules/**", "**/dist/**", "**/coverage/**"],
+  "extends": [
+    "astro/tsconfigs/strict",
+    "@vbetsch/config-tsconfig/base",
+    "@vbetsch/config-tsconfig/strict",
+    "@vbetsch/config-tsconfig/jsx"
+  ],
+  /* Overrides */
+  "compilerOptions": {
+    // "baseUrl": ".",
+    "paths": {
+      // "@src/*": ["src/*"],
+    }
+  },
+  "include": [".astro/types.d.ts", "**/*"]
 }
