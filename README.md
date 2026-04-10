@@ -46,15 +46,13 @@ npm run test:cov
 
 ## 🧹 Linting & Formatting
 
-### Check linter and formatter
-
-Run linter in default mode
+### Run linter in default mode
 
 ```bash
 npm run lint
 ```
 
-Run linter in strict mode
+### Run linter in strict mode
 
 ```bash
 npm run lint:strict
