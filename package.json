@@ -1,36 +1,36 @@
 {
-  "name": "portfolio",
-  "type": "module",
-  "version": "1.0.0",
   "author": "vbetsch",
-  "description": "My official personal website",
-  "engines": {
-    "node": "24.14.1"
-  },
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro",
-    "check": "npm run check:tsc && npm run check:astro",
-    "check:astro": "astro check",
-    "check:tsc": "tsc",
-    "format": "prettier --write .",
-    "lint": "eslint",
-    "lint:strict": "eslint --max-warnings=0",
-    "test": "jest",
-    "test:cov": "jest --coverage"
-  },
-  "devDependencies": {
-    "eslint-plugin-astro": "1.6.0",
-    "prettier-plugin-astro": "0.14.1",
-    "@vbetsch/config-eslint": "^1.0.4",
-    "@vbetsch/config-jest": "^1.0.2",
-    "@vbetsch/config-prettier": "^1.0.2",
-    "@vbetsch/config-tsconfig": "^1.0.3"
-  },
   "dependencies": {
     "@astrojs/check": "0.9.6",
     "astro": "^6.1.5"
-  }
+  },
+  "description": "My official personal website",
+  "devDependencies": {
+    "@vbetsch/config-eslint": "^1.0.4",
+    "@vbetsch/config-jest": "^1.0.2",
+    "@vbetsch/config-prettier": "^1.0.2",
+    "@vbetsch/config-tsconfig": "^1.0.3",
+    "eslint-plugin-astro": "1.6.0",
+    "prettier-plugin-astro": "0.14.1"
+  },
+  "engines": {
+    "node": "24.14.1"
+  },
+  "name": "portfolio",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro build",
+    "check": "npm run check:tsc && npm run check:astro",
+    "check:astro": "astro check",
+    "check:tsc": "tsc",
+    "dev": "astro dev",
+    "format": "prettier --write .",
+    "lint": "eslint",
+    "lint:strict": "eslint --max-warnings=0",
+    "preview": "astro preview",
+    "test": "jest",
+    "test:cov": "jest --coverage"
+  },
+  "type": "module",
+  "version": "1.0.0"
 }
