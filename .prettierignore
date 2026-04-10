@@ -1,9 +1,0 @@
-/.astro/
-/.idea/
-/.vscode/
-/dist/
-/docs/
-/node_modules/
-/public/
-jest.config.cjs
-README.md
