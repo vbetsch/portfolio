@@ -15,6 +15,7 @@ export default tseslint.config(
 
   /* IMPORTANT: You have to add these lines only for the strict module ! */
   {
+    files: ['**/*.ts', '**/*.tsx', '**/*.mts'],
     languageOptions: {
       parserOptions: {
         project: './tsconfig.json',
@@ -24,23 +25,19 @@ export default tseslint.config(
   },
 
   /* --- Overrides --- */
+  ...eslintPluginAstro.configs.recommended,
   {
     ignores: ['.astro/'],
-  },
-  {
-    languageOptions: {
-      parserOptions: {
-        project: './tsconfig.json',
-        extraFileExtensions: ['.astro'],
-      },
-    },
   },
   {
     files: ['**/*.astro'],
     languageOptions: {
       parser: eslintPluginAstro.parser,
       parserOptions: {
+        extraFileExtensions: ['.astro'],
         parser: tseslint.parser,
+        project: './tsconfig.json',
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   }
