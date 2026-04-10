@@ -1,15 +1,15 @@
-import baseVbetsch from "@vbetsch/config-prettier";
+import baseVbetsch from '@vbetsch/config-prettier';
 
 export default {
   ...baseVbetsch,
 
   /* Overrides */
-  plugins: ["prettier-plugin-astro"],
+  plugins: ['prettier-plugin-astro'],
   overrides: [
     {
-      files: "*.astro",
+      files: '*.astro',
       options: {
-        parser: "astro",
+        parser: 'astro',
       },
     },
   ],
