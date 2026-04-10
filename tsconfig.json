@@ -1,10 +1,10 @@
 {
   "exclude": ["**/node_modules/**", "**/dist/**", "**/coverage/**"],
   "extends": [
-    "astro/tsconfigs/strict",
     "@vbetsch/config-tsconfig/base",
     "@vbetsch/config-tsconfig/strict",
-    "@vbetsch/config-tsconfig/jsx"
+    "@vbetsch/config-tsconfig/jsx",
+    "astro/tsconfigs/strict"
   ],
   /* Overrides */
   "compilerOptions": {
