@@ -6,7 +6,7 @@ import namingVbetsch from '@vbetsch/config-eslint/naming';
 import prettierVbetsch from '@vbetsch/config-eslint/prettier';
 import strictVbetsch from '@vbetsch/config-eslint/strict';
 
-export default tseslint.config(
+export default [
   ...baseVbetsch,
   strictVbetsch,
   namingVbetsch,
@@ -39,7 +39,7 @@ export default tseslint.config(
         tsconfigRootDir: import.meta.dirname,
       },
     },
-  }
+  },
   // {
   //   settings: {
   //     'import/resolver': {
@@ -50,4 +50,4 @@ export default tseslint.config(
   //     },
   //   },
   // }
-);
+];
