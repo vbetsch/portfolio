@@ -1,43 +1,79 @@
-# Astro Starter Kit: Minimal
+# portfolio
 
-```sh
-npm create astro@latest -- --template minimal
+[![Linter](https://github.com/vbetsch/portfolio/workflows/Linter/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ALint++)
+[![Checks](https://github.com/vbetsch/portfolio/workflows/Checks/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3AChecks++)
+[![Tests](https://github.com/vbetsch/portfolio/workflows/Tests/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ATests++)
+[![Build](https://github.com/vbetsch/portfolio/workflows/Build/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ABuild++)
+
+My official personal website
+
+## 🚀 Getting Started
+
+We recommend using Node
+version [lts/krypton -> v24.14.1](https://nodejs.org/en/blog/release/v24.14.1).
+
+### 1. Install dependencies
+
+```bash
+npm install
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 2. Check your installation
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```bash
+npm run check
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+### 3. Start the project (development)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```bash
+npm run start:dev
+```
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🧪 Running Tests
 
-## 🧞 Commands
+### Run tests in default mode
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm test
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+### Run tests with coverage
 
-## 👀 Want to learn more?
+```bash
+npm run test:cov
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🧹 Linting & Formatting
+
+### Run linter in default mode
+
+```bash
+npm run lint
+```
+
+### Run linter in strict mode
+
+```bash
+npm run lint:strict
+```
+
+### Format the code
+
+```bash
+npm run format
+```
+
+## 🏗️ Building the Project
+
+### Build application
+
+```bash
+npm run build
+```
+
+### Check the build
+
+```bash
+npm run start:prod
+```
