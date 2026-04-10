@@ -18,13 +18,25 @@ version [lts/krypton -> v24.14.1](https://nodejs.org/en/blog/release/v24.14.1).
 npm install
 ```
 
-### 2. Start the project (development)
+### 2. Check your installation
+
+```bash
+npm run check
+```
+
+### 3. Start the project (development)
 
 ```bash
 npm run start:dev
 ```
 
 ## 🧪 Running Tests
+
+### Run tests in default mode
+
+```bash
+npm test
+```
 
 ### Run tests with coverage
 
@@ -34,14 +46,36 @@ npm run test:cov
 
 ## 🧹 Linting & Formatting
 
-### Run linter and formatter checks
+### Check linter and formatter
+
+Run linter in default mode
 
 ```bash
 npm run lint
 ```
 
+Run linter in strict mode
+
+```bash
+npm run lint:strict
+```
+
+### Format the code
+
+```bash
+npm run format
+```
+
 ## 🏗️ Building the Project
+
+### Build application
 
 ```bash
 npm run build
+```
+
+### Check the build
+
+```bash
+npm run start:prod
 ```
