@@ -7,4 +7,41 @@
 
 My official personal website
 
-## Installation
+## 🚀 Getting Started
+
+We recommend using Node
+version [lts/krypton -> v24.14.1](https://nodejs.org/en/blog/release/v24.14.1).
+
+### 1. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Start the project (development)
+
+```bash
+npm run start:dev
+```
+
+## 🧪 Running Tests
+
+### Run tests with coverage
+
+```bash
+npm run test:cov
+```
+
+## 🧹 Linting & Formatting
+
+### Run linter and formatter checks
+
+```bash
+npm run lint
+```
+
+## 🏗️ Building the Project
+
+```bash
+npm run build
+```
