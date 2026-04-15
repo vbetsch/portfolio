@@ -12,19 +12,24 @@ My official personal website
 We recommend using Node
 version [lts/krypton -> v24.14.1](https://nodejs.org/en/blog/release/v24.14.1).
 
-### 1. Install dependencies
+### 1. Setup environment
+
+Create a .env file by copying the [.env.example](.env.example) file. These values are only for the
+local environment, you have to modify it.
+
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 2. Check your installation
+### 3. Check your installation
 
 ```bash
 npm run check
 ```
 
-### 3. Start the project (development)
+### 4. Start the project (development)
 
 ```bash
 npm run start:dev
