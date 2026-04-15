@@ -1,15 +1,15 @@
 ---
-import { EmailService } from '../services/email.service.ts';
-
-const emailService: EmailService = new EmailService();
+const email: string = 'vbetsch.contact@gmail.com';
+const subject: string | null = 'test';
+const body: string | null = 'foo';
 
 function computeMailTo(): string {
-  let mailTo: string = `mailto:${emailService.email}`;
-  if (emailService.subject) {
-    mailTo += `?subject=${emailService.subject}`;
+  let mailTo: string = `mailto:${email}`;
+  if (subject) {
+    mailTo += `?subject=${subject}`;
   }
-  if (emailService.body) {
-    mailTo += `&body=${emailService.body}`;
+  if (body) {
+    mailTo += `&body=${body}`;
   }
   return mailTo;
 }
