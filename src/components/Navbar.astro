@@ -20,7 +20,7 @@ function computeMailTo(): string {
     <a class="fullname" href="#navbar">
       Victor <b>BETSCH</b>
     </a>
-    <a class="contact-me" href={computeMailTo()}>Me contacter</a>
+    <a class="contact-me btn-link" href={computeMailTo()}>Me contacter</a>
   </div>
 </nav>
 
@@ -50,8 +50,9 @@ function computeMailTo(): string {
     border-radius: 2rem;
     cursor: pointer;
     font-size: 0.875rem; /* 14px */
+  }
 
-    /* Speficic to link html tag */
+  .btn-link {
     text-decoration: none;
     background-color: var(--color-green);
   }
