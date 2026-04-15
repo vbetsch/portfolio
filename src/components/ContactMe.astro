@@ -15,14 +15,9 @@ function computeMailTo(): string {
 }
 ---
 
-<a class="btn-link contact-me" href={computeMailTo()}>Me contacter</a>
+<a class="contact-me" href={computeMailTo()}>Me contacter</a>
 
 <style>
-  .btn-link {
-    text-decoration: none;
-    color: var(--color-black);
-  }
-
   .contact-me {
     background-color: var(--color-green);
     border: solid 1px var(--color-green);
