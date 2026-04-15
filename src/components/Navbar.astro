@@ -1,0 +1,27 @@
+---
+import ContactMe from '@components/ContactMe.astro';
+---
+
+<nav id="navbar">
+  <div class="content">
+    <a class="fullname" href="#navbar">
+      Victor <b>BETSCH</b>
+    </a>
+    <ContactMe />
+  </div>
+</nav>
+
+<style>
+  #navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>

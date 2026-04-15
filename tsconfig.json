@@ -8,9 +8,9 @@
   ],
   /* Overrides */
   "compilerOptions": {
-    // "baseUrl": ".",
+    "baseUrl": ".",
     "paths": {
-      // "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "include": [".astro/types.d.ts", "**/*"]
