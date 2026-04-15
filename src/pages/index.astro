@@ -13,11 +13,34 @@
   </head>
   <body>
     <nav class="navbar">
-      <a class="fullname" href="">
-        <span class="firstname">Victor</span>
-        <span class="lastname">BETSCH</span>
-      </a>
-      <button class="contact-me">Me contacter</button>
+      <div class="content">
+        <a class="fullname" href="">
+          <span class="firstname">Victor</span>
+          <span class="lastname">BETSCH</span>
+        </a>
+        <button class="contact-me">Me contacter</button>
+      </div>
     </nav>
   </body>
 </html>
+<style>
+  body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
