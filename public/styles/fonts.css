@@ -4,7 +4,5 @@
 
 body {
   font-family: var(--font-default), sans-serif;
-  font-size: 18px;
   font-weight: 400;
-  font-style: normal;
 }
