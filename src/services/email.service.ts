@@ -7,14 +7,11 @@ export class EmailService {
     return this._email;
   }
 
-  public computeMailTo(): string {
-    let mailTo: string = `mailto:${this._email}`;
-    if (this._subject) {
-      mailTo += `?subject=${this._subject}`;
-    }
-    if (this._body) {
-      mailTo += `&body=${this._body}`;
-    }
-    return mailTo;
+  public get subject(): string | null {
+    return this._subject;
+  }
+
+  public get body(): string | null {
+    return this._body;
   }
 }

@@ -2,6 +2,17 @@
 import { EmailService } from '../services/email.service.ts';
 
 const emailService: EmailService = new EmailService();
+
+function computeMailTo(): string {
+  let mailTo: string = `mailto:${emailService.email}`;
+  if (emailService.subject) {
+    mailTo += `?subject=${emailService.subject}`;
+  }
+  if (emailService.body) {
+    mailTo += `&body=${emailService.body}`;
+  }
+  return mailTo;
+}
 ---
 
 <nav id="navbar">
@@ -9,7 +20,7 @@ const emailService: EmailService = new EmailService();
     <a class="fullname" href="#navbar">
       Victor <b>BETSCH</b>
     </a>
-    <a class="contact-me" href={emailService.computeMailTo()}>Me contacter</a>
+    <a class="contact-me" href={computeMailTo()}>Me contacter</a>
   </div>
 </nav>
 
