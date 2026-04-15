@@ -18,6 +18,11 @@ function computeMailTo(): string {
 <a class="btn-link contact-me" href={computeMailTo()}>Me contacter</a>
 
 <style>
+  .btn-link {
+    text-decoration: none;
+    color: var(--color-black);
+  }
+
   .contact-me {
     background-color: var(--color-green);
     border: solid 1px var(--color-green);
@@ -25,11 +30,6 @@ function computeMailTo(): string {
     border-radius: 2rem;
     cursor: pointer;
     font-size: var(--font-size-14);
-  }
-
-  .btn-link {
-    text-decoration: none;
-    color: var(--color-black);
   }
 
   .contact-me:hover {
