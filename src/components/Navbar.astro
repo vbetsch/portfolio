@@ -3,7 +3,7 @@
     <a class="fullname" href="#navbar">
       Victor <b>BETSCH</b>
     </a>
-    <button class="contact-me">Me contacter</button>
+    <a class="contact-me" href="mailto:ton@mail.com?subject=test">Me contacter</a>
   </div>
 </nav>
 
@@ -27,11 +27,15 @@
   }
 
   .contact-me {
-    background-color: var(--color-green);
+    color: var(--color-black);
     border: solid 1px var(--color-green);
     padding: 0.5rem 1rem;
     border-radius: 2rem;
     cursor: pointer;
+
+    /* Speficic to link html tag */
+    text-decoration: none;
+    background-color: var(--color-green);
   }
 
   .contact-me:hover {
