@@ -1,18 +1,5 @@
 ---
-const email: string = 'vbetsch.contact@gmail.com';
-const subject: string | null = null;
-const body: string | null = null;
-
-function computeMailTo(): string {
-  let mailTo: string = `mailto:${email}`;
-  if (subject) {
-    mailTo += `?subject=${subject}`;
-  }
-  if (body) {
-    mailTo += `&body=${body}`;
-  }
-  return mailTo;
-}
+import ContactMe from '@components/ContactMe.astro';
 ---
 
 <nav id="navbar">
@@ -20,7 +7,7 @@ function computeMailTo(): string {
     <a class="fullname" href="#navbar">
       Victor <b>BETSCH</b>
     </a>
-    <a class="contact-me btn-link" href={computeMailTo()}>Me contacter</a>
+    <ContactMe />
   </div>
 </nav>
 
@@ -41,24 +28,5 @@ function computeMailTo(): string {
   .fullname {
     text-decoration: none;
     color: var(--color-black);
-  }
-
-  .contact-me {
-    color: var(--color-black);
-    border: solid 1px var(--color-green);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-    font-size: var(--font-size-14);
-  }
-
-  .btn-link {
-    text-decoration: none;
-    background-color: var(--color-green);
-  }
-
-  .contact-me:hover {
-    background-color: var(--color-white);
-    border-color: var(--color-black);
   }
 </style>
