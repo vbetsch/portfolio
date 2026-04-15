@@ -1,9 +1,26 @@
+---
+const email: string = 'vbetsch.contact@gmail.com';
+const subject: string | null = 'test';
+const body: string | null = 'foo';
+
+function computeMailTo(): string {
+  let mailTo: string = `mailto:${email}`;
+  if (subject) {
+    mailTo += `?subject=${subject}`;
+  }
+  if (body) {
+    mailTo += `&body=${body}`;
+  }
+  return mailTo;
+}
+---
+
 <nav id="navbar">
   <div class="content">
     <a class="fullname" href="#navbar">
       Victor <b>BETSCH</b>
     </a>
-    <a class="contact-me" href="mailto:ton@mail.com?subject=test">Me contacter</a>
+    <a class="contact-me" href={computeMailTo()}>Me contacter</a>
   </div>
 </nav>
 
