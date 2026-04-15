@@ -1,6 +1,7 @@
 ---
 import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/600.css';
+import Navbar from '../components/Navbar.astro';
 ---
 
 <html lang="fr">
@@ -14,45 +15,6 @@ import '@fontsource/poppins/600.css';
     <title>Portfolio</title>
   </head>
   <body>
-    <nav class="navbar">
-      <div class="content">
-        <a class="fullname" href="">
-          Victor <b>BETSCH</b>
-        </a>
-        <button class="contact-me">Me contacter</button>
-      </div>
-    </nav>
+    <Navbar />
   </body>
 </html>
-<style>
-  .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .content {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .fullname {
-    text-decoration: none;
-    color: var(--color-black);
-  }
-
-  .contact-me {
-    background-color: var(--color-green);
-    border: solid 1px var(--color-green);
-    padding: 0.5rem 1rem;
-    border-radius: 2rem;
-    cursor: pointer;
-  }
-
-  .contact-me:hover {
-    background-color: var(--color-white);
-    border-color: var(--color-black);
-  }
-</style>
