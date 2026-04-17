@@ -5,9 +5,10 @@ describe('config', () => {
     expect(true).toBeTruthy();
   });
   it('content > addressLinks - should be defined', () => {
+    const addressLinksNumber: number = 4;
     expect(true).toBeTruthy();
     expect(addressLinks).toBeDefined();
     expect(addressLinks).toBeTruthy();
-    expect(addressLinks).toHaveLength(4);
+    expect(addressLinks).toHaveLength(addressLinksNumber);
   });
 });
