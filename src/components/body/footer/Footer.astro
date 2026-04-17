@@ -5,7 +5,7 @@ import AddressLink, {
 
 const addressLinks: AddressLinkProps[] = [
   {
-    href: `tel:${import.meta.env.PHONE_NUMBER.toString()}`,
+    href: `tel:${import.meta.env.PHONE_NUMBER}`,
     iconName: 'phone',
     label: import.meta.env.PHONE_NUMBER.toString(),
   },
@@ -15,15 +15,15 @@ const addressLinks: AddressLinkProps[] = [
     label: import.meta.env.MAILTO_EMAIL.toString(),
   },
   {
-    href: 'https://www.linkedin.com/in/vbetsch',
+    href: `https://www.linkedin.com/in/${import.meta.env.LINKEDIN_ID}`,
     iconName: 'linkedin',
-    label: 'vbetsch',
+    label: import.meta.env.LINKEDIN_ID.toString(),
     openNewTab: true,
   },
   {
-    href: 'https://github.com/vbetsch',
+    href: `https://www.github.com/${import.meta.env.GITHUB_ID}`,
     iconName: 'github',
-    label: 'vbetsch',
+    label: import.meta.env.GITHUB_ID.toString(),
     openNewTab: true,
   },
 ];
