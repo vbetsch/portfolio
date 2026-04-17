@@ -25,9 +25,7 @@ const props: Props = { ...defaults, ...Astro.props };
 <style>
   a {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: center;
     gap: 0.3rem;
   }
 
@@ -36,14 +34,14 @@ const props: Props = { ...defaults, ...Astro.props };
   }
 
   [data-icon] {
-    width: 0.875rem;
+    width: var(--size-14);
   }
 
   @media screen and (min-width: 900px) {
     span {
       display: block;
       font-family: var(--font-secondary), sans-serif;
-      font-size: var(--font-size-14);
+      font-size: var(--size-14);
     }
   }
 </style>

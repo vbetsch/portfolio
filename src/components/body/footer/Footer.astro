@@ -27,18 +27,18 @@ import AddressLink from '@components/body/footer/AddressLink.astro';
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: var(--size-24);
+    padding-bottom: var(--size-24);
   }
 
   .fullname {
     white-space: nowrap;
     font-family: var(--font-mono), sans-serif;
-    font-size: var(--font-size-12);
+    font-size: var(--size-12);
   }
 
   address {
     display: flex;
-    gap: clamp(1rem, 7vw, 3rem);
+    gap: clamp(var(--size-16), 7vw, 3rem);
   }
 </style>
