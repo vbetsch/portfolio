@@ -1,16 +1,16 @@
 ---
 import { Icon } from 'astro-icon/components';
 
-interface Props {
+type Props = {
   href: string;
   iconName: string;
   label: string;
   openNewTab?: boolean;
-}
+};
 
-const defaults = { openNewTab: false };
+const defaults: Partial<Props> = { openNewTab: false };
 
-const props = { ...defaults, ...Astro.props };
+const props: Props = { ...defaults, ...Astro.props };
 ---
 
 <a
