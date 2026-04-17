@@ -5,7 +5,7 @@ export type Props = {
   href: string;
   iconName: string;
   label: string;
-  openNewTab?: boolean;
+  openNewTab?: boolean | null;
 };
 
 const defaults: Partial<Props> = { openNewTab: false };

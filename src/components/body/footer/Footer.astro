@@ -38,7 +38,7 @@ const addressLinks: AddressLinkProps[] = [
           href={address.href}
           iconName={address.iconName}
           label={address.label}
-          openNewTab={address.openNewTab}
+          openNewTab={address.openNewTab || null}
         />
       ))
     }
