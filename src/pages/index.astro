@@ -80,7 +80,14 @@ import { Icon } from 'astro-icon/components';
   }
 
   address span {
+    display: none;
     font-family: var(--font-secondary), sans-serif;
     font-size: var(--font-size-14);
+  }
+
+  @media screen and (min-width: 900px) {
+    address span {
+      display: block;
+    }
   }
 </style>
