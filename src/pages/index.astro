@@ -16,7 +16,9 @@ import { Icon } from 'astro-icon/components';
     <title>Portfolio</title>
   </head>
   <body>
-    <Navbar />
+    <section class="page">
+      <Navbar />
+    </section>
     <footer>
       <span class="name">Victor BETSCH</span>
       <div class="links">
@@ -42,7 +44,12 @@ import { Icon } from 'astro-icon/components';
 </html>
 
 <style>
+  .page {
+    padding: var(--margins-global-padding);
+  }
+
   footer {
+    padding: var(--margins-global-padding);
     background-color: var(--color-grey-light);
   }
 </style>
