@@ -40,6 +40,7 @@
     "lint": "eslint",
     "lint:strict": "eslint --max-warnings=0",
     "start:dev": "astro dev",
+    "start:dev:expose": "astro dev --host",
     "start:prod": "astro preview",
     "test": "jest",
     "test:cov": "jest --coverage"
