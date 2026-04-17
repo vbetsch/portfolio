@@ -12,3 +12,7 @@ a {
   text-decoration: none;
   color: var(--color-black);
 }
+
+address {
+  font-style: normal;
+}
