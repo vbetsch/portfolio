@@ -5,9 +5,9 @@ import AddressLink, {
 
 const addressLinks: AddressLinkProps[] = [
   {
-    href: 'tel:+33603155113',
+    href: `tel:${import.meta.env.PHONE_NUMBER.toString()}`,
     iconName: 'phone',
-    label: '+33 6 03 15 51 13',
+    label: import.meta.env.PHONE_NUMBER.toString(),
   },
   {
     href: `mailto:${import.meta.env.MAILTO_EMAIL}`,
