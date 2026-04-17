@@ -1,8 +1,4 @@
----
-const email: string = import.meta.env.MAILTO_EMAIL;
----
-
-<a href={`mailto:${email}`}>Me contacter</a>
+<a href={`mailto:${import.meta.env.MAILTO_EMAIL}`}>Me contacter</a>
 
 <style>
   a {
