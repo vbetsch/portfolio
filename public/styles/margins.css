@@ -1,3 +1,12 @@
 header, main, footer {
-  padding: 1rem 7%;
+  padding-inline: 7%;
+}
+
+header, main {
+  padding-top: 1rem;
+}
+
+footer {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
 }
