@@ -1,6 +1,7 @@
 {
   "author": "vbetsch",
   "dependencies": {
+    "@fontsource/azeret-mono": "^5.2.11",
     "@fontsource/poppins": "^5.2.7",
     "astro": "^6.1.7",
     "astro-icon": "^1.1.5"
