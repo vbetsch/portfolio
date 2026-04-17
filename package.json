@@ -2,7 +2,8 @@
   "author": "vbetsch",
   "dependencies": {
     "@fontsource/poppins": "^5.2.7",
-    "astro": "^6.1.7"
+    "astro": "^6.1.7",
+    "astro-icon": "^1.1.5"
   },
   "description": "My official personal website",
   "devDependencies": {
