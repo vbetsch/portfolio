@@ -1,23 +1,47 @@
 ---
-import AddressLink from '@components/body/footer/AddressLink.astro';
+import AddressLink, {
+  type Props as AddressLinkProps,
+} from '@components/body/footer/AddressLink.astro';
+
+const addressLinks: AddressLinkProps[] = [
+  {
+    href: 'tel:+33603155113',
+    iconName: 'phone',
+    label: '+33 6 03 15 51 13',
+  },
+  {
+    href: 'mailto:vbetsch.contact@gmail.com',
+    iconName: 'email',
+    label: 'vbetsch.contact@gmail.com',
+  },
+  {
+    href: 'https://www.linkedin.com/in/vbetsch',
+    iconName: 'linkedin',
+    label: 'vbetsch',
+    openNewTab: true,
+  },
+  {
+    href: 'https://github.com/vbetsch',
+    iconName: 'github',
+    label: 'vbetsch',
+    openNewTab: true,
+  },
+];
 ---
 
 <footer>
   <span class="fullname">Victor BETSCH</span>
   <address>
-    <AddressLink href="tel:+33603155113" iconName="phone" label="+33 6 03 15 51 13" />
-    <AddressLink
-      href="mailto:vbetsch.contact@gmail.com"
-      iconName="email"
-      label="vbetsch.contact@gmail.com"
-    />
-    <AddressLink
-      href="https://www.linkedin.com/in/vbetsch"
-      iconName="linkedin"
-      label="vbetsch"
-      openNewTab
-    />
-    <AddressLink href="https://github.com/vbetsch" iconName="github" label="vbetsch" openNewTab />
+    {
+      addressLinks.map((address, i) => (
+        <AddressLink
+          href={address.href}
+          iconName={address.iconName}
+          label={address.label}
+          openNewTab={address.openNewTab}
+        />
+      ))
+    }
   </address>
 </footer>
 
