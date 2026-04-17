@@ -48,6 +48,7 @@ export default [
           project: './tsconfig.json',
         },
       },
+      'import/core-modules': ['astro:env/client', 'astro:env/server', 'astro:content'],
     },
   },
 ];
