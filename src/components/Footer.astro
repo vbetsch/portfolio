@@ -44,28 +44,4 @@ import { Icon } from 'astro-icon/components';
     display: flex;
     gap: clamp(1rem, 7vw, 3rem);
   }
-
-  address a {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0.3rem;
-  }
-
-  address span {
-    display: none;
-  }
-
-  [data-icon] {
-    height: 0.75rem;
-  }
-
-  @media screen and (min-width: 900px) {
-    address span {
-      display: block;
-      font-family: var(--font-secondary), sans-serif;
-      font-size: var(--font-size-14);
-    }
-  }
 </style>
