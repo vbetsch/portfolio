@@ -1,26 +1,24 @@
 ---
 import { Icon } from 'astro-icon/components';
+import AddressLink from '@components/AddressLink.astro';
 ---
 
 <footer>
   <span class="fullname">Victor BETSCH</span>
   <address>
-    <a class="link" href="tel:+33603155113">
-      <Icon name="phone" />
-      <span>+33 6 03 15 51 13</span>
-    </a>
-    <a class="link" href="mailto:vbetsch.contact@gmail.com">
-      <Icon name="email" />
-      <span>vbetsch.contact@gmail.com</span>
-    </a>
-    <a class="link" href="https://www.linkedin.com/in/vbetsch" target="_blank">
-      <Icon name="linkedin" />
-      <span>vbetsch</span>
-    </a>
-    <a class="link" href="https://github.com/vbetsch" target="_blank">
-      <Icon name="github" />
-      <span>vbetsch</span>
-    </a>
+    <AddressLink href="tel:+33603155113" iconName="phone" label="+33 6 03 15 51 13" />
+    <AddressLink
+      href="mailto:vbetsch.contact@gmail.com"
+      iconName="email"
+      label="vbetsch.contact@gmail.com"
+    />
+    <AddressLink
+      href="https://www.linkedin.com/in/vbetsch"
+      iconName="linkedin"
+      label="vbetsch"
+      openNewTab
+    />
+    <AddressLink href="https://github.com/vbetsch" iconName="github" label="vbetsch" openNewTab />
   </address>
 </footer>
 
