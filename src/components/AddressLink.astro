@@ -1,10 +1,23 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+interface Props {
+  href: string;
+  iconName: string;
+  label: string;
+  openNewTab: boolean;
+}
+
+const { href, iconName, label, openNewTab = false }: Props = Astro.props;
 ---
 
-<a class="link" href="tel:+33603155113">
-  <Icon name="phone" />
-  <span>+33 6 03 15 51 13</span>
+<a
+  href={href}
+  target={openNewTab ? '_blank' : undefined}
+  rel={openNewTab ? 'noopener noreferrer' : undefined}
+>
+  <Icon name={iconName} />
+  <span>{label}</span>
 </a>
 
 <style>
