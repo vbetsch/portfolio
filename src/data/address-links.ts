@@ -1,8 +1,8 @@
 /// <reference types="astro/client" />
 import { ID_GITHUB, ID_LINKEDIN, MAILTO_EMAIL, PHONE_NUMBER } from 'astro:env/client';
-import { type Props as AddressLinkProps } from '@components/body/footer/AddressLink.astro';
+import type { AddressLinkType } from '../types/address-link.type.ts';
 
-export const addressLinks: AddressLinkProps[] = [
+export const addressLinks: AddressLinkType[] = [
   {
     href: `tel:${PHONE_NUMBER}`,
     iconName: 'phone',
