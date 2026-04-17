@@ -8,16 +8,18 @@ interface Props {
   openNewTab: boolean;
 }
 
-const { href, iconName, label, openNewTab = false }: Props = Astro.props;
+const defaults = { openNewTab: false };
+
+const props = { ...defaults, ...Astro.props };
 ---
 
 <a
-  href={href}
-  target={openNewTab ? '_blank' : undefined}
-  rel={openNewTab ? 'noopener noreferrer' : undefined}
+  href={props.href}
+  target={props.openNewTab ? '_blank' : undefined}
+  rel={props.openNewTab ? 'noopener noreferrer' : undefined}
 >
-  <Icon name={iconName} />
-  <span>{label}</span>
+  <Icon name={props.iconName} />
+  <span>{props.label}</span>
 </a>
 
 <style>
