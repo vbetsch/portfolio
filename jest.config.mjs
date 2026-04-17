@@ -10,5 +10,6 @@ export default {
   /* Overrides */
   moduleNameMapper: {
     '^@components/(.*)$': '<rootDir>/src/components/$1',
+    '^@data/(.*)$': '<rootDir>/src/data/$1',
   },
 };
