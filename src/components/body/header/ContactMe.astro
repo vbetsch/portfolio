@@ -15,10 +15,10 @@ function computeMailTo(): string {
 }
 ---
 
-<a class="contact-me" href={computeMailTo()}>Me contacter</a>
+<a href={computeMailTo()}>Me contacter</a>
 
 <style>
-  .contact-me {
+  a {
     background-color: var(--color-green);
     border: solid 1px var(--color-green);
     padding: var(--size-8) var(--size-16);
@@ -27,7 +27,7 @@ function computeMailTo(): string {
     font-size: var(--size-14);
   }
 
-  .contact-me:hover {
+  a:hover {
     background-color: var(--color-white);
     border-color: var(--color-black);
   }
