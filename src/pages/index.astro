@@ -20,7 +20,7 @@ import { Icon } from 'astro-icon/components';
     <Navbar />
     <main>hello world</main>
     <footer>
-      <span class="name">Victor BETSCH</span>
+      <span class="fullname">Victor BETSCH</span>
       <address>
         <a class="link" href="tel:+33603155113">
           <Icon name="phone" />
@@ -56,5 +56,10 @@ import { Icon } from 'astro-icon/components';
 
   footer {
     background-color: var(--color-grey-light);
+  }
+
+  .fullname {
+    font-family: var(--font-mono), sans-serif;
+    font-size: var(--font-size-14);
   }
 </style>
