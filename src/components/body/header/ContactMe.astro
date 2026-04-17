@@ -1,21 +1,8 @@
 ---
 const email: string = import.meta.env.MAILTO_EMAIL;
-const subject: string | null = null;
-const body: string | null = null;
-
-function computeMailTo(): string {
-  let mailTo: string = `mailto:${email}`;
-  if (subject) {
-    mailTo += `?subject=${subject}`;
-  }
-  if (body) {
-    mailTo += `&body=${body}`;
-  }
-  return mailTo;
-}
 ---
 
-<a href={computeMailTo()}>Me contacter</a>
+<a href={`mailto:${email}`}>Me contacter</a>
 
 <style>
   a {
