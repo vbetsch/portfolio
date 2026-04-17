@@ -10,9 +10,9 @@ const addressLinks: AddressLinkProps[] = [
     label: '+33 6 03 15 51 13',
   },
   {
-    href: 'mailto:vbetsch.contact@gmail.com',
+    href: `mailto:${import.meta.env.MAILTO_EMAIL}`,
     iconName: 'email',
-    label: 'vbetsch.contact@gmail.com',
+    label: import.meta.env.MAILTO_EMAIL.toString(),
   },
   {
     href: 'https://www.linkedin.com/in/vbetsch',
