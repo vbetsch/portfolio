@@ -1,4 +1,8 @@
-<a href={`mailto:${import.meta.env.MAILTO_EMAIL}`}>Me contacter</a>
+---
+import { MAILTO_EMAIL } from 'astro:env/client';
+---
+
+<a href={`mailto:${MAILTO_EMAIL}`}>Me contacter</a>
 
 <style>
   a {

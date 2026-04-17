@@ -1,29 +1,30 @@
 ---
+import { MAILTO_EMAIL, PHONE_NUMBER, ID_LINKEDIN, ID_GITHUB } from 'astro:env/client';
 import AddressLink, {
   type Props as AddressLinkProps,
 } from '@components/body/footer/AddressLink.astro';
 
 const addressLinks: AddressLinkProps[] = [
   {
-    href: `tel:${import.meta.env.PHONE_NUMBER}`,
+    href: `tel:${PHONE_NUMBER}`,
     iconName: 'phone',
-    label: import.meta.env.PHONE_NUMBER.toString(),
+    label: PHONE_NUMBER,
   },
   {
-    href: `mailto:${import.meta.env.MAILTO_EMAIL}`,
+    href: `mailto:${MAILTO_EMAIL}`,
     iconName: 'email',
-    label: import.meta.env.MAILTO_EMAIL.toString(),
+    label: MAILTO_EMAIL,
   },
   {
-    href: `https://www.linkedin.com/in/${import.meta.env.ID_LINKEDIN}`,
+    href: `https://www.linkedin.com/in/${ID_LINKEDIN}`,
     iconName: 'linkedin',
-    label: import.meta.env.ID_LINKEDIN.toString(),
+    label: ID_LINKEDIN,
     openNewTab: true,
   },
   {
-    href: `https://www.github.com/${import.meta.env.ID_GITHUB}`,
+    href: `https://www.github.com/${ID_GITHUB}`,
     iconName: 'github',
-    label: import.meta.env.ID_GITHUB.toString(),
+    label: ID_GITHUB,
     openNewTab: true,
   },
 ];
