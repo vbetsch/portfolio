@@ -15,8 +15,8 @@ const props: Props = { ...defaults, ...Astro.props };
 
 <a
   href={props.href}
-  target={props.openNewTab ? '_blank' : undefined}
-  rel={props.openNewTab ? 'noopener noreferrer' : undefined}
+  target={props.openNewTab ? '_blank' : null}
+  rel={props.openNewTab ? 'noopener noreferrer' : null}
 >
   <Icon name={props.iconName} />
   <span>{props.label}</span>
