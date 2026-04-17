@@ -42,6 +42,7 @@
     "start:dev": "astro dev",
     "start:dev:expose": "astro dev --host",
     "start:prod": "astro preview",
+    "sync": "astro sync",
     "test": "jest",
     "test:cov": "jest --coverage"
   },
