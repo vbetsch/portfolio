@@ -33,12 +33,12 @@ const addressLinks: AddressLinkProps[] = [
   <span>Victor BETSCH</span>
   <address>
     {
-      addressLinks.map(address => (
+      addressLinks.map(addressLink => (
         <AddressLink
-          href={address.href}
-          iconName={address.iconName}
-          label={address.label}
-          openNewTab={address.openNewTab || null}
+          href={addressLink.href}
+          iconName={addressLink.iconName}
+          label={addressLink.label}
+          openNewTab={addressLink.openNewTab || null}
         />
       ))
     }
