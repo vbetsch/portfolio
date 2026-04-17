@@ -9,7 +9,11 @@ export default {
 
   /* Overrides */
   moduleNameMapper: {
+    '^astro:env/client$': '<rootDir>/tests/mocks/astro-env.ts',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@data/(.*)$': '<rootDir>/src/data/$1',
+  },
+  transform: {
+    '^.+\\.astro$': 'jest-transform-stub',
   },
 };
