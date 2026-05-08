@@ -10,7 +10,7 @@
     "@swc/jest": "^0.2.39",
     "@types/jest": "^30.0.0",
     "@vbetsch/config-eslint": "^1.0.5",
-    "@vbetsch/config-jest": "^1.0.2",
+    "@vbetsch/config-jest": "^1.0.3",
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.3",
     "eslint-config-prettier": "^10.1.8",
