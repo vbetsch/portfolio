@@ -83,7 +83,9 @@ npm run build
 npm run start:prod
 ```
 
-## ✅ Testing the Project
+## 🚥 Development Workflow
+
+Validate your setup by running the following commands in order:
 
 ```bash
 npm clean-install        # Update dependencies
@@ -91,7 +93,7 @@ npm run start:dev        # Check development execution
 npm run format           # Format code
 npm run test:cov         # Run tests with coverage
 npm run check            # Type-checking and astro check
-npm run lint             # Lint code
+npm run lint:strict      # Lint code
 npm run build            # Run production build
 npm run start:prod       # Check production execution
 ```
