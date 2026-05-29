@@ -11,7 +11,7 @@
     "paths": {
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["./src/data/*"]
     },
     "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "types": ["@testing-library/jest-dom"]
