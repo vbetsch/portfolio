@@ -10,8 +10,8 @@ type ImportMeta = {
 }
 
 declare module "astro:env/client" {
-  export const PHONE_NUMBER: string;
-  export const MAILTO_EMAIL: string;
-  export const ID_LINKEDIN: string;
   export const ID_GITHUB: string;
+  export const ID_LINKEDIN: string;
+  export const MAILTO_EMAIL: string;
+  export const PHONE_NUMBER: string;
 }
