@@ -11,7 +11,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Cache node_modules
+        id: cache-nodemodules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
       - name: Setup project
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
         uses: ./.github/actions/setup-project
 
   tsc:
@@ -22,8 +30,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Setup project
-        uses: ./.github/actions/setup-project
+      - name: Restore node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.14.1'
 
       - name: Check typescript
         run: npm run check:tsc
@@ -36,8 +52,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Setup project
-        uses: ./.github/actions/setup-project
+      - name: Restore node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '24.14.1'
 
       - name: Check Astro
         run: npm run check:astro
