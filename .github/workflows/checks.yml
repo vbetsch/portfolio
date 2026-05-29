@@ -5,6 +5,7 @@ on:
 
 jobs:
   tsc:
+    name: TypeScript
     runs-on: ubuntu-latest
 
     steps:
@@ -18,6 +19,7 @@ jobs:
         run: npm run check:tsc
 
   astro:
+    name: Astro
     runs-on: ubuntu-latest
 
     steps:

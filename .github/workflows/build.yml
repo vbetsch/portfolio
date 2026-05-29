@@ -5,6 +5,7 @@ on:
 
 jobs:
   astro:
+    name: Astro
     runs-on: ubuntu-latest
 
     steps:
