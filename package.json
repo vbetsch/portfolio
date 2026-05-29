@@ -31,7 +31,6 @@
   },
   "name": "portfolio",
   "scripts": {
-    "astro": "astro",
     "build": "astro build",
     "check": "npm run check:tsc && npm run check:astro",
     "check:astro": "astro check",
