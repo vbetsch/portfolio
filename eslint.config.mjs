@@ -13,7 +13,6 @@ export default [
   jsxVbetsch,
   ...prettierVbetsch,
 
-  /* IMPORTANT: You have to add these lines only for the strict module ! */
   {
     languageOptions: {
       parserOptions: {
