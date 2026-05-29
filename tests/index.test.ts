@@ -6,7 +6,6 @@ describe('config', () => {
   });
   it('content > addressLinks - should be defined', () => {
     const addressLinksNumber: number = 4;
-    expect(true).toBeTruthy();
     expect(addressLinks).toBeDefined();
     expect(addressLinks).toBeTruthy();
     expect(addressLinks).toHaveLength(addressLinksNumber);
