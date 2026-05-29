@@ -1,5 +1,4 @@
-name: 'Restore Project Environment'
-description: 'Setup NodeJS and Restore node_modules from cache'
+name: 'Setup Project'
 runs:
   using: "composite"
   steps:
@@ -8,8 +7,14 @@ runs:
       with:
         node-version: '24.14.1'
 
-    - name: Restore node_modules from Cache
+    - name: Check Cache
+      id: cache-nodemodules
       uses: actions/cache@v5
       with:
         path: node_modules
         key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
+
+    - name: Install dependencies
+      if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+      run: npm install
+      shell: bash

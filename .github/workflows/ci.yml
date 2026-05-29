@@ -13,26 +13,18 @@ on:
       - 'README.md'
 
 jobs:
-  run-initializer:
-    name: Initializer
-    uses: ./.github/workflows/init.yml
-
   run-checks:
     name: Checks
-    needs: run-initializer
     uses: ./.github/workflows/checks.yml
 
   run-lint:
     name: Linter
-    needs: run-initializer
     uses: ./.github/workflows/lint.yml
 
   run-tests:
     name: Tests
-    needs: run-initializer
     uses: ./.github/workflows/tests.yml
 
   run-build:
     name: Build
-    needs: run-initializer
     uses: ./.github/workflows/build.yml
