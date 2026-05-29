@@ -4,14 +4,13 @@ on:
   pull_request:
     branches:
       - '**'
-    paths:
-      - '**'
-      - '!.vscode/**'
-      - '!docs/**'
-      - '!.editorconfig'
-      - '!.env.example'
-      - '!.gitignore'
-      - '!README.md'
+    paths-ignore:
+      - '.vscode/**'
+      - 'docs/**'
+      - '.editorconfig'
+      - '.env.example'
+      - '.gitignore'
+      - 'README.md'
 
 jobs:
   eslint:
