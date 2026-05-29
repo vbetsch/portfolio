@@ -25,7 +25,7 @@ export default [
   /* --- Overrides --- */
   ...eslintPluginAstro.configs.recommended,
   {
-    ignores: ['.astro/'],
+    ignores: ['.astro/', 'tests/mocks/', 'src/env.d.ts'],
   },
   {
     files: ['**/*.astro'],
@@ -47,6 +47,7 @@ export default [
           project: './tsconfig.json',
         },
       },
+      'import/core-modules': ['astro:env/client', 'astro:env/server', 'astro:content'],
     },
   },
 ];

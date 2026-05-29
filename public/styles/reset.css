@@ -4,11 +4,15 @@ body {
   padding: 0;
   background-color: var(--color-white);
   color: var(--color-black);
-  font-size: var(--font-size-16);
+  font-size: var(--size-16);
   font-style: normal;
 }
 
 a {
   text-decoration: none;
   color: var(--color-black);
+}
+
+address {
+  font-style: normal;
 }

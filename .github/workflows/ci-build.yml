@@ -7,6 +7,11 @@ jobs:
   astro:
     name: Astro
     runs-on: ubuntu-latest
+    env:
+      ID_GITHUB: ${{ vars.ID_GITHUB }}
+      ID_LINKEDIN: ${{ vars.ID_LINKEDIN }}
+      MAILTO_EMAIL: ${{ vars.MAILTO_EMAIL }}
+      PHONE_NUMBER: ${{ vars.PHONE_NUMBER }}
 
     steps:
       - name: Checkout repository

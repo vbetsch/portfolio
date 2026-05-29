@@ -1,20 +1,9 @@
 ---
-import '@fontsource/poppins/400.css';
-import '@fontsource/poppins/600.css';
-import Navbar from '@components/Navbar.astro';
+import Head from '@components/head/Head.astro';
+import Body from '@components/body/Body.astro';
 ---
 
 <html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="stylesheet" href="/styles/global.css" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Portfolio</title>
-  </head>
-  <body>
-    <Navbar />
-  </body>
+  <Head />
+  <Body />
 </html>

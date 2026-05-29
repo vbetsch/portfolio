@@ -1,8 +1,11 @@
 {
   "author": "vbetsch",
   "dependencies": {
+    "@fontsource/azeret-mono": "^5.2.11",
+    "@fontsource/inter": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
-    "astro": "^6.4.2"
+    "astro": "^6.4.2",
+    "astro-icon": "^1.1.5"
   },
   "description": "My official personal website",
   "devDependencies": {
@@ -22,6 +25,7 @@
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
     "jest-environment-jsdom": "^30.4.1",
+    "jest-transform-stub": "^2.0.0",
     "prettier-plugin-astro": "0.14.1"
   },
   "engines": {
@@ -37,7 +41,9 @@
     "lint": "eslint",
     "lint:strict": "eslint --max-warnings=0",
     "start:dev": "astro dev",
+    "start:dev:expose": "astro dev --host",
     "start:prod": "astro preview",
+    "sync": "astro sync",
     "test": "jest",
     "test:cov": "jest --coverage"
   },

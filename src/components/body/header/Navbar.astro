@@ -1,10 +1,10 @@
 ---
-import ContactMe from '@components/ContactMe.astro';
+import ContactMe from '@components/body/header/ContactMe.astro';
 ---
 
-<nav id="navbar">
-  <div class="content">
-    <a class="fullname" href="#navbar">
+<nav>
+  <div>
+    <a href="#header">
       Victor <b>BETSCH</b>
     </a>
     <ContactMe />
@@ -12,16 +12,20 @@ import ContactMe from '@components/ContactMe.astro';
 </nav>
 
 <style>
-  #navbar {
+  nav {
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
-  .content {
+  div {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  a {
+    white-space: nowrap;
   }
 </style>

@@ -10,7 +10,9 @@
   "compilerOptions": {
     "paths": {
       "@/*": ["./src/*"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@data/*": ["./src/data/*"],
+      "@t/*": ["./src/types/*"]
     },
     "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "types": ["@testing-library/jest-dom"]
