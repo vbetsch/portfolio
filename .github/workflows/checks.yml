@@ -1,16 +1,7 @@
 name: Checks
 
 on:
-  pull_request:
-    branches:
-      - '**'
-    paths-ignore:
-      - '.vscode/**'
-      - 'docs/**'
-      - '.editorconfig'
-      - '.env.example'
-      - '.gitignore'
-      - 'README.md'
+  workflow_call:
 
 jobs:
   tsc:
