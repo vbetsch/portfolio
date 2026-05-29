@@ -1,5 +1,5 @@
-name: 'Setup NodeJS Project'
-description: 'Checkout, setup Node and install dependencies'
+name: 'Restore Project Environment'
+description: 'Setup NodeJS and Restore node_modules from cache'
 runs:
   using: "composite"
   steps:
@@ -8,6 +8,9 @@ runs:
       with:
         node-version: '24.14.1'
 
-    - name: Install dependencies
-      run: npm install
-      shell: bash
+    - name: Restore node_modules from Cache
+      uses: actions/cache@v4
+      with:
+        path: node_modules
+        # On utilise exactement la même clé partout
+        key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
