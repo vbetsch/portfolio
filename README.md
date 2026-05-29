@@ -82,3 +82,15 @@ npm run build
 ```bash
 npm run start:prod
 ```
+
+## ✅ Testing the Project
+
+```bash
+npm run start:dev        # Check development execution
+npm run format           # Format code
+npm run test:cov         # Run tests with coverage
+npm run check            # Type-checking and astro check
+npm run lint             # Lint code
+npm run build            # Run production build
+npm run start:prod       # Check production execution
+```
