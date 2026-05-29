@@ -1,5 +1,5 @@
 import { ID_GITHUB, ID_LINKEDIN, MAILTO_EMAIL, PHONE_NUMBER } from 'astro:env/client';
-import type { AddressLinkType } from '../types/address-link.type.ts';
+import type { AddressLinkType } from '@types/address-link.type.ts';
 
 export const addressLinks: AddressLinkType[] = [
   {
