@@ -1,0 +1,17 @@
+name: 'Setup Portfolio Project'
+description: 'Checkout, Node setup and NPM install shared step'
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout repository
+      uses: actions/checkout@v6
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v6
+      with:
+        node-version: '24.14.1'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm install
+      shell: bash
