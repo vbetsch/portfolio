@@ -4,8 +4,16 @@ on:
   workflow_call:
 
 jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup project
+        uses: ./.github/actions/setup-project
+
   tsc:
     runs-on: ubuntu-latest
+    needs: setup
 
     steps:
       - name: Checkout repository
@@ -19,6 +27,7 @@ jobs:
 
   astro:
     runs-on: ubuntu-latest
+    needs: setup
 
     steps:
       - name: Checkout repository
