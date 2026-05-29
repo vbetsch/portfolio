@@ -86,6 +86,7 @@ npm run start:prod
 ## ✅ Testing the Project
 
 ```bash
+npm clean-install        # Update dependencies
 npm run start:dev        # Check development execution
 npm run format           # Format code
 npm run test:cov         # Run tests with coverage
