@@ -4,13 +4,14 @@ on:
   pull_request:
     branches:
       - '**'
-    paths-ignore:
-      - '.vscode/**'
-      - 'docs/**'
-      - '.editorconfig'
-      - '.env.example'
-      - '.gitignore'
-      - 'README.md'
+    paths:
+      - '**'
+      - '!.vscode/**'
+      - '!docs/**'
+      - '!.editorconfig'
+      - '!.env.example'
+      - '!.gitignore'
+      - '!README.md'
 
 jobs:
   tsc:
