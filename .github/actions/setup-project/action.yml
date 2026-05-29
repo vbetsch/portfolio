@@ -1,5 +1,5 @@
-name: 'Setup Portfolio Project'
-description: 'Checkout, Node setup and NPM install shared step'
+name: 'Setup NodeJS Project'
+description: 'Checkout, setup Node and install dependencies'
 runs:
   using: "composite"
   steps:
