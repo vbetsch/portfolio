@@ -97,6 +97,3 @@ npm run lint:strict      # Lint code
 npm run build            # Run production build
 npm run start:prod       # Check production execution
 ```
-
-
-test
