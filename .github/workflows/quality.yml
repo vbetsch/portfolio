@@ -1,11 +1,11 @@
-name: checks
+name: quality
 
 on:
   workflow_call:
 
 jobs:
-  tsc:
-    name: TypeScript
+  checks:
+    name: Local Checks
     runs-on: ubuntu-latest
 
     steps:
@@ -18,16 +18,8 @@ jobs:
       - name: Check typescript
         run: npm run check:tsc
 
-  astro:
-    name: Astro
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Restore Env & Node
-        uses: ./.github/actions/setup-project
-
       - name: Check Astro
         run: npm run check:astro
+
+      - name: Run ESLint in strict mode
+        run: npm run lint:strict

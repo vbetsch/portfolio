@@ -14,12 +14,8 @@ on:
 
 jobs:
   run-checks:
-    name: Checks
-    uses: ./.github/workflows/checks.yml
-
-  run-lint:
-    name: Linter
-    uses: ./.github/workflows/lint.yml
+    name: Quality
+    uses: ./.github/workflows/quality.yml
 
   run-tests:
     name: Tests
