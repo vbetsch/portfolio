@@ -13,46 +13,26 @@ on:
       - 'README.md'
 
 jobs:
-  initializer:
-    name: Prepare Cache
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v6
-
-      - name: Check Cache
-        id: cache-nodemodules
-        uses: actions/cache@v5
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-
-      - name: Set up Node.js
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        uses: actions/setup-node@v6
-        with:
-          node-version: '24.14.1'
-
-      - name: Install dependencies
-        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
-        run: npm install
+  run-initializer:
+    name: Initializer
+    uses: ./.github/workflows/init.yml
 
   run-checks:
     name: Checks
-    needs: initializer
+    needs: run-initializer
     uses: ./.github/workflows/checks.yml
 
   run-lint:
     name: Linter
-    needs: initializer
+    needs: run-initializer
     uses: ./.github/workflows/lint.yml
 
   run-tests:
     name: Tests
-    needs: initializer
+    needs: run-initializer
     uses: ./.github/workflows/tests.yml
 
   run-build:
     name: Build
-    needs: initializer
+    needs: run-initializer
     uses: ./.github/workflows/build.yml
