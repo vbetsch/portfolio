@@ -8,10 +8,12 @@ export default {
   ...strictVbetsch,
 
   /* Overrides */
+  // coverageThreshold: null,
   moduleNameMapper: {
-    '^astro:env/client$': '<rootDir>/tests/mocks/astro-env.ts',
+    '^@/(.*)$': '<rootDir>/src/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@data/(.*)$': '<rootDir>/src/data/$1',
+    '^astro:env/client$': '<rootDir>/tests/mocks/astro-env.ts',
   },
   transform: {
     '^.+\\.astro$': 'jest-transform-stub',
