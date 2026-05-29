@@ -12,6 +12,7 @@
       "@/*": ["./src/*"],
       "@components/*": ["./src/components/*"]
     },
+    "plugins": [{ "name": "@astrojs/ts-plugin" }],
     "types": ["@testing-library/jest-dom"]
   },
   "include": [".astro/types.d.ts", "**/*"]
