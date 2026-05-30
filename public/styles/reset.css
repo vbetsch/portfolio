@@ -22,7 +22,7 @@ address {
   font-style: normal;
 }
 
-h1,
-h2 {
-  margin: 0;
+button {
+  cursor: pointer;
+  border: none;
 }
