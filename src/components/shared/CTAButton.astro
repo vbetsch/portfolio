@@ -24,6 +24,8 @@ const props: Props = { ...defaults, ...Astro.props };
     justify-content: center;
     padding-top: var(--size-10);
     padding-bottom: var(--size-10);
+    border: solid 2px var(--color-black);
+    background-color: var(--color-white);
     font-family: var(--font-primary), sans-serif;
     font-size: var(--size-18);
     gap: var(--size-6);
@@ -31,17 +33,12 @@ const props: Props = { ...defaults, ...Astro.props };
 
   button.primary {
     background-color: var(--color-green);
-    border: solid 2px var(--color-green);
+    border-color: var(--color-green);
   }
 
   button.primary:hover {
     background-color: var(--color-white);
     border-color: var(--color-black);
-  }
-
-  button.secondary {
-    background-color: var(--color-white);
-    border: solid 2px var(--color-black);
   }
 
   [data-icon] {
