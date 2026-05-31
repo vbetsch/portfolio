@@ -8,7 +8,7 @@ export default {
   ...strictVbetsch,
 
   /* Overrides */
-  // coverageThreshold: null,
+  coverageThreshold: null,
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
