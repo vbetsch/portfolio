@@ -29,10 +29,19 @@ const props: Props = { ...defaults, ...Astro.props };
     gap: var(--size-6);
   }
 
+  button.primary,
+  button.secondary {
+    transition:
+      background-color 0.2s ease-in-out,
+      border-color 0.2s ease-in-out,
+      color 0.2s ease-in-out;
+  }
+
   button.primary {
     background-color: var(--color-green);
     border: solid 2px var(--color-green);
   }
+
   button.primary:hover {
     background-color: var(--color-white);
     border-color: var(--color-black);
@@ -45,5 +54,10 @@ const props: Props = { ...defaults, ...Astro.props };
 
   [data-icon] {
     height: var(--size-14);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  button:hover [data-icon] {
+    transform: translateX(4px);
   }
 </style>
