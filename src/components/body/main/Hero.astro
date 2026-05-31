@@ -54,7 +54,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     gap: var(--size-20);
   }
 
-  div > :global(*) {
+  div > :global(button) {
     width: 100%;
   }
 
@@ -66,6 +66,15 @@ import { VariantEnum } from '@enums/variant.enum.ts';
 
     small {
       font-size: var(--size-46);
+    }
+
+    div {
+      flex-direction: row;
+    }
+
+    div > :global(button) {
+      width: auto;
+      padding-inline: var(--size-28);
     }
   }
 </style>
