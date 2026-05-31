@@ -14,6 +14,9 @@ const props: Props = Astro.props;
 
 <style>
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--color-green);
     border: solid 2px var(--color-green);
     //background-color: var(--color-white);
@@ -23,6 +26,7 @@ const props: Props = Astro.props;
     border-radius: var(--size-16);
     font-family: var(--font-primary), sans-serif;
     font-size: var(--size-18);
+    gap: var(--size-8);
   }
 
   button:hover {
@@ -31,6 +35,6 @@ const props: Props = Astro.props;
   }
 
   [data-icon] {
-    width: var(--size-16);
+    width: var(--size-14);
   }
 </style>
