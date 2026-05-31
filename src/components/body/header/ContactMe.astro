@@ -2,14 +2,13 @@
 import { MAILTO_EMAIL } from 'astro:env/client';
 ---
 
-<a href={`mailto:${MAILTO_EMAIL}`}>Me contacter</a>
+<a class="rounded" href={`mailto:${MAILTO_EMAIL}`}>Me contacter</a>
 
 <style>
   a {
     background-color: var(--color-green);
     border: solid 1px var(--color-green);
     padding: 4px var(--size-16);
-    border-radius: var(--size-8);
     cursor: pointer;
     font-size: var(--size-14);
     white-space: nowrap;

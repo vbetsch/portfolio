@@ -12,7 +12,7 @@ const defaults: Partial<Props> = { variant: VariantEnum.PRIMARY };
 const props: Props = { ...defaults, ...Astro.props };
 ---
 
-<button class:list={[props.variant]}>
+<button class:list={['rounded', props.variant]}>
   {props.label}
   <Icon name="arrow-right" />
 </button>
@@ -24,7 +24,6 @@ const props: Props = { ...defaults, ...Astro.props };
     justify-content: center;
     padding-top: var(--size-10);
     padding-bottom: var(--size-10);
-    border-radius: var(--size-8);
     font-family: var(--font-primary), sans-serif;
     font-size: var(--size-18);
     gap: var(--size-6);
