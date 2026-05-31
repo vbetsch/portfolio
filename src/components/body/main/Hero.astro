@@ -67,7 +67,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     width: 100%;
   }
 
-  @media screen and (min-width: 380px) {
+  @media screen and (min-width: var(--breakpoint-mobile)) {
     strong {
       font-size: var(--size-46);
     }
@@ -81,7 +81,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     }
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: var(--breakpoint-tablet)) {
     h1 {
       flex-direction: row;
       gap: 0;
