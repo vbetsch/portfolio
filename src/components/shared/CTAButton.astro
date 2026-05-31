@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 type Props = {
   label: string;
 };
@@ -6,7 +7,10 @@ type Props = {
 const props: Props = Astro.props;
 ---
 
-<button>{props.label}</button>
+<button>
+  {props.label}
+  <Icon name="arrow-right" />
+</button>
 
 <style>
   button {
@@ -24,5 +28,9 @@ const props: Props = Astro.props;
   button:hover {
     background-color: var(--color-white);
     border-color: var(--color-black);
+  }
+
+  [data-icon] {
+    width: var(--size-16);
   }
 </style>
