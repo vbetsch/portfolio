@@ -2,7 +2,7 @@
 import { MAILTO_EMAIL } from 'astro:env/client';
 ---
 
-<a class="rounded" href={`mailto:${MAILTO_EMAIL}`}>Me contacter</a>
+<a class="animate-colors rounded" href={`mailto:${MAILTO_EMAIL}`}>Me contacter</a>
 
 <style>
   a {
@@ -12,10 +12,6 @@ import { MAILTO_EMAIL } from 'astro:env/client';
     cursor: pointer;
     font-size: var(--size-14);
     white-space: nowrap;
-    transition:
-      background-color 0.2s ease-in-out,
-      border-color 0.2s ease-in-out,
-      color 0.2s ease-in-out;
   }
 
   a:hover {

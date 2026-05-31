@@ -12,7 +12,7 @@ const defaults: Partial<Props> = { variant: VariantEnum.PRIMARY };
 const props: Props = { ...defaults, ...Astro.props };
 ---
 
-<button class:list={['rounded', props.variant]}>
+<button class:list={['animate-colors rounded', props.variant]}>
   {props.label}
   <Icon name="arrow-right" />
 </button>
@@ -27,10 +27,6 @@ const props: Props = { ...defaults, ...Astro.props };
     font-family: var(--font-primary), sans-serif;
     font-size: var(--size-18);
     gap: var(--size-6);
-    transition:
-      background-color 0.2s ease-in-out,
-      border-color 0.2s ease-in-out,
-      color 0.2s ease-in-out;
   }
 
   button.primary {
