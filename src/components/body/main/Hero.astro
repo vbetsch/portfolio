@@ -24,6 +24,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
 
   h1 {
     display: flex;
+    align-items: baseline;
     flex-direction: column;
     font-family: var(--font-mono), sans-serif;
     background: linear-gradient(
@@ -92,12 +93,14 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     }
   }
 
-  @media screen and (min-width: 900px) {
+  @media screen and (min-width: 800px) {
     h1 {
       flex-direction: row;
       gap: 0;
     }
+  }
 
+  @media screen and (min-width: 900px) {
     small {
       font-size: var(--size-46);
     }
