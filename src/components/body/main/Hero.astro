@@ -3,17 +3,25 @@ import CTAButton from '@/components/shared/CTAButton.astro';
 import { VariantEnum } from '@enums/variant.enum.ts';
 ---
 
-<h1>
-  <strong>Développeur&nbsp</strong>
-  <small>web full-stack</small>
-</h1>
-<h2>Recherche un poste en tant que développeur web</h2>
+<hgroup>
+  <h1>
+    <strong>Développeur&nbsp</strong>
+    <small>web full-stack</small>
+  </h1>
+  <h2>Recherche un poste en tant que développeur web</h2>
+</hgroup>
 <div>
   <CTAButton label="Me contacter" variant={VariantEnum.PRIMARY} />
   <CTAButton label="Télécharger mon CV" variant={VariantEnum.SECONDARY} />
 </div>
 
 <style>
+  hgroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-12);
+  }
+
   h1 {
     display: flex;
     flex-direction: column;
@@ -26,7 +34,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     );
     background-clip: text;
     color: transparent;
-    gap: var(--size-10);
+    gap: var(--size-6);
     white-space: nowrap;
   }
 
