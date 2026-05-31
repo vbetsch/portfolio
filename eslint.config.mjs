@@ -40,6 +40,19 @@ export default [
     },
   },
   {
+    rules: {
+      '@typescript-eslint/naming-convention': [
+        'warn',
+        /** Variables use camelCase or PascalCase */
+        {
+          selector: ['variable'],
+          format: ['camelCase', 'PascalCase'],
+          leadingUnderscore: 'allow',
+        },
+      ],
+    },
+  },
+  {
     settings: {
       'import/resolver': {
         typescript: {
