@@ -4,7 +4,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
 ---
 
 <h1>
-  <strong>Développeur</strong>
+  <strong>Développeur&nbsp</strong>
   <small>web full-stack</small>
 </h1>
 <h2>Recherche un poste en tant que développeur web</h2>
@@ -43,5 +43,16 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     color: var(--color-grey-dark);
     font-weight: normal;
     font-size: var(--size-22);
+  }
+
+  @media screen and (min-width: 900px) {
+    h1 {
+      flex-direction: row;
+      gap: 0;
+    }
+
+    small {
+      font-size: var(--size-46);
+    }
   }
 </style>
