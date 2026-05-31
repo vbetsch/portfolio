@@ -1,14 +1,16 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { VariantEnum } from '@enums/variant.enum.ts';
 
 type Props = {
   label: string;
+  variant: VariantEnum;
 };
 
 const props: Props = Astro.props;
 ---
 
-<button>
+<button class:list={[props.variant]}>
   {props.label}
   <Icon name="arrow-right" />
 </button>

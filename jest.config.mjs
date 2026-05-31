@@ -13,6 +13,7 @@ export default {
     '^@/(.*)$': '<rootDir>/src/$1',
     '^@components/(.*)$': '<rootDir>/src/components/$1',
     '^@data/(.*)$': '<rootDir>/src/data/$1',
+    '^@enums/(.*)$': '<rootDir>/src/enums/$1',
     '^@t/(.*)$': '<rootDir>/src/types/$1',
     '^astro:env/client$': '<rootDir>/tests/mocks/astro-env.ts',
   },
