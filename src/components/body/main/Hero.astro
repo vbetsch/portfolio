@@ -23,6 +23,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
   }
 
   h1 {
+    width: 100%;
     display: flex;
     align-items: baseline;
     flex-direction: column;
@@ -36,18 +37,19 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     background-clip: text;
     color: transparent;
     gap: var(--size-6);
-    white-space: nowrap;
-    overflow-x: hidden;
   }
 
   strong {
     font-weight: 600;
-    font-size: var(--size-36);
+    font-size: clamp(var(--size-36), 11vw, var(--size-46));
+    line-height: 1;
   }
 
   small {
     font-weight: 400;
-    font-size: var(--size-28);
+    font-size: clamp(var(--size-28), 8.5vw, var(--size-46));
+    line-height: 1;
+    white-space: nowrap;
   }
 
   h2 {
@@ -68,20 +70,6 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     width: 100%;
   }
 
-  @media screen and (min-width: 380px) {
-    strong {
-      font-size: var(--size-46);
-    }
-
-    small {
-      font-size: var(--size-36);
-    }
-
-    h2 {
-      font-size: var(--size-22);
-    }
-  }
-
   @media screen and (min-width: 580px) {
     div {
       flex-direction: row;
@@ -97,12 +85,6 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     h1 {
       flex-direction: row;
       gap: 0;
-    }
-  }
-
-  @media screen and (min-width: 900px) {
-    small {
-      font-size: var(--size-46);
     }
   }
 </style>
