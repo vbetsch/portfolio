@@ -26,7 +26,13 @@ import ContactMe from '@components/body/header/ContactMe.astro';
   }
 
   a {
-    font-size: var(--size-18);
+    font-size: var(--size-16);
     white-space: nowrap;
+  }
+
+  @media screen and (min-width: 380px) {
+    a {
+      font-size: var(--size-18);
+    }
   }
 </style>
