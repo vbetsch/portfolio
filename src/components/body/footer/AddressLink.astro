@@ -5,7 +5,6 @@ import type { AddressLinkType } from '@t/address-link.type.ts';
 type Props = AddressLinkType & {};
 
 const defaults: Partial<Props> = { openNewTab: false };
-
 const props: Props = { ...defaults, ...Astro.props };
 ---
 
