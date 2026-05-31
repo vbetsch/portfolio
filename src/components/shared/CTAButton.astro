@@ -5,20 +5,23 @@ import { VariantEnum } from '@enums/variant.enum.ts';
 type Props = {
   label: string;
   variant?: VariantEnum;
+  href?: string;
 };
 
 const defaults: Partial<Props> = { variant: VariantEnum.PRIMARY };
-
 const props: Props = { ...defaults, ...Astro.props };
+
+const Element: string = props.href ? 'a' : 'button';
 ---
 
-<button class:list={['animate-colors rounded', props.variant]}>
+<Element href={props.href} class:list={['animate-colors rounded', props.variant]}>
   {props.label}
   <Icon name="arrow-right" />
-</button>
+</Element>
 
 <style>
-  button {
+  button,
+  a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -31,12 +34,14 @@ const props: Props = { ...defaults, ...Astro.props };
     gap: var(--size-6);
   }
 
-  button.primary {
+  button.primary,
+  a.primary {
     background-color: var(--color-green);
     border-color: var(--color-green);
   }
 
-  button.primary:hover {
+  button.primary:hover,
+  a.primary:hover {
     background-color: var(--color-white);
     border-color: var(--color-black);
   }
@@ -46,7 +51,8 @@ const props: Props = { ...defaults, ...Astro.props };
     transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  button:hover [data-icon] {
+  button:hover [data-icon],
+  a:hover [data-icon] {
     transform: translateX(4px);
   }
 </style>

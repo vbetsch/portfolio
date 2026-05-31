@@ -1,6 +1,7 @@
 ---
 import CTAButton from '@/components/shared/CTAButton.astro';
 import { VariantEnum } from '@enums/variant.enum.ts';
+import { MAILTO_EMAIL } from 'astro:env/client';
 ---
 
 <hgroup>
@@ -11,7 +12,7 @@ import { VariantEnum } from '@enums/variant.enum.ts';
   <h2>Recherche un poste en tant que développeur web</h2>
 </hgroup>
 <div>
-  <CTAButton label="Me contacter" variant={VariantEnum.PRIMARY} />
+  <CTAButton label="Me contacter" variant={VariantEnum.PRIMARY} href={`mailto:${MAILTO_EMAIL}`} />
   <CTAButton label="Télécharger mon CV" variant={VariantEnum.SECONDARY} />
 </div>
 
