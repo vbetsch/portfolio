@@ -8,8 +8,10 @@ import { VariantEnum } from '@enums/variant.enum.ts';
   <small>web full-stack</small>
 </h1>
 <h2>Recherche un poste en tant que développeur web</h2>
-<CTAButton label="Me contacter" variant={VariantEnum.PRIMARY} />
-<CTAButton label="Télécharger mon CV" variant={VariantEnum.SECONDARY} />
+<div>
+  <CTAButton label="Me contacter" variant={VariantEnum.PRIMARY} />
+  <CTAButton label="Télécharger mon CV" variant={VariantEnum.SECONDARY} />
+</div>
 
 <style>
   h1 {
@@ -43,6 +45,12 @@ import { VariantEnum } from '@enums/variant.enum.ts';
     color: var(--color-grey-dark);
     font-weight: normal;
     font-size: var(--size-22);
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-20);
   }
 
   @media screen and (min-width: 900px) {
