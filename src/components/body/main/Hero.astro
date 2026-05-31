@@ -41,12 +41,12 @@ import { VariantEnum } from '@enums/variant.enum.ts';
 
   strong {
     font-weight: 600;
-    font-size: var(--size-46);
+    font-size: var(--size-36);
   }
 
   small {
     font-weight: 400;
-    font-size: var(--size-36);
+    font-size: var(--size-28);
   }
 
   h2 {
@@ -65,6 +65,16 @@ import { VariantEnum } from '@enums/variant.enum.ts';
 
   div > :global(button) {
     width: 100%;
+  }
+
+  @media screen and (min-width: 380px) {
+    strong {
+      font-size: var(--size-46);
+    }
+
+    small {
+      font-size: var(--size-36);
+    }
   }
 
   @media screen and (min-width: 900px) {
