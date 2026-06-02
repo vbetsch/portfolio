@@ -1,24 +1,22 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { VariantEnum } from '@enums/variant.enum.ts';
+import type { HTMLAttributes } from 'astro/types';
 
 type Props = {
   label: string;
   variant?: VariantEnum;
   href?: string;
-};
+} & HTMLAttributes<'a'> &
+  HTMLAttributes<'button'>;
 
 const defaults: Partial<Props> = { variant: VariantEnum.PRIMARY };
 const props: Props = { ...defaults, ...Astro.props };
 
 const Element: string = props.href ? 'a' : 'button';
-
-const elementProps: { href: string } | { type: string } = props.href
-  ? { href: props.href }
-  : { type: 'button' as const };
 ---
 
-<Element class:list={['animate-colors rounded', props.variant]} {...elementProps}>
+<Element class:list={['animate-colors rounded', props.variant]} {...props}>
   {props.label}
   <Icon name="arrow-right" />
 </Element>
