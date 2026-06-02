@@ -13,7 +13,12 @@ import { MAILTO_EMAIL } from 'astro:env/client';
 </hgroup>
 <div>
   <CTAButton label="Me contacter" variant={VariantEnum.PRIMARY} href={`mailto:${MAILTO_EMAIL}`} />
-  <CTAButton label="Télécharger mon CV" variant={VariantEnum.SECONDARY} />
+  <CTAButton
+    label="Télécharger mon CV"
+    variant={VariantEnum.SECONDARY}
+    href="/files/cv_fr.pdf"
+    download="BETSCH_Victor_CV_FR.pdf"
+  />
 </div>
 
 <style>
