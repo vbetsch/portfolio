@@ -1,22 +1,10 @@
 ---
-import AddressLink from '@components/body/footer/AddressLink.astro';
-import { addressLinks } from '@data/address-links.ts';
+import FooterAddress from '@components/body/footer/FooterAddress.astro';
 ---
 
 <footer>
   <span>Victor BETSCH</span>
-  <address>
-    {
-      addressLinks.map(addressLink => (
-        <AddressLink
-          href={addressLink.href}
-          iconName={addressLink.iconName}
-          label={addressLink.label}
-          openNewTab={addressLink.openNewTab || null}
-        />
-      ))
-    }
-  </address>
+  <FooterAddress />
 </footer>
 
 <style>
@@ -34,10 +22,5 @@ import { addressLinks } from '@data/address-links.ts';
     font-family: var(--font-mono), sans-serif;
     font-size: var(--size-12);
     font-weight: 300;
-  }
-
-  address {
-    display: flex;
-    gap: clamp(var(--size-16), 7vw, var(--size-48));
   }
 </style>
