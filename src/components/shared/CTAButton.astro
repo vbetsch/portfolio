@@ -16,7 +16,7 @@ const props: Props = { ...defaults, ...Astro.props };
 const Element: string = props.href ? 'a' : 'button';
 ---
 
-<Element class:list={['animate-colors rounded', props.variant]} {...props}>
+<Element class="animate-colors rounded" {...props}>
   {props.label}
   <Icon name="arrow-right" />
 </Element>
@@ -36,14 +36,14 @@ const Element: string = props.href ? 'a' : 'button';
     gap: var(--size-6);
   }
 
-  button.primary,
-  a.primary {
+  button[variant='primary'],
+  a[variant='primary'] {
     background-color: var(--color-green);
     border-color: var(--color-green);
   }
 
-  button.primary:hover,
-  a.primary:hover {
+  button[variant='primary']:hover,
+  a[variant='primary']:hover {
     background-color: var(--color-white);
     border-color: var(--color-black);
   }
