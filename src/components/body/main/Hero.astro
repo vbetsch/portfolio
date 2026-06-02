@@ -72,7 +72,7 @@ import { MAILTO_EMAIL } from 'astro:env/client';
     gap: var(--size-18);
   }
 
-  div > :global(button, a) {
+  div > * {
     width: 100%;
   }
 
@@ -81,7 +81,7 @@ import { MAILTO_EMAIL } from 'astro:env/client';
       flex-direction: row;
     }
 
-    div > :global(button, a) {
+    div > * {
       width: auto;
       padding-inline: var(--size-28);
     }
