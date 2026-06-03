@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import { VariantEnum } from '@enums/variant.enum.ts';
+import type { HTMLAttributes } from 'astro/types';
+
+type Props = {
+  label: string;
+  variant?: VariantEnum;
+} & HTMLAttributes<'a'> &
+  HTMLAttributes<'button'>;
+
+const defaults: Partial<Props> = { variant: VariantEnum.PRIMARY };
+const props: Props = { ...defaults, ...Astro.props };
+
+const Element: string = props.href ? 'a' : 'button';
+---
+
+<Element class="animate-colors rounded" {...props}>
+  {props.label}
+  <Icon name="arrow-right" />
+</Element>
+
+<style>
+  button,
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: var(--size-10);
+    padding-bottom: var(--size-10);
+    border: solid 2px var(--color-black);
+    background-color: var(--color-white);
+    font-family: var(--font-primary), sans-serif;
+    font-size: var(--size-18);
+    gap: var(--size-6);
+  }
+
+  button[variant='primary'],
+  a[variant='primary'] {
+    background-color: var(--color-green);
+    border-color: var(--color-green);
+  }
+
+  button[variant='primary']:hover,
+  a[variant='primary']:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-black);
+  }
+
+  [data-icon] {
+    height: var(--size-14);
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  button:hover [data-icon],
+  a:hover [data-icon] {
+    transform: translateX(4px);
+  }
+</style>

@@ -1,7 +1,29 @@
-<main>hello world</main>
+---
+import Hero from './Hero.astro';
+---
+
+<main>
+  <Hero />
+</main>
 
 <style>
   main {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
+    justify-content: center;
+    gap: var(--size-48);
+  }
+
+  @media screen and (min-width: 580px) {
+    main {
+      gap: var(--size-32);
+    }
+  }
+  @media screen and (min-width: 1400px) {
+    main {
+      justify-content: end;
+      padding-bottom: 30vh;
+    }
   }
 </style>

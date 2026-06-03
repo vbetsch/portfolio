@@ -8,6 +8,11 @@ body {
   font-style: normal;
 }
 
+h1,
+h2 {
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: var(--color-black);
@@ -15,4 +20,9 @@ a {
 
 address {
   font-style: normal;
+}
+
+button {
+  cursor: pointer;
+  border: none;
 }

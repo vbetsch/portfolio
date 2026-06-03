@@ -1,0 +1,24 @@
+---
+import AddressLink from '@components/body/footer/AddressLink.astro';
+import { addressLinks } from '@data/address-links.ts';
+---
+
+<address>
+  {
+    addressLinks.map(addressLink => (
+      <AddressLink
+        href={addressLink.href}
+        iconName={addressLink.iconName}
+        label={addressLink.label}
+        openNewTab={addressLink.openNewTab || null}
+      />
+    ))
+  }
+</address>
+
+<style>
+  address {
+    display: flex;
+    gap: clamp(var(--size-16), 7vw, var(--size-48));
+  }
+</style>

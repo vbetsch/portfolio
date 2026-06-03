@@ -1,0 +1,23 @@
+---
+import HeroTitleFirst from '@components/body/main/HeroTitleFirst.astro';
+---
+
+<hgroup>
+  <HeroTitleFirst />
+  <h2>Recherche un poste en tant que développeur web</h2>
+</hgroup>
+
+<style>
+  hgroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-16);
+  }
+
+  h2 {
+    font-style: italic;
+    color: var(--color-grey-dark);
+    font-weight: normal;
+    font-size: clamp(var(--size-18), 5vw, var(--size-24));
+  }
+</style>
