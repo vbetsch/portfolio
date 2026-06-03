@@ -21,7 +21,7 @@ jobs:
     name: Unit Tests
     uses: ./.github/workflows/ci-unit-tests.yml
 
-  run-build-and-e2e:
-    name: Build & E2E
-    uses: ./.github/workflows/ci-build-and-e2e.yml
+  run-production:
+    name: Production
+    uses: ./.github/workflows/ci-production.yml
     needs: [run-quality, run-unit-tests]
