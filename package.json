@@ -10,11 +10,7 @@
   "description": "My official personal website",
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
-    "@swc/jest": "^0.2.39",
-    "@testing-library/jest-dom": "^6.9.1",
-    "@types/jest": "^30.0.0",
     "@vbetsch/config-eslint": "^1.0.5",
-    "@vbetsch/config-jest": "^1.0.3",
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.4",
     "@vitest/coverage-v8": "^4.1.8",
@@ -25,8 +21,6 @@
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
-    "jest-environment-jsdom": "^30.4.1",
-    "jest-transform-stub": "^2.0.0",
     "prettier-plugin-astro": "0.14.1",
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.8"
