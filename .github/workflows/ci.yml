@@ -13,9 +13,9 @@ on:
       - 'README.md'
 
 jobs:
-  run-quality:
-    name: Quality
-    uses: ./.github/workflows/ci-quality.yml
+  run-linter:
+    name: Linter
+    uses: ./.github/workflows/ci-linter.yml
 
   run-unit-tests:
     name: Unit Tests
