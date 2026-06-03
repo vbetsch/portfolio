@@ -63,4 +63,22 @@ export default [
       'import/core-modules': ['astro:env/client', 'astro:env/server', 'astro:content'],
     },
   },
+  {
+    files: ['*.astro'],
+    parser: 'astro-eslint-parser',
+    parserOptions: {
+      parser: '@typescript-eslint/parser',
+      extraFileExtensions: ['.astro'],
+    },
+    rules: {
+      'max-lines': [
+        'error',
+        {
+          max: 150,
+          skipBlankLines: true,
+          skipComments: true,
+        },
+      ],
+    },
+  },
 ];
