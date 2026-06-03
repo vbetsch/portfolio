@@ -15,7 +15,7 @@ jobs:
       - name: Restore Env & Node
         uses: ./.github/actions/setup-project
 
-      - name: Check typescript
+      - name: Check TypeScript
         run: npm run check:tsc
 
       - name: Check Astro
