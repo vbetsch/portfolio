@@ -46,13 +46,13 @@ npm test
 
 ### End-To-End
 
-#### Run e2e tests
+#### Run e2e tests in CLI
 
 ```bash
 npm run test:e2e
 ```
 
-#### Run UI e2e tests
+#### Run e2e tests in UI
 
 ```bash
 npm run test:e2e:ui
