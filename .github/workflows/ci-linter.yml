@@ -5,7 +5,7 @@ on:
 
 jobs:
   local:
-    name: Local
+    name: Local Checks
     runs-on: ubuntu-latest
 
     steps:
