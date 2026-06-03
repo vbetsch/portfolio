@@ -1,4 +1,4 @@
-name: build
+name: production
 
 on:
   workflow_call:
