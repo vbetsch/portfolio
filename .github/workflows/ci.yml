@@ -13,14 +13,15 @@ on:
       - 'README.md'
 
 jobs:
-  run-checks:
+  run-quality:
     name: Quality
     uses: ./.github/workflows/ci-quality.yml
 
-  run-tests:
-    name: Tests
-    uses: ./.github/workflows/ci-tests.yml
+  run-unit-tests:
+    name: Unit Tests
+    uses: ./.github/workflows/ci-unit-tests.yml
 
-  run-build:
-    name: Build
-    uses: ./.github/workflows/ci-build.yml
+  run-build-and-e2e:
+    name: Build & E2E
+    uses: ./.github/workflows/ci-build-and-e2e.yml
+    needs: [run-quality, run-unit-tests]
