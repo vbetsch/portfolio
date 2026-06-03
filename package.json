@@ -43,7 +43,7 @@
     "start:dev": "astro dev --host",
     "start:prod": "astro preview",
     "sync": "astro sync",
-    "test": "vitest run && playwright test",
+    "test": "npm run test:units && npm run test:e2e:ui",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:units": "vitest run",
