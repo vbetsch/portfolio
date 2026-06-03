@@ -42,7 +42,7 @@
     "start:prod": "astro preview",
     "sync": "astro sync",
     "test": "vitest run",
-    "test:cov": "vitest --coverage",
+    "test:cov": "vitest run --coverage",
     "test:watch": "vitest"
   },
   "type": "module",
