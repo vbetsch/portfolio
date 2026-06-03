@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     alias: {
-      'astro:env/client': new URL('./tests/mocks/astro-env.ts', import.meta.url).pathname,
+      'astro:env/client': new URL('./tests/astro-env.mock.ts', import.meta.url).pathname,
     },
     coverage: {
       exclude: [
@@ -16,7 +16,7 @@ export default defineConfig({
         'src/pages/**',
         'src/types/**',
         'src/env.d.ts',
-        'tests/mocks/**',
+        'tests/astro-env.mock.ts',
         'vitest.config.ts',
       ],
       include: ['src/**/*.ts'],

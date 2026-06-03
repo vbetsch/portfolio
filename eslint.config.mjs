@@ -25,7 +25,7 @@ export default [
   /* --- Overrides --- */
   ...eslintPluginAstro.configs.recommended,
   {
-    ignores: ['.astro/', 'tests/mocks/', 'src/env.d.ts'],
+    ignores: ['.astro/', 'src/env.d.ts', 'tests/astro-env.mock.ts'],
   },
   {
     files: ['**/*.astro'],
