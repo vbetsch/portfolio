@@ -4,8 +4,8 @@ on:
   workflow_call:
 
 jobs:
-  checks:
-    name: Local Checks
+  local:
+    name: Local
     runs-on: ubuntu-latest
 
     steps:
