@@ -49,6 +49,12 @@ npm test
 npm run test:cov
 ```
 
+### Run tests in watch mode
+
+```bash
+npm run test:watch
+```
+
 ## 🧹 Linting & Formatting
 
 ### Run linter in default mode
