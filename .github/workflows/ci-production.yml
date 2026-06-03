@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-and-e2e:
-    name: Build & E2E
+    name: Build & End-To-End Tests
     runs-on: ubuntu-latest
     timeout-minutes: 5
     env:
