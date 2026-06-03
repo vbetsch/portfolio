@@ -38,6 +38,16 @@ export default [
         tsconfigRootDir: import.meta.dirname,
       },
     },
+    rules: {
+      'max-lines': [
+        'error',
+        {
+          max: 50,
+          skipBlankLines: true,
+          skipComments: true,
+        },
+      ],
+    },
   },
   {
     rules: {
