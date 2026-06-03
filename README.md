@@ -93,7 +93,6 @@ npm run start:dev        # Check development execution
 npm run format           # Format code
 npm run test:cov         # Run tests with coverage
 npm run check            # Type-checking and astro check
-npm run lint:strict      # Lint code
 npm run build            # Run production build
 npm run start:prod       # Check production execution
 ```
