@@ -15,7 +15,7 @@ test.describe('Home page - Portfolio', () => {
   });
 
   test('contact button should point to mailto', async ({ page }) => {
-    const contactButton = page.getByRole('link', { name: /contact/i });
+    const contactButton = page.getByRole('a', { name: /contact/i });
 
     if ((await contactButton.count()) > 0) {
       await expect(contactButton).toHaveAttribute('href', /mailto:/);
