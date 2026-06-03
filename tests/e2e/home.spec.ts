@@ -15,10 +15,10 @@ test.describe('Home page - Portfolio', () => {
   });
 
   test('contact button should point to mailto', async ({ page }) => {
-    const contactButton = page.getByRole('a', { name: /contact/i });
+    const mainSection = page.getByRole('main');
+    const contactButton = mainSection.getByRole('link', { name: 'Me contacter' });
 
-    if ((await contactButton.count()) > 0) {
-      await expect(contactButton).toHaveAttribute('href', /mailto:/);
-    }
+    await expect(contactButton).toBeVisible();
+    await expect(contactButton).toHaveAttribute('href', 'mailto:vbetsch.contact@gmail.com');
   });
 });
