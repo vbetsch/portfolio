@@ -15,8 +15,7 @@
       "@enums/*": ["./src/enums/*"],
       "@t/*": ["./src/types/*"]
     },
-    "plugins": [{ "name": "@astrojs/ts-plugin" }],
-    "types": ["vitest/globals"]
+    "plugins": [{ "name": "@astrojs/ts-plugin" }]
   },
   "include": [".astro/types.d.ts", "**/*"]
 }
