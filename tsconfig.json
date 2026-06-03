@@ -15,8 +15,7 @@
       "@enums/*": ["./src/enums/*"],
       "@t/*": ["./src/types/*"]
     },
-    "plugins": [{ "name": "@astrojs/ts-plugin" }],
-    "types": ["@testing-library/jest-dom"]
+    "plugins": [{ "name": "@astrojs/ts-plugin" }]
   },
   "include": [".astro/types.d.ts", "**/*"]
 }
