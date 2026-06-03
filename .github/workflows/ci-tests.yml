@@ -16,4 +16,4 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Run tests with coverage
-        run: npm run test:cov
+        run: npm run test:units:cov

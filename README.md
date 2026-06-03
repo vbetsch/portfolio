@@ -14,7 +14,8 @@ version [lts/krypton -> v24.14.1](https://nodejs.org/en/blog/release/v24.14.1).
 
 ### 1. Setup environment
 
-Create a **.env** file by copying the [.env.example](.env.example) file. These values are only for the
+Create a **.env** file by copying the [.env.example](.env.example) file. These values are only for
+the
 local environment, you have to modify it.
 
 ### 2. Install dependencies
@@ -38,21 +39,24 @@ npm run start:dev
 ## 🧪 Running Tests
 
 ### Run tests in default mode
+### Units tests
+
+#### Run units tests in default mode
 
 ```bash
-npm test
+npm run test:units
 ```
 
-### Run tests with coverage
+#### Run units tests with coverage
 
 ```bash
-npm run test:cov
+npm run test:units:cov
 ```
 
-### Run tests in watch mode
+#### Run units tests in watch mode
 
 ```bash
-npm run test:watch
+npm run test:units:watch
 ```
 
 ## 🧹 Linting & Formatting

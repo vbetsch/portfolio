@@ -46,6 +46,9 @@
     "test": "vitest run",
     "test:cov": "vitest run --coverage",
     "test:watch": "vitest"
+    "test:units": "vitest run",
+    "test:units:cov": "vitest run --coverage",
+    "test:units:watch": "vitest"
   },
   "type": "module",
   "version": "1.0.0"
