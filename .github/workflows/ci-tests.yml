@@ -19,7 +19,7 @@ jobs:
 #        run: npm run test:units:cov
 
   e2e:
-    name: Playwright E2E
+    name: End-To-End
     runs-on: ubuntu-latest
     timeout-minutes: 5
 
