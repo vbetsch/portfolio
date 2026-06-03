@@ -12,10 +12,13 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'html'],
+      include: ['src/**/*.ts'],
       exclude: [
         'src/data/**',
         'tests/mocks/**',
         'src/env.d.ts',
+        'src/components',
+        'src/pages',
         'node_modules/**',
         'vitest.config.ts',
       ],
