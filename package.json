@@ -43,9 +43,9 @@
     "start:dev": "astro dev --host",
     "start:prod": "astro preview",
     "sync": "astro sync",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:watch": "vitest"
+    "test": "vitest run && playwright test",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
     "test:units": "vitest run",
     "test:units:cov": "vitest run --coverage",
     "test:units:watch": "vitest"

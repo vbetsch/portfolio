@@ -38,7 +38,26 @@ npm run start:dev
 
 ## 🧪 Running Tests
 
-### Run tests in default mode
+### Run all tests
+
+```bash
+npm test
+```
+
+### End-To-End
+
+#### Run e2e tests
+
+```bash
+npm run test:e2e
+```
+
+#### Run UI e2e tests
+
+```bash
+npm run test:e2e:ui
+```
+
 ### Units tests
 
 #### Run units tests in default mode
