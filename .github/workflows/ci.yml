@@ -24,4 +24,3 @@ jobs:
   run-production:
     name: Production
     uses: ./.github/workflows/ci-production.yml
-    needs: [run-quality, run-unit-tests]
