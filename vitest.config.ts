@@ -7,7 +7,7 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     alias: {
-      'astro:env/client': new URL('./tests/mocks/astro-env-inline.ts', import.meta.url).pathname,
+      'astro:env/client': new URL('./tests/mocks/astro-env.ts', import.meta.url).pathname,
     },
     coverage: {
       provider: 'v8',
