@@ -16,7 +16,7 @@
       "@t/*": ["./src/types/*"]
     },
     "plugins": [{ "name": "@astrojs/ts-plugin" }],
-    "types": ["@testing-library/jest-dom"]
+    "types": ["vitest/globals"]
   },
   "include": [".astro/types.d.ts", "**/*"]
 }
