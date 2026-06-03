@@ -10,6 +10,8 @@
   "description": "My official personal website",
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
     "@vbetsch/config-eslint": "^1.0.5",
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.4",
