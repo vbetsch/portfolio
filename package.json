@@ -47,8 +47,9 @@
     "start:dev": "astro dev --host",
     "start:prod": "astro preview",
     "sync": "astro sync",
-    "test": "jest",
-    "test:cov": "jest --coverage"
+    "test": "vitest run",
+    "test:cov": "vitest --coverage",
+    "test:watch": "vitest"
   },
   "type": "module",
   "version": "1.0.0"
