@@ -1,5 +1,7 @@
 import { expect, type Locator, test } from '@playwright/test';
 
+const githubUrl: string = `https://github.com/${process.env.ID_GITHUB}`;
+
 test('should have the fullname', async ({ page }) => {
   await page.goto('/');
   const _footer = page.locator('footer');
@@ -21,7 +23,7 @@ test.describe('Address links', () => {
     linkedinProfileLink = footer.locator(
       `a[href="https://www.linkedin.com/in/${process.env.ID_LINKEDIN}"]`
     );
-    githubProfileLink = footer.locator(`a[href="https://github.com/${process.env.ID_GITHUB}"]`);
+    githubProfileLink = footer.locator(`a[href="${githubUrl}"]`);
   });
 
   test('should have the phone number', async () => {
@@ -59,6 +61,6 @@ test.describe('Address links', () => {
     const popupPromise = page.waitForEvent('popup');
     await githubProfileLink.click();
     const newTab = await popupPromise;
-    await expect(newTab).toHaveURL(`https://github.com/${process.env.ID_GITHUB}`);
+    await expect(newTab).toHaveURL(githubUrl);
   });
 });
