@@ -5,3 +5,16 @@ test('should have the fullname', async ({ page }) => {
   const _footer = page.locator('footer');
   await expect(_footer).toContainText('Victor BETSCH');
 });
+
+test.describe('Address links', () => {
+  let footer: Locator;
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+    footer = page.locator('footer');
+  });
+
+  test('should have the phone number', async () => {
+    await expect(footer).toContainText(`${process.env.PHONE_NUMBER}`);
+  });
+});
