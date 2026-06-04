@@ -30,6 +30,10 @@ test.describe('Address links', () => {
     await expect(mailAddressLink).toBeVisible();
   });
 
+  test('the mail address should be a mailto link to the mail address', async () => {
+    await expect(mailAddressLink).toHaveAttribute('href', `mailto:${process.env.MAILTO_EMAIL}`);
+  });
+
   test('should have the linkedin profile', async () => {
     await expect(footer).toContainText(`${process.env.ID_LINKEDIN}`);
   });
