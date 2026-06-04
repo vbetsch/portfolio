@@ -9,4 +9,11 @@ test.describe('Navbar', () => {
     const header = page.locator('#header');
     await expect(header).toContainText('Victor BETSCH');
   });
+
+  test('should have a Contact Me button', async ({ page }) => {
+    const header = page.locator('#header');
+    await expect(header).toBeVisible();
+    const contactMeButton = header.getByRole('link', { name: 'Me contacter' });
+    await expect(contactMeButton).toBeVisible();
+  });
 });
