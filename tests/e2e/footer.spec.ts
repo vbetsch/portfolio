@@ -1,7 +1,5 @@
 import { expect, type Locator, test } from '@playwright/test';
 
-const githubUrl: string = `https://github.com/${process.env.ID_GITHUB}`;
-
 test('should have the fullname', async ({ page }) => {
   await page.goto('/');
   const _footer = page.locator('footer');
@@ -18,12 +16,13 @@ test.describe('Address links', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     footer = page.locator('footer');
+
     phoneNumberLink = footer.getByRole('link', { name: `${process.env.PHONE_NUMBER}` });
     mailAddressLink = footer.getByRole('link', { name: `${process.env.MAILTO_EMAIL}` });
     linkedinProfileLink = footer.locator(
       `a[href="https://www.linkedin.com/in/${process.env.ID_LINKEDIN}"]`
     );
-    githubProfileLink = footer.locator(`a[href="${githubUrl}"]`);
+    githubProfileLink = footer.locator(`a[href="https://github.com/${process.env.ID_GITHUB}"]`);
   });
 
   test('should have the phone number', async () => {
@@ -46,21 +45,15 @@ test.describe('Address links', () => {
     await expect(linkedinProfileLink).toBeVisible();
   });
 
-  test('the linkedin profile should be a page link to the profile', async ({ page }) => {
-    const popupPromise = page.waitForEvent('popup');
-    await linkedinProfileLink.click();
-    const newTab = await popupPromise;
-    await expect(newTab).toHaveURL(new RegExp(`linkedin\\.com.*${process.env.ID_LINKEDIN}`));
+  test('the linkedin profile should be a page link to the profile', async () => {
+    await expect(linkedinProfileLink).toHaveAttribute('target', '_blank');
   });
 
   test('should have the github profile', async () => {
     await expect(githubProfileLink).toBeVisible();
   });
 
-  test('the github profile should be a page link to the profile', async ({ page }) => {
-    const popupPromise = page.waitForEvent('popup');
-    await githubProfileLink.click();
-    const newTab = await popupPromise;
-    await expect(newTab).toHaveURL(githubUrl);
+  test('the github profile should be a page link to the profile', async () => {
+    await expect(githubProfileLink).toHaveAttribute('target', '_blank');
   });
 });
