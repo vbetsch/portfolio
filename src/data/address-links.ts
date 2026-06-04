@@ -3,22 +3,26 @@ import type { AddressLinkType } from '@t/address-link.type.ts';
 
 export const addressLinks: AddressLinkType[] = [
   {
+    ariaLabel: '',
     href: `tel:${PHONE_NUMBER}`,
     iconName: 'phone',
     label: PHONE_NUMBER,
   },
   {
+    ariaLabel: '',
     href: `mailto:${MAILTO_EMAIL}`,
     iconName: 'email',
     label: MAILTO_EMAIL,
   },
   {
+    ariaLabel: '',
     href: `https://www.linkedin.com/in/${ID_LINKEDIN}`,
     iconName: 'linkedin',
     label: ID_LINKEDIN,
     openNewTab: true,
   },
   {
+    ariaLabel: '',
     href: `https://github.com/${ID_GITHUB}`,
     iconName: 'github',
     label: ID_GITHUB,
