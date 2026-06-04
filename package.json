@@ -41,7 +41,7 @@
     "check:lint": "npm run lint",
     "check:tsc": "tsc",
     "format": "prettier --write .",
-    "lhci": "npm run build && npm run lighthouse",
+    "lhci": "rm -rf lighthouse-report/ && npm run build && npm run lighthouse",
     "lighthouse": "lhci autorun",
     "lint": "eslint",
     "lint:strict": "eslint --max-warnings=0",
