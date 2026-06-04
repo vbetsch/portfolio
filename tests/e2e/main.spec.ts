@@ -9,7 +9,7 @@ test.describe('Hero', () => {
     await page.goto('/');
     mainSection = page.getByRole('main');
     contactMeCTAButton = mainSection.getByRole('link', { name: 'Me contacter' });
-    downloadCVCTAButton = mainSection.getByRole('link', { name: 'Me contacter' });
+    downloadCVCTAButton = mainSection.getByRole('link', { name: 'Télécharger mon CV' });
   });
 
   test('should have the role as first title', async () => {
