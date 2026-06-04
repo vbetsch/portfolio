@@ -3,26 +3,26 @@ import type { AddressLinkType } from '@t/address-link.type.ts';
 
 export const addressLinks: AddressLinkType[] = [
   {
-    ariaLabel: '',
+    ariaLabel: 'Appeler Victor Betsch par téléphone',
     href: `tel:${PHONE_NUMBER}`,
     iconName: 'phone',
     label: PHONE_NUMBER,
   },
   {
-    ariaLabel: '',
+    ariaLabel: 'Envoyer un e-mail à Victor Betsch',
     href: `mailto:${MAILTO_EMAIL}`,
     iconName: 'email',
     label: MAILTO_EMAIL,
   },
   {
-    ariaLabel: '',
+    ariaLabel: "Visiter le profil LinkedIn de Victor Betsch (s'ouvre dans un nouvel onglet)",
     href: `https://www.linkedin.com/in/${ID_LINKEDIN}`,
     iconName: 'linkedin',
     label: ID_LINKEDIN,
     openNewTab: true,
   },
   {
-    ariaLabel: '',
+    ariaLabel: "Visiter le profil GitHub de Victor Betsch (s'ouvre dans un nouvel onglet)",
     href: `https://github.com/${ID_GITHUB}`,
     iconName: 'github',
     label: ID_GITHUB,
