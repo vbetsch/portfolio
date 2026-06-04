@@ -41,6 +41,7 @@
     "check:lint": "npm run lint",
     "check:tsc": "tsc",
     "format": "prettier --write .",
+    "lighthouse": "lhci autorun",
     "lint": "eslint",
     "lint:strict": "eslint --max-warnings=0",
     "start:dev": "astro dev --host",
