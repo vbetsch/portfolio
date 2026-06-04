@@ -9,11 +9,13 @@ test('should have the fullname', async ({ page }) => {
 test.describe('Address links', () => {
   let footer: Locator;
   let phoneNumberLink: Locator;
+  let mailAddressLink: Locator;
 
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     footer = page.locator('footer');
     phoneNumberLink = footer.getByRole('link', { name: `${process.env.PHONE_NUMBER}` });
+    mailAddressLink = footer.getByRole('link', { name: `${process.env.MAILTO_EMAIL}` });
   });
 
   test('should have the phone number', async () => {
@@ -25,7 +27,7 @@ test.describe('Address links', () => {
   });
 
   test('should have the mail address', async () => {
-    await expect(footer).toContainText(`${process.env.MAILTO_EMAIL}`);
+    await expect(mailAddressLink).toBeVisible();
   });
 
   test('should have the linkedin profile', async () => {
