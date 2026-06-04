@@ -11,6 +11,7 @@ test.describe('Address links', () => {
   let phoneNumberLink: Locator;
   let mailAddressLink: Locator;
   let linkedinProfileLink: Locator;
+  let githubProfileLink: Locator;
 
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
@@ -20,6 +21,7 @@ test.describe('Address links', () => {
     linkedinProfileLink = footer.locator(
       `a[href="https://www.linkedin.com/in/${process.env.ID_LINKEDIN}"]`
     );
+    githubProfileLink = footer.locator(`a[href="https://www.github.com/${process.env.ID_GITHUB}"]`);
   });
 
   test('should have the phone number', async () => {
@@ -50,6 +52,6 @@ test.describe('Address links', () => {
   });
 
   test('should have the github profile', async () => {
-    await expect(footer).toContainText(`${process.env.ID_GITHUB}`);
+    await expect(githubProfileLink).toBeVisible();
   });
 });
