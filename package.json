@@ -49,7 +49,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:units": "vitest run",
-    "test:units:cov": "vitest run --coverage",
+    "test:units:cov": "vitest run --coverage --reporter=default --reporter=html --outputFile=vitest-report/index.html",
     "test:units:watch": "vitest"
   },
   "type": "module",
