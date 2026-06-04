@@ -64,3 +64,6 @@ logs
 
 # Vitest
 /vitest-report/
+
+# Lighthouse
+/.lighthouseci/
