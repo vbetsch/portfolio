@@ -39,5 +39,10 @@ test.describe('Hero', () => {
         `mailto:${process.env.MAILTO_EMAIL}`
       );
     });
+
+    test('the Download CV CTA button should be a download link to the CV', async () => {
+      await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');
+      await expect(downloadCVCTAButton).toHaveAttribute('download', 'BETSCH_Victor_CV_FR.pdf');
+    });
   });
 });
