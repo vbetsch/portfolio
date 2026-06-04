@@ -17,3 +17,11 @@ jobs:
 
       - name: Run unit tests with coverage
         run: npm run test:units:cov
+
+      - name: Upload Vitest Report (On Failure Only)
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: vitest-report
+          path: vitest-report/
+          retention-days: 7
