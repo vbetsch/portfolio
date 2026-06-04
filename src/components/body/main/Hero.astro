@@ -12,7 +12,7 @@ import HeroTitlesGroup from '@components/body/main/HeroTitlesGroup.astro';
     label="Télécharger mon CV"
     variant={VariantEnum.SECONDARY}
     href="/files/cv_fr.pdf"
-    download="BETSCH_Victor_CV_FR.pdf"
+    download=`${process.env.CV_PDF_NAME_FILE}.pdf`
   />
 </div>
 
