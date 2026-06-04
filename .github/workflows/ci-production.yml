@@ -42,7 +42,7 @@ jobs:
       #          retention-days: 7
 
       - name: Audit SEO & Performance (Lighthouse)
-        run: npx lhci autorun
+        run: npm run lighthouse
 
       - name: Upload Lighthouse Report (On Failure Only)
         uses: actions/upload-artifact@v7
