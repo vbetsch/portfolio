@@ -32,6 +32,7 @@ export default [
       'src/env.d.ts',
       'test-results/',
       'tests/astro-env.mock.ts',
+      'vitest-report/',
     ],
   },
   {

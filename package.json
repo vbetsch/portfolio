@@ -16,6 +16,7 @@
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.4",
     "@vitest/coverage-v8": "^4.1.8",
+    "@vitest/ui": "^4.1.8",
     "dotenv": "^17.4.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^4.4.4",
@@ -49,7 +50,7 @@
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:units": "vitest run",
-    "test:units:cov": "vitest run --coverage",
+    "test:units:cov": "vitest run --coverage --reporter=default --reporter=html --outputFile=vitest-report/index.html",
     "test:units:watch": "vitest"
   },
   "type": "module",
