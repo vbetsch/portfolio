@@ -14,6 +14,10 @@
         "categories:best-practices": ["error", { "minScore": 1.0 }],
         "categories:seo": ["error", { "minScore": 1.0 }]
       }
+    },
+    "upload": {
+      "target": "filesystem",
+      "outputDir": "./lighthouse-report"
     }
   }
 }
