@@ -1,4 +1,5 @@
 type ImportMetaEnv = {
+  readonly CV_PDF_NAME_FILE: string;
   readonly ID_GITHUB: string;
   readonly ID_LINKEDIN: string;
   readonly MAILTO_EMAIL: string;
@@ -7,11 +8,4 @@ type ImportMetaEnv = {
 
 type ImportMeta = {
   readonly env: ImportMetaEnv;
-}
-
-declare module "astro:env/client" {
-  export const ID_GITHUB: string;
-  export const ID_LINKEDIN: string;
-  export const MAILTO_EMAIL: string;
-  export const PHONE_NUMBER: string;
 }

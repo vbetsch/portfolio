@@ -19,7 +19,7 @@ export const addressLinks: AddressLinkType[] = [
     openNewTab: true,
   },
   {
-    href: `https://www.github.com/${ID_GITHUB}`,
+    href: `https://github.com/${ID_GITHUB}`,
     iconName: 'github',
     label: ID_GITHUB,
     openNewTab: true,

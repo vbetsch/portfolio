@@ -15,6 +15,9 @@ jobs:
       - name: Restore Env & Node
         uses: ./.github/actions/setup-project
 
+      - name: Synchronize Astro Types
+        run: npm run sync
+
       - name: Check TypeScript
         run: npm run check:tsc
 

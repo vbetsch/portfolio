@@ -1,7 +1,7 @@
 ---
 import CTAButton from '@/components/shared/CTAButton.astro';
 import { VariantEnum } from '@enums/variant.enum.ts';
-import { MAILTO_EMAIL } from 'astro:env/client';
+import { CV_PDF_NAME_FILE, MAILTO_EMAIL } from 'astro:env/client';
 import HeroTitlesGroup from '@components/body/main/HeroTitlesGroup.astro';
 ---
 
@@ -12,7 +12,7 @@ import HeroTitlesGroup from '@components/body/main/HeroTitlesGroup.astro';
     label="Télécharger mon CV"
     variant={VariantEnum.SECONDARY}
     href="/files/cv_fr.pdf"
-    download="BETSCH_Victor_CV_FR.pdf"
+    download=`${CV_PDF_NAME_FILE}.pdf`
   />
 </div>
 
