@@ -11,11 +11,11 @@ test.describe('Navbar', () => {
     contactMeButton = header.getByRole('link', { name: 'Me contacter' });
   });
 
-  test('should have the fullname as title', async () => {
+  test('should have the fullname', async () => {
     await expect(header).toContainText('Victor BETSCH');
   });
 
-  test('should have a Contact Me button', async () => {
+  test('should have a Contact Me element', async () => {
     await expect(contactMeButton).toBeVisible();
   });
 
