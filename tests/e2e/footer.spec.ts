@@ -1,7 +1,5 @@
 import { expect, type Locator, test } from '@playwright/test';
 
-const linkedInURL: string = `https://www.linkedin.com/in/${process.env.ID_LINKEDIN}`;
-
 test('should have the fullname', async ({ page }) => {
   await page.goto('/');
   const _footer = page.locator('footer');
@@ -19,7 +17,9 @@ test.describe('Address links', () => {
     footer = page.locator('footer');
     phoneNumberLink = footer.getByRole('link', { name: `${process.env.PHONE_NUMBER}` });
     mailAddressLink = footer.getByRole('link', { name: `${process.env.MAILTO_EMAIL}` });
-    linkedinProfileLink = footer.locator(`a[href="${linkedInURL}"]`);
+    linkedinProfileLink = footer.locator(
+      `a[href="https://www.linkedin.com/in/${process.env.ID_LINKEDIN}"]`
+    );
   });
 
   test('should have the phone number', async () => {
