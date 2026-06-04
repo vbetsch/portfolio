@@ -18,6 +18,11 @@ test.describe('Address links', () => {
     await expect(footer).toContainText(`${process.env.PHONE_NUMBER}`);
   });
 
+  test('the phone number should be a tel link to the phone number', async () => {
+    const phoneNumberLink = footer.getByRole('link', { name: `${process.env.PHONE_NUMBER}` });
+    await expect(phoneNumberLink).toHaveAttribute('href', `tel:${process.env.PHONE_NUMBER}`);
+  });
+
   test('should have the mail address', async () => {
     await expect(footer).toContainText(`${process.env.MAILTO_EMAIL}`);
   });
