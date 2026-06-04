@@ -8,18 +8,19 @@ test('should have the fullname', async ({ page }) => {
 
 test.describe('Address links', () => {
   let footer: Locator;
+  let phoneNumberLink: Locator;
 
   test.beforeEach(async ({ page }) => {
     await page.goto('/');
     footer = page.locator('footer');
+    phoneNumberLink = footer.getByRole('link', { name: `${process.env.PHONE_NUMBER}` });
   });
 
   test('should have the phone number', async () => {
-    await expect(footer).toContainText(`${process.env.PHONE_NUMBER}`);
+    await expect(phoneNumberLink).toBeVisible();
   });
 
   test('the phone number should be a tel link to the phone number', async () => {
-    const phoneNumberLink = footer.getByRole('link', { name: `${process.env.PHONE_NUMBER}` });
     await expect(phoneNumberLink).toHaveAttribute('href', `tel:${process.env.PHONE_NUMBER}`);
   });
 
