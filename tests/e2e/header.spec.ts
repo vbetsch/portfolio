@@ -17,4 +17,13 @@ test.describe('Navbar', () => {
     const contactMeButton = header.getByRole('link', { name: 'Me contacter' });
     await expect(contactMeButton).toBeVisible();
   });
+
+  test.describe('Contact Me', () => {
+    test('should be a mailto link to the mail address', async ({ page }) => {
+      const header = page.locator('#header');
+      await expect(header).toBeVisible();
+      const contactMeButton = header.getByRole('link', { name: 'Me contacter' });
+      await expect(contactMeButton).toHaveAttribute('href', 'mailto:vbetsch.contact@gmail.com');
+    });
+  });
 });
