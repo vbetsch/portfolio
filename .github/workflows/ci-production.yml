@@ -49,5 +49,5 @@ jobs:
         if: failure()
         with:
           name: lighthouse-report
-          path: .lighthouseci/
+          path: lighthouse-report/
           retention-days: 7
