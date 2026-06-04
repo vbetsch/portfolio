@@ -1,5 +1,11 @@
 {
-  "exclude": ["**/node_modules/**", "**/dist/**", "**/coverage/**"],
+  "exclude": [
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/playwright-report/**",
+    "**/test-results/**"
+  ],
   "extends": [
     "@vbetsch/config-tsconfig/base",
     "@vbetsch/config-tsconfig/strict",
@@ -15,8 +21,7 @@
       "@enums/*": ["./src/enums/*"],
       "@t/*": ["./src/types/*"]
     },
-    "plugins": [{ "name": "@astrojs/ts-plugin" }],
-    "types": ["vitest/globals"]
+    "plugins": [{ "name": "@astrojs/ts-plugin" }]
   },
   "include": [".astro/types.d.ts", "**/*"]
 }

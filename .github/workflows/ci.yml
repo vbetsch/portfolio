@@ -13,14 +13,14 @@ on:
       - 'README.md'
 
 jobs:
-  run-checks:
-    name: Quality
-    uses: ./.github/workflows/ci-quality.yml
+  run-linter:
+    name: Linter
+    uses: ./.github/workflows/ci-linter.yml
 
-  run-tests:
-    name: Tests
-    uses: ./.github/workflows/ci-tests.yml
+  run-unit-tests:
+    name: Unit Tests
+    uses: ./.github/workflows/ci-unit-tests.yml
 
-  run-build:
-    name: Build
-    uses: ./.github/workflows/ci-build.yml
+  run-production:
+    name: Production
+    uses: ./.github/workflows/ci-production.yml

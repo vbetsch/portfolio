@@ -54,3 +54,10 @@ logs
 # Overrides
 .astro/
 .env.production
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

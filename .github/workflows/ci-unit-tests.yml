@@ -1,11 +1,11 @@
-name: tests
+name: unit-tests
 
 on:
   workflow_call:
 
 jobs:
-  unit:
-    name: Units
+  vitest:
+    name: Vitest
     runs-on: ubuntu-latest
 
     steps:
@@ -15,5 +15,5 @@ jobs:
       - name: Restore Env & Node
         uses: ./.github/actions/setup-project
 
-      - name: Run tests with coverage
-        run: npm run test:cov
+      - name: Run unit tests with coverage
+        run: npm run test:units:cov

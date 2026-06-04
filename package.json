@@ -10,6 +10,8 @@
   "description": "My official personal website",
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1",
     "@vbetsch/config-eslint": "^1.0.5",
     "@vbetsch/config-prettier": "^1.0.2",
     "@vbetsch/config-tsconfig": "^1.0.4",
@@ -41,9 +43,12 @@
     "start:dev": "astro dev --host",
     "start:prod": "astro preview",
     "sync": "astro sync",
-    "test": "vitest run",
-    "test:cov": "vitest run --coverage",
-    "test:watch": "vitest"
+    "test": "npm run test:units && npm run test:e2e:ui",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:units": "vitest run",
+    "test:units:cov": "vitest run --coverage",
+    "test:units:watch": "vitest"
   },
   "type": "module",
   "version": "1.0.0"

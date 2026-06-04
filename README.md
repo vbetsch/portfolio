@@ -1,9 +1,6 @@
 # portfolio
 
-[![Linter](https://github.com/vbetsch/portfolio/workflows/Linter/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ALint++)
-[![Checks](https://github.com/vbetsch/portfolio/workflows/Checks/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3AChecks++)
-[![Tests](https://github.com/vbetsch/portfolio/workflows/Tests/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ATests++)
-[![Build](https://github.com/vbetsch/portfolio/workflows/Build/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ABuild++)
+[![CI](https://github.com/vbetsch/portfolio/workflows/CI/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ACI++)
 
 My official personal website
 
@@ -14,8 +11,8 @@ version [lts/krypton -> v24.14.1](https://nodejs.org/en/blog/release/v24.14.1).
 
 ### 1. Setup environment
 
-Create a **.env** file by copying the [.env.example](.env.example) file. These values are only for the
-local environment, you have to modify it.
+Create a **.env** file by copying the [.env.example](.env.example) file. These values are only for
+the local environment, you have to modify it.
 
 ### 2. Install dependencies
 
@@ -37,22 +34,44 @@ npm run start:dev
 
 ## 🧪 Running Tests
 
-### Run tests in default mode
+### Run all tests
 
 ```bash
 npm test
 ```
 
-### Run tests with coverage
+### End-To-End
+
+#### Run e2e tests in CLI
 
 ```bash
-npm run test:cov
+npm run test:e2e
 ```
 
-### Run tests in watch mode
+#### Run e2e tests in UI
 
 ```bash
-npm run test:watch
+npm run test:e2e:ui
+```
+
+### Units tests
+
+#### Run units tests in default mode
+
+```bash
+npm run test:units
+```
+
+#### Run units tests with coverage
+
+```bash
+npm run test:units:cov
+```
+
+#### Run units tests in watch mode
+
+```bash
+npm run test:units:watch
 ```
 
 ## 🧹 Linting & Formatting
@@ -97,7 +116,7 @@ Validate your setup by running the following commands in order:
 npm clean-install        # Update dependencies
 npm run start:dev        # Check development execution
 npm run format           # Format code
-npm run test:cov         # Run tests with coverage
+npm run test             # Run all tests
 npm run check            # Type-checking, astro check and linter
 npm run build            # Run production build
 npm run start:prod       # Check production execution
