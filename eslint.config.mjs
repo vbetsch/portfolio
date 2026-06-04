@@ -30,7 +30,7 @@ export default [
       'playwright.config.ts',
       'playwright-report/',
       'src/env.d.ts',
-      'test-results',
+      'test-results/',
       'tests/astro-env.mock.ts',
     ],
   },
