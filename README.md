@@ -12,8 +12,7 @@ version [lts/krypton -> v24.14.1](https://nodejs.org/en/blog/release/v24.14.1).
 ### 1. Setup environment
 
 Create a **.env** file by copying the [.env.example](.env.example) file. These values are only for
-the
-local environment, you have to modify it.
+the local environment, you have to modify it.
 
 ### 2. Install dependencies
 
