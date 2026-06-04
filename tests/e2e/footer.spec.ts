@@ -59,6 +59,6 @@ test.describe('Address links', () => {
     const popupPromise = page.waitForEvent('popup');
     await githubProfileLink.click();
     const newTab = await popupPromise;
-    await expect(newTab).toHaveURL(new RegExp(`github\\.com.*${process.env.ID_GITHUB}`));
+    await expect(newTab).toHaveURL(`https://github.com/${process.env.ID_GITHUB}`);
   });
 });
