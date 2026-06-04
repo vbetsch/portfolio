@@ -9,10 +9,3 @@ type ImportMetaEnv = {
 type ImportMeta = {
   readonly env: ImportMetaEnv;
 }
-
-declare module "astro:env/client" {
-  export const ID_GITHUB: string;
-  export const ID_LINKEDIN: string;
-  export const MAILTO_EMAIL: string;
-  export const PHONE_NUMBER: string;
-}
