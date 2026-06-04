@@ -21,7 +21,7 @@ test.describe('Address links', () => {
     linkedinProfileLink = footer.locator(
       `a[href="https://www.linkedin.com/in/${process.env.ID_LINKEDIN}"]`
     );
-    githubProfileLink = footer.locator(`a[href="https://www.github.com/${process.env.ID_GITHUB}"]`);
+    githubProfileLink = footer.locator(`a[href="https://github.com/${process.env.ID_GITHUB}"]`);
   });
 
   test('should have the phone number', async () => {
