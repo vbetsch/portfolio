@@ -24,9 +24,11 @@ test.describe('Hero', () => {
 
   test('should have a Contact Me CTA button', async () => {
     await expect(contactMeCTAButton).toBeVisible();
+    await expect(contactMeCTAButton).toHaveAttribute('variant', 'primary');
   });
 
   test('should have a Download CV CTA button', async () => {
     await expect(downloadCVCTAButton).toBeVisible();
+    await expect(downloadCVCTAButton).toHaveAttribute('variant', 'secondary');
   });
 });
