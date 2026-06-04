@@ -54,4 +54,11 @@ test.describe('Address links', () => {
   test('should have the github profile', async () => {
     await expect(githubProfileLink).toBeVisible();
   });
+
+  test('the github profile should be a page link to the profile', async ({ page }) => {
+    const popupPromise = page.waitForEvent('popup');
+    await githubProfileLink.click();
+    const newTab = await popupPromise;
+    await expect(newTab).toHaveURL(new RegExp(`github\\.com.*${process.env.ID_GITHUB}`));
+  });
 });
