@@ -7,6 +7,7 @@ test.describe('Navbar', () => {
 
   test('should have the fullname as title', async ({ page }) => {
     const header = page.locator('#header');
+    await expect(header).toBeVisible();
     await expect(header).toContainText('Victor BETSCH');
   });
 
