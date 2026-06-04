@@ -16,3 +16,16 @@ test('should have the main favicon import', async ({ page }) => {
   const faviconLink = page.locator('link[rel="icon"][type="image/x-icon"][href*="favicon.ico"]');
   await expect(faviconLink).toBeAttached();
 });
+
+test.describe('Metadata', () => {
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/');
+  });
+
+  test('should have the language configuration', async ({ page }) => {
+    const htmlMeta = page.locator('html[lang="fr"]');
+    const utf8Meta = page.locator('meta[charset="utf-8"]');
+    await expect(htmlMeta).toBeAttached();
+    await expect(utf8Meta).toBeAttached();
+  });
+});
