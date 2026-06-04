@@ -42,6 +42,4 @@ jobs:
           retention-days: 7
 
       - name: Audit SEO & Performance (Lighthouse)
-        run: |
-          npx lhci collect
-          npx lhci assert
+        run: npx lhci autorun
