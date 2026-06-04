@@ -43,8 +43,10 @@ test.describe('Address links', () => {
   });
 
   test('the linkedin profile should be a page link to the profile', async ({ page }) => {
+    const popupPromise = page.waitForEvent('popup');
     await linkedinProfileLink.click();
-    await expect(page).toHaveURL(linkedInURL);
+    const newTab = await popupPromise;
+    await expect(newTab).toHaveURL(new RegExp(`linkedin\\.com.*${process.env.ID_LINKEDIN}`));
   });
 
   test('should have the github profile', async () => {
