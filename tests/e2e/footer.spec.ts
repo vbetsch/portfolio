@@ -25,4 +25,8 @@ test.describe('Address links', () => {
   test('should have the linkedin profile', async () => {
     await expect(footer).toContainText(`${process.env.ID_LINKEDIN}`);
   });
+
+  test('should have the github profile', async () => {
+    await expect(footer).toContainText(`${process.env.ID_GITHUB}`);
+  });
 });
