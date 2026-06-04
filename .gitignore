@@ -67,3 +67,4 @@ logs
 
 # Lighthouse
 /.lighthouseci/
+/lighthouse-report/
