@@ -17,4 +17,8 @@ test.describe('Address links', () => {
   test('should have the phone number', async () => {
     await expect(footer).toContainText(`${process.env.PHONE_NUMBER}`);
   });
+
+  test('should have the mail address', async () => {
+    await expect(footer).toContainText(`${process.env.MAILTO_EMAIL}`);
+  });
 });
