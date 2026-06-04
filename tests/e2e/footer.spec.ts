@@ -45,7 +45,7 @@ test.describe('Address links', () => {
     await expect(linkedinProfileLink).toBeVisible();
   });
 
-  test('the linkedin profile should be a page link to the profile', async () => {
+  test('the linkedin profile should open a new tab', async () => {
     await expect(linkedinProfileLink).toHaveAttribute('target', '_blank');
   });
 
@@ -53,7 +53,7 @@ test.describe('Address links', () => {
     await expect(githubProfileLink).toBeVisible();
   });
 
-  test('the github profile should be a page link to the profile', async () => {
+  test('the github profile should open a new tab', async () => {
     await expect(githubProfileLink).toHaveAttribute('target', '_blank');
   });
 });
