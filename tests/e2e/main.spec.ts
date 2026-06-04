@@ -31,4 +31,13 @@ test.describe('Hero', () => {
     await expect(downloadCVCTAButton).toBeVisible();
     await expect(downloadCVCTAButton).toHaveAttribute('variant', 'secondary');
   });
+
+  test.describe('CTA Button', () => {
+    test('the Contact Me CTA button should be a mailto link to the mail address', async () => {
+      await expect(contactMeCTAButton).toHaveAttribute(
+        'href',
+        `mailto:${process.env.MAILTO_EMAIL}`
+      );
+    });
+  });
 });
