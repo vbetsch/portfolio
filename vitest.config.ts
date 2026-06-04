@@ -18,6 +18,7 @@ export default defineConfig({
         'src/env.d.ts',
         'tests/astro-env.mock.ts',
         'vitest.config.ts',
+        'vitest-report/**',
       ],
       include: ['src/**/*.ts'],
       provider: 'v8',
