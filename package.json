@@ -50,7 +50,7 @@
     "start:prod": "astro preview",
     "start:prod:expose": "astro preview --host",
     "sync": "astro sync",
-    "test": "npm run test:units && npm run test:e2e:ui",
+    "test": "npm run test:units && npm run e2e",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:units": "vitest run",
