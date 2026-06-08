@@ -40,6 +40,7 @@
     "check:astro": "astro check",
     "check:lint": "npm run lint",
     "check:tsc": "tsc",
+    "e2e": "npm run build && npm run test:e2e:ui",
     "format": "prettier --write .",
     "lhci": "rm -rf lighthouse-report/ && npm run build && npm run lighthouse",
     "lighthouse": "lhci autorun",
