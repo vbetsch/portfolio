@@ -47,3 +47,7 @@ coverage/
 
 # Vitest
 /vitest-report/
+
+# Lighthouse
+/.lighthouseci/
+/lighthouse-report/

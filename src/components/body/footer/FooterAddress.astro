@@ -7,6 +7,7 @@ import { addressLinks } from '@data/address-links.ts';
   {
     addressLinks.map(addressLink => (
       <AddressLink
+        ariaLabel={addressLink.ariaLabel}
         href={addressLink.href}
         iconName={addressLink.iconName}
         label={addressLink.label}

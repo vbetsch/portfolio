@@ -40,3 +40,14 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 7
+
+      - name: Audit SEO & Performance (Lighthouse)
+        run: npm run lighthouse
+
+      - name: Upload Lighthouse Report (On Failure Only)
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: lighthouse-report
+          path: lighthouse-report/
+          retention-days: 7

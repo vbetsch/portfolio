@@ -17,8 +17,8 @@ test.describe('Address links', () => {
     await page.goto('/');
     footer = page.locator('footer');
 
-    phoneNumberLink = footer.getByRole('link', { name: `${process.env.PHONE_NUMBER}` });
-    mailAddressLink = footer.getByRole('link', { name: `${process.env.MAILTO_EMAIL}` });
+    phoneNumberLink = footer.getByRole('link', { name: 'Appeler Victor Betsch par téléphone' });
+    mailAddressLink = footer.getByRole('link', { name: 'Envoyer un e-mail à Victor Betsch' });
     linkedinProfileLink = footer.locator(
       `a[href="https://www.linkedin.com/in/${process.env.ID_LINKEDIN}"]`
     );
