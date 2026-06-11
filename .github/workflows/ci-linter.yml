@@ -25,4 +25,4 @@ jobs:
         run: npm run check:astro
 
       - name: Run ESLint in strict mode
-        run: npm run lint:strict
+        run: npm run lint:es:strict
