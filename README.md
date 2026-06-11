@@ -122,7 +122,7 @@ Validate your setup by running the following commands in order:
 npm clean-install        # Update dependencies
 npm run start:dev        # Check development execution
 npm run format           # Format code
-npm run check            # Type-checking, astro check and linter
+npm run check            # Type-checking, astro check and linters
 npm run test:units:cov   # Run all unit tests
 npm run build            # Run production build
 npm run test:e2e:ui      # Run End-To-End tests
