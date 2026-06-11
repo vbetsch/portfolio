@@ -76,16 +76,22 @@ npm run test:units:watch
 
 ## 🧹 Linting & Formatting
 
-### Run linter in default mode
+### Run Oxlint in default mode
 
 ```bash
-npm run lint
+npm run lint:ox
 ```
 
-### Run linter in strict mode
+### Run ESLint in default mode
 
 ```bash
-npm run lint:strict
+npm run lint:es
+```
+
+### Run ESLint in strict mode
+
+```bash
+npm run lint:es:strict
 ```
 
 ### Format the code
