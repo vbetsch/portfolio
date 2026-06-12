@@ -7,18 +7,18 @@ on:
         required: true
       SCALEWAY_SECRET_KEY:
         required: true
-      SCALEWAY_BUCKET_DEVELOP:
+      SCALEWAY_BUCKET_PREVIEW:
         required: true
 
 jobs:
-  deploy_on_develop:
-    name: Deploy on Scaleway Develop Bucket
+  deploy_on_preview:
+    name: Deploy on Scaleway Preview Bucket
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.SCALEWAY_ACCESS_KEY }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.SCALEWAY_SECRET_KEY }}
       AWS_DEFAULT_REGION: fr-par
-      BUCKET_NAME: ${{ secrets.SCALEWAY_BUCKET_DEVELOP }}
+      BUCKET_NAME: ${{ secrets.SCALEWAY_BUCKET_PREVIEW }}
       CV_PDF_NAME_FILE: ${{ vars.CV_PDF_NAME_FILE }}
       ID_GITHUB: ${{ vars.ID_GITHUB }}
       ID_LINKEDIN: ${{ vars.ID_LINKEDIN }}
@@ -35,6 +35,6 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Deploy to Scaleway Develop
+      - name: Deploy to Scaleway Preview
         run: |
           aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
