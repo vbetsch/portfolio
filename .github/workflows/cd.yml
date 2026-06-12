@@ -2,7 +2,7 @@ name: CD
 
 on:
   push:
-    branches: ['master']
+    branches: ['master', 'develop']
     paths-ignore:
       - '.vscode/**'
       - 'docs/**'
@@ -24,3 +24,4 @@ jobs:
       SCALEWAY_ACCESS_KEY: ${{ secrets.SCALEWAY_ACCESS_KEY }}
       SCALEWAY_SECRET_KEY: ${{ secrets.SCALEWAY_SECRET_KEY }}
       SCALEWAY_BUCKET_DEVELOP: ${{ secrets.SCALEWAY_BUCKET_DEVELOP }}
+      SCALEWAY_BUCKET_PROD: ${{ secrets.SCALEWAY_BUCKET_PROD }}
