@@ -16,13 +16,13 @@ jobs:
     name: Build
     uses: ./.github/workflows/build.yml
 
-#  run-linter:
-#    name: Linter
-#    uses: ./.github/workflows/ci-linter.yml
-#
-#  run-unit-tests:
-#    name: Unit Tests
-#    uses: ./.github/workflows/ci-unit-tests.yml
+  run-linter:
+    name: Linter
+    uses: ./.github/workflows/ci-linter.yml
+
+  run-unit-tests:
+    name: Unit Tests
+    uses: ./.github/workflows/ci-unit-tests.yml
 
   run-e2e-tests:
     name: E2E Tests
