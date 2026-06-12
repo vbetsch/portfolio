@@ -27,10 +27,16 @@ jobs:
 #  run-production:
 #    name: Production
 #    uses: ./.github/workflows/ci-production.yml
+
   run-e2e-tests:
     name: E2E Tests
     needs: run-build
     uses: ./.github/workflows/ci-tests-e2e.yml
+
+  run-a11y-and-seo:
+    name: Accessibility & SEO
+    needs: run-build
+    uses: ./.github/workflows/ci-a11y-and-seo.yml
 
   run-deployment:
     name: Deployment
