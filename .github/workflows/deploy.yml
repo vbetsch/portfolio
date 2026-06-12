@@ -42,6 +42,6 @@ jobs:
 
       - name: Deploy to Scaleway Prod
         run: |
-          aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
+          aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete --acl public-read
         env:
           BUCKET_NAME: ${{ secrets.SCALEWAY_BUCKET_PROD }}
