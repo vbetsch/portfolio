@@ -23,3 +23,7 @@ jobs:
   run-production:
     name: Production
     uses: ./.github/workflows/ci-production.yml
+
+  run-deployment:
+    name: Deployment
+    uses: ./.github/workflows/ci-deploy.yml
