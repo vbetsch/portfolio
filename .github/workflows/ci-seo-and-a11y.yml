@@ -1,4 +1,4 @@
-name: a11y and SEO
+name: SEO and a11y
 
 on:
   workflow_call:

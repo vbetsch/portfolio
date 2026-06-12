@@ -30,9 +30,9 @@ jobs:
     uses: ./.github/workflows/ci-tests-e2e.yml
 
   run-a11y-and-seo:
-    name: Accessibility & SEO
+    name: SEO & Accessibility
     needs: run-build
-    uses: ./.github/workflows/ci-a11y-and-seo.yml
+    uses: ./.github/workflows/ci-seo-and-a11y.yml
 
   run-deployment:
     name: Deployment
