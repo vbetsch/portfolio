@@ -12,7 +12,7 @@ on:
 
 jobs:
   deploy_on_preview:
-    name: Deploy on Scaleway Preview Bucket
+    name: Scaleway Preview
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.SCALEWAY_ACCESS_KEY }}
@@ -33,6 +33,6 @@ jobs:
           name: astro-dist-folder
           path: dist/
 
-      - name: Deploy to Scaleway Preview
+      - name: Deploy to Scaleway Preview Bucket
         run: |
           aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
