@@ -27,3 +27,4 @@ jobs:
   run-deployment:
     name: Deployment
     uses: ./.github/workflows/ci-deploy.yml
+    secrets: inherit
