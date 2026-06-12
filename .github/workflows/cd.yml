@@ -20,4 +20,7 @@ jobs:
   run-deployment:
     name: Deployment
     uses: ./.github/workflows/cd-deployment.yml
-
+    secrets:
+      SCALEWAY_ACCESS_KEY: ${{ secrets.SCALEWAY_ACCESS_KEY }}
+      SCALEWAY_SECRET_KEY: ${{ secrets.SCALEWAY_SECRET_KEY }}
+      SCALEWAY_BUCKET_DEVELOP: ${{ secrets.SCALEWAY_BUCKET_DEVELOP }}
