@@ -15,6 +15,9 @@ jobs:
       - name: Restore Env & Node
         uses: ./.github/actions/setup-project
 
+      - name: Run Oxlint
+        run: npm run lint:ox
+
       - name: Synchronize Astro Types
         run: npm run sync
 
@@ -25,4 +28,4 @@ jobs:
         run: npm run check:astro
 
       - name: Run ESLint in strict mode
-        run: npm run lint:strict
+        run: npm run lint:es:strict
