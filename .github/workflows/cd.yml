@@ -1,0 +1,23 @@
+name: CD
+
+on:
+  push:
+    branches: ['master']
+    paths-ignore:
+      - '.vscode/**'
+      - 'docs/**'
+      - 'tests/**'
+      - '.editorconfig'
+      - '.gitignore'
+      - '.lighthouserc.json'
+      - '.prettier*'
+      - 'README.md'
+      - 'eslint.config.mjs'
+      - 'playwright.config.ts'
+      - 'vitest.config.ts'
+
+jobs:
+  run-deployment:
+    name: Deployment
+    uses: ./.github/workflows/cd-deployment.yml
+
