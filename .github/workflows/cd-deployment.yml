@@ -5,7 +5,7 @@ on:
 
 jobs:
   scaleway:
-    name: Deploy on Scaleway Buckets
+    name: Deploy on Scaleway
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.SCALEWAY_ACCESS_KEY }}
