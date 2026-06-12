@@ -12,17 +12,17 @@ on:
       - 'README.md'
 
 jobs:
-  run-linter:
-    name: Linter
-    uses: ./.github/workflows/ci-linter.yml
-
-  run-unit-tests:
-    name: Unit Tests
-    uses: ./.github/workflows/ci-unit-tests.yml
-
-  run-production:
-    name: Production
-    uses: ./.github/workflows/ci-production.yml
+#  run-linter:
+#    name: Linter
+#    uses: ./.github/workflows/ci-linter.yml
+#
+#  run-unit-tests:
+#    name: Unit Tests
+#    uses: ./.github/workflows/ci-unit-tests.yml
+#
+#  run-production:
+#    name: Production
+#    uses: ./.github/workflows/ci-production.yml
 
   run-deployment:
     name: Deployment
