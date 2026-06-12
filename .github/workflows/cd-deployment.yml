@@ -20,11 +20,6 @@ jobs:
       AWS_ACCESS_KEY_ID: ${{ secrets.SCALEWAY_ACCESS_KEY }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.SCALEWAY_SECRET_KEY }}
       AWS_DEFAULT_REGION: fr-par
-      CV_PDF_NAME_FILE: ${{ vars.CV_PDF_NAME_FILE }}
-      ID_GITHUB: ${{ vars.ID_GITHUB }}
-      ID_LINKEDIN: ${{ vars.ID_LINKEDIN }}
-      MAILTO_EMAIL: ${{ vars.MAILTO_EMAIL }}
-      PHONE_NUMBER: ${{ vars.PHONE_NUMBER }}
 
     steps:
       - name: Checkout repository
@@ -33,8 +28,11 @@ jobs:
       - name: Restore Env & Node
         uses: ./.github/actions/setup-project
 
-      - name: Build application
-        run: npm run build
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: astro-dist-folder
+          path: dist/
 
       - name: Deploy to Scaleway Develop
         if: github.ref == 'refs/heads/develop' && success()
