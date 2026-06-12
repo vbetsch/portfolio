@@ -3,13 +3,13 @@ name: deployment
 on:
   workflow_call:
     secrets:
-      SCALEWAY_ACCESS_KEY:
+      HOSTING_PROVIDER_ACCESS_KEY:
         required: true
-      SCALEWAY_SECRET_KEY:
+      HOSTING_PROVIDER_SECRET_KEY:
         required: true
-      SCALEWAY_BUCKET_DEVELOP:
+      HOSTING_PROVIDER_BUCKET_DEVELOP:
         required: true
-      SCALEWAY_BUCKET_PROD:
+      HOSTING_PROVIDER_BUCKET_PROD:
         required: true
 
 jobs:
@@ -17,8 +17,8 @@ jobs:
     name: Deploy on Scaleway
     runs-on: ubuntu-latest
     env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.SCALEWAY_ACCESS_KEY }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.SCALEWAY_SECRET_KEY }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.HOSTING_PROVIDER_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.HOSTING_PROVIDER_SECRET_KEY }}
       AWS_DEFAULT_REGION: fr-par
 
     steps:
@@ -34,16 +34,16 @@ jobs:
           name: astro-dist-folder
           path: dist/
 
-      - name: Deploy to Scaleway Develop
+      - name: Deploy to Develop
         if: github.ref == 'refs/heads/develop' && success()
         run: |
           aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
         env:
-          BUCKET_NAME: ${{ secrets.SCALEWAY_BUCKET_DEVELOP }}
+          BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_DEVELOP }}
 
-      - name: Deploy to Scaleway Prod
+      - name: Deploy to Prod
         if: github.ref == 'refs/heads/master' && success()
         run: |
           aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
         env:
-          BUCKET_NAME: ${{ secrets.SCALEWAY_BUCKET_PROD }}
+          BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_PROD }}
