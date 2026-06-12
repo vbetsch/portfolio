@@ -1,0 +1,32 @@
+name: build
+
+on:
+  workflow_call:
+
+jobs:
+  astro:
+    name: Astro
+    runs-on: ubuntu-latest
+    env:
+      CV_PDF_NAME_FILE: ${{ vars.CV_PDF_NAME_FILE }}
+      ID_GITHUB: ${{ vars.ID_GITHUB }}
+      ID_LINKEDIN: ${{ vars.ID_LINKEDIN }}
+      MAILTO_EMAIL: ${{ vars.MAILTO_EMAIL }}
+      PHONE_NUMBER: ${{ vars.PHONE_NUMBER }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Build application
+        run: npm run build
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: astro-dist-folder
+          path: dist/
+          retention-days: 1

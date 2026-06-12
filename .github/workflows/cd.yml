@@ -17,8 +17,13 @@ on:
       - 'vitest.config.ts'
 
 jobs:
+  run-build:
+    name: Build
+    uses: ./.github/workflows/build.yml
+
   run-deployment:
     name: Deployment
+    needs: run-build
     uses: ./.github/workflows/cd-deployment.yml
     secrets:
       SCALEWAY_ACCESS_KEY: ${{ secrets.SCALEWAY_ACCESS_KEY }}
