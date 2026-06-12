@@ -23,10 +23,6 @@ jobs:
 #  run-unit-tests:
 #    name: Unit Tests
 #    uses: ./.github/workflows/ci-unit-tests.yml
-#
-#  run-production:
-#    name: Production
-#    uses: ./.github/workflows/ci-production.yml
 
   run-e2e-tests:
     name: E2E Tests
