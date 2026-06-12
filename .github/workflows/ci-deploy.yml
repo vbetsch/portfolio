@@ -2,6 +2,13 @@ name: deploy
 
 on:
   workflow_call:
+    secrets:
+      SCALEWAY_ACCESS_KEY:
+        required: true
+      SCALEWAY_SECRET_KEY:
+        required: true
+      SCALEWAY_BUCKET_DEVELOP:
+        required: true
 
 jobs:
   deploy_on_develop:
