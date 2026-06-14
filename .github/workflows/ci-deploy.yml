@@ -9,6 +9,8 @@ on:
         required: true
       HOSTING_PROVIDER_BUCKET_PREVIEW:
         required: true
+      HOSTING_PROVIDER_PROJECT_ID:
+        required: true
 
 jobs:
   deploy_on_preview:
@@ -19,6 +21,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.HOSTING_PROVIDER_SECRET_KEY }}
       AWS_DEFAULT_REGION: fr-par
       BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_PREVIEW }}
+      PROJECT_ID: ${{ secrets.HOSTING_PROVIDER_PROJECT_ID }}
 
     steps:
       - name: Checkout repository
@@ -35,4 +38,7 @@ jobs:
 
       - name: Deploy to Preview Bucket
         run: |
-          aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
+          aws s3 sync dist/ s3://$BUCKET_NAME \
+            --endpoint-url https://s3.fr-par.scw.cloud \
+            --delete \
+            --extra-args "{\"Headers\": {\"x-amz-project-id\": \"$PROJECT_ID\"}}"
