@@ -9,6 +9,8 @@ on:
         required: true
       HOSTING_PROVIDER_BUCKET_PREVIEW:
         required: true
+      HOSTING_PROVIDER_ENDPOINT_URL:
+        required: true
 
 jobs:
   deploy_on_preview:
@@ -20,6 +22,7 @@ jobs:
       AWS_DEFAULT_REGION: fr-par
       BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_PREVIEW }}
       BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
+      ENDPOINT_URL: ${{ secrets.HOSTING_PROVIDER_ENDPOINT_URL }}
 
     steps:
       - name: Checkout repository
@@ -36,4 +39,4 @@ jobs:
 
       - name: Deploy to Preview Bucket
         run: |
-          aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
+          aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url $ENDPOINT_URL --delete
