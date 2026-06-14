@@ -18,8 +18,8 @@ jobs:
       - name: Download Build Artifact
         uses: actions/download-artifact@v8
         with:
-          name: astro-dist-folder
-          path: dist/
+          name: astro-build-folder
+          path: ${{ vars.APP_BUILD_FOLDER }}
 
       - name: Audit SEO & Performance (Lighthouse)
         run: npm run lighthouse

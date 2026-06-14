@@ -27,6 +27,6 @@ jobs:
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v7
         with:
-          name: astro-dist-folder
-          path: dist/
+          name: astro-build-folder
+          path: ${{ vars.APP_BUILD_FOLDER }}
           retention-days: 1

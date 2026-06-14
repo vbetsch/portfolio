@@ -19,6 +19,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.HOSTING_PROVIDER_SECRET_KEY }}
       AWS_DEFAULT_REGION: fr-par
       BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_PREVIEW }}
+      BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
 
     steps:
       - name: Checkout repository
@@ -30,9 +31,9 @@ jobs:
       - name: Download Build Artifact
         uses: actions/download-artifact@v8
         with:
-          name: astro-dist-folder
-          path: dist/
+          name: astro-build-folder
+          path: ${{ vars.APP_BUILD_FOLDER }}
 
       - name: Deploy to Preview Bucket
         run: |
-          aws s3 sync dist/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
+          aws s3 sync $BUILD_FOLDER s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
