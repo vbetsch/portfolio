@@ -33,18 +33,18 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: astro-build-folder
-          path: ${{ vars.APP_BUILD_FOLDER }}
+          path: ${{ env.BUILD_FOLDER }}
 
       - name: Deploy to Develop
         if: github.ref == 'refs/heads/develop' && success()
         run: |
-          aws s3 sync $BUILD_FOLDER s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
+          aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
         env:
           BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_DEVELOP }}
 
       - name: Deploy to Prod
         if: github.ref == 'refs/heads/master' && success()
         run: |
-          aws s3 sync $BUILD_FOLDER s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
+          aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url https://s3.fr-par.scw.cloud --delete
         env:
           BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_PROD }}
