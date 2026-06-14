@@ -31,9 +31,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Restore Env & Node
-        uses: ./.github/actions/setup-project
-
       - name: Download Build Artifact
         uses: actions/download-artifact@v8
         with:
