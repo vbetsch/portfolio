@@ -37,6 +37,7 @@ jobs:
 
   run-deployment:
     name: Deployment
+    needs: run-build
     if: github.event.issue.pull_request && github.event.comment.body == '/deploy'
     uses: ./.github/workflows/ci-deploy.yml
     secrets:
