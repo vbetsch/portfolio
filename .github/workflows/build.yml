@@ -7,12 +7,6 @@ jobs:
   astro:
     name: Astro
     runs-on: ubuntu-latest
-    env:
-      APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
-      APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
-      APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
-      APP_MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
-      APP_PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
 
     steps:
       - name: Checkout repository
@@ -23,6 +17,12 @@ jobs:
 
       - name: Build application
         run: npm run build
+        env:
+          APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
+          APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
+          APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
+          APP_MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+          APP_PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v7
