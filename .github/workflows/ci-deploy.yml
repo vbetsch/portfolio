@@ -17,6 +17,7 @@ on:
 jobs:
   deploy_on_preview:
     name: Preview
+    if: github.event_name == 'pull_request' && success()
     runs-on: ubuntu-latest
     environment: preview
     env:
