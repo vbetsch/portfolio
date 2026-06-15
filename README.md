@@ -1,6 +1,7 @@
 # portfolio
 
 [![CI](https://github.com/vbetsch/portfolio/workflows/CI/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ACI++)
+[![CD](https://github.com/vbetsch/portfolio/workflows/CD/badge.svg)](https://github.com/vbetsch/portfolio/actions?query=workflow%3ACD++)
 
 My official personal website
 
