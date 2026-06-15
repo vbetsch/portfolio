@@ -20,9 +20,9 @@ test.describe('Address links', () => {
     phoneNumberLink = footer.getByRole('link', { name: 'Appeler Victor Betsch par téléphone' });
     mailAddressLink = footer.getByRole('link', { name: 'Envoyer un e-mail à Victor Betsch' });
     linkedinProfileLink = footer.locator(
-      `a[href="https://www.linkedin.com/in/${process.env.ID_LINKEDIN}"]`
+      `a[href="https://www.linkedin.com/in/${process.env.APP_ID_LINKEDIN}"]`
     );
-    githubProfileLink = footer.locator(`a[href="https://github.com/${process.env.ID_GITHUB}"]`);
+    githubProfileLink = footer.locator(`a[href="https://github.com/${process.env.APP_ID_GITHUB}"]`);
   });
 
   test('should have the phone number', async () => {
@@ -30,7 +30,7 @@ test.describe('Address links', () => {
   });
 
   test('the phone number should be a tel link to the phone number', async () => {
-    await expect(phoneNumberLink).toHaveAttribute('href', `tel:${process.env.PHONE_NUMBER}`);
+    await expect(phoneNumberLink).toHaveAttribute('href', `tel:${process.env.APP_PHONE_NUMBER}`);
   });
 
   test('should have the mail address', async () => {
@@ -38,7 +38,7 @@ test.describe('Address links', () => {
   });
 
   test('the mail address should be a mailto link to the mail address', async () => {
-    await expect(mailAddressLink).toHaveAttribute('href', `mailto:${process.env.MAILTO_EMAIL}`);
+    await expect(mailAddressLink).toHaveAttribute('href', `mailto:${process.env.APP_MAILTO_EMAIL}`);
   });
 
   test('should have the linkedin profile', async () => {
