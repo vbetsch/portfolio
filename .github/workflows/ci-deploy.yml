@@ -17,7 +17,7 @@ on:
 jobs:
   deploy_on_preview:
     name: Preview
-    if: github.event_name == 'pull_request' && success()
+    if: contains(github.event.pull_request.labels.*.name, 'deploy-preview') && success()
     runs-on: ubuntu-latest
     environment: preview
     env:
