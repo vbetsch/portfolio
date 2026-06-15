@@ -27,11 +27,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: astro-build-folder
-          path: ${{ env.BUILD_FOLDER }}
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Build application
+        run: npm run build
+        env:
+          APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
+          APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
+          APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
+          APP_MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+          APP_PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
 
       - name: Deploy to Preview Bucket
         run: |
