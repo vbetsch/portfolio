@@ -9,8 +9,6 @@ on:
       - '.editorconfig'
       - '.gitignore'
       - 'README.md'
-  issue_comment:
-    types: [created]
 
 jobs:
   run-build:
@@ -38,7 +36,6 @@ jobs:
   run-deployment:
     name: Deployment
     needs: run-build
-    if: github.event.issue.pull_request && github.event.comment.body == '/deploy'
     uses: ./.github/workflows/ci-deploy.yml
     secrets:
       HOSTING_PROVIDER_ACCESS_KEY: ${{ secrets.HOSTING_PROVIDER_ACCESS_KEY }}
