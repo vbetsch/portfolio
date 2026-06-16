@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ secrets.HOSTING_PROVIDER_BASE_URL && 'preview' || 'post-build' }}
     timeout-minutes: 5
+    env:
+      TEST_CONTEXT: ${{ secrets.HOSTING_PROVIDER_BASE_URL && 'preview' || 'post-build' }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -20,7 +23,7 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Download Build Artifact
-        if: ${{ job.environment == 'post-build' }}
+        if: ${{ env.TEST_CONTEXT == 'post-build' }}
         uses: actions/download-artifact@v8
         with:
           name: astro-build-folder
@@ -44,6 +47,6 @@ jobs:
         uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: ${{ job.environment == 'post-build' && 'playwright-report-local' || format('playwright-report-{0}', job.environment) }}
+          name: ${{ env.TEST_CONTEXT == 'post-build' && 'playwright-report-local' || format('playwright-report-{0}', env.TEST_CONTEXT) }}
           path: playwright-report/
           retention-days: 7
