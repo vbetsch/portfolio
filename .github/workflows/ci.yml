@@ -49,4 +49,6 @@ jobs:
     needs: run-deploy
     uses: ./.github/workflows/ci-tests-e2e.yml
     with:
-      base_url: ${{ secrets.HOSTING_PROVIDER_BASE_URL || '' }}
+      base_url: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+    secrets:
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
