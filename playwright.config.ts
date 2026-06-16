@@ -4,8 +4,9 @@ import path from 'path';
 
 dotenv.config({ path: path.resolve(import.meta.dirname, '.env') });
 
-const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:4321/';
-const isPostDeploy = !!process.env.PLAYWRIGHT_BASE_URL;
+const localURL: string = 'http://localhost:4321/';
+const baseURL: string = process.env.PLAYWRIGHT_BASE_URL || localURL;
+const isPostDeploy: boolean = !!process.env.PLAYWRIGHT_BASE_URL;
 
 const config = defineConfig({
   testDir: './tests/e2e',
@@ -39,7 +40,7 @@ const config = defineConfig({
 if (!isPostDeploy) {
   config.webServer = {
     command: 'npm run start:prod',
-    url: 'http://localhost:4321/',
+    url: localURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
   };
