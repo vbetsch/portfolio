@@ -2,18 +2,12 @@ name: e2e tests
 
 on:
   workflow_call:
-    inputs:
-      base_url:
-        description: 'Target URL (keep empty for local tests)'
-        required: false
-        type: string
-        default: ''
 
 jobs:
   playwright:
     name: Playwright
     runs-on: ubuntu-latest
-    environment: ${{ inputs.base_url == '' && 'post-build' || '' }}
+    environment: post-build
     timeout-minutes: 5
     steps:
       - name: Checkout repository
@@ -23,7 +17,6 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Download Build Artifact
-        if: ${{ inputs.base_url == '' }}
         uses: actions/download-artifact@v8
         with:
           name: astro-build-folder
@@ -36,7 +29,6 @@ jobs:
         run: npm run test:e2e
         env:
           CI: true
-          PLAYWRIGHT_BASE_URL: ${{ inputs.base_url }}
           APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
           APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
           APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
@@ -47,6 +39,6 @@ jobs:
         uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: ${{ inputs.base_url == '' && 'playwright-report-local' || format('playwright-report-{0}', job.environment) }}
+          name: playwright-report
           path: playwright-report/
           retention-days: 7
