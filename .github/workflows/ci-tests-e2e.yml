@@ -15,28 +15,14 @@ jobs:
       - name: Restore Env & Node
         uses: ./.github/actions/setup-project
 
-      - name: Cache Playwright Browsers
-        id: playwright-cache
-        uses: actions/cache@v4
-        with:
-          path: ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-playwright-
-
-      - name: Install Playwright Browsers & Linux System Deps
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-        run: npx playwright install --with-deps
-
-      - name: Install Playwright OS Dependencies Only
-        if: steps.playwright-cache.outputs.cache-hit == 'true'
-        run: npx playwright install-deps
-
       - name: Download Build Artifact
         uses: actions/download-artifact@v8
         with:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
+
+      - name: Install Playwright Browsers & Linux System Deps
+        run: npx playwright install --with-deps
 
       - name: Run Playwright tests
         run: npm run test:e2e
