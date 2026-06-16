@@ -28,9 +28,9 @@ jobs:
         if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
-#      - name: Install Playwright OS Dependencies Only
-#        if: steps.playwright-cache.outputs.cache-hit == 'true'
-#        run: npx playwright install-deps
+      - name: Install Playwright OS Dependencies Only
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps
 
       - name: Download Build Artifact
         uses: actions/download-artifact@v8
