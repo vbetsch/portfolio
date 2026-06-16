@@ -2,20 +2,19 @@ name: e2e tests
 
 on:
   workflow_call:
-    outputs:
-      deployed_url:
-        description: "final URL of deployed website"
-        value: ${{ jobs.deploy.outputs.url }}
+    inputs:
+      base_url:
+        description: 'Target URL (keep empty for local tests)'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   playwright:
     name: Playwright
     runs-on: ubuntu-latest
-    environment: preview
+    environment: ${{ inputs.base_url == '' && 'post-build' || '' }}
     timeout-minutes: 5
-    outputs:
-      url: ${{ steps.set-url.outputs.url }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -51,7 +50,3 @@ jobs:
           name: ${{ inputs.base_url == '' && 'playwright-report-local' || format('playwright-report-{0}', job.environment) }}
           path: playwright-report/
           retention-days: 7
-
-      - name: Publish URL
-        id: set-url
-        run: echo "url=${{ vars.HOSTING_PROVIDER_BASE_URL }}" >> $GITHUB_OUTPUT
