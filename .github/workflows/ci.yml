@@ -43,9 +43,7 @@ jobs:
       HOSTING_PROVIDER_ENDPOINT_URL: ${{ secrets.HOSTING_PROVIDER_ENDPOINT_URL }}
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
 
-  run-smoke-tests:
+  run-smoke-e2e-tests:
     name: Smoke E2E Tests
     needs: run-deploy
-    uses: ./.github/workflows/ci-tests-e2e.yml
-    with:
-      base_url: ${{ vars.HOSTING_PROVIDER_BASE_URL }}
+    uses: ./.github/workflows/ci-tests-e2e-smoke.yml
