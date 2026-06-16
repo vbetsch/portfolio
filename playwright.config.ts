@@ -7,7 +7,7 @@ dotenv.config({ path: path.resolve(import.meta.dirname, '.env') });
 const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:4321/';
 const isPostDeploy = !!process.env.PLAYWRIGHT_BASE_URL;
 
-export default defineConfig({
+const config = defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -34,11 +34,15 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
   ],
+});
 
-  webServer: isPostDeploy ? undefined : {
+if (!isPostDeploy) {
+  config.webServer = {
     command: 'npm run start:prod',
     url: 'http://localhost:4321/',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-  },
-});
+  };
+}
+
+export default config;
