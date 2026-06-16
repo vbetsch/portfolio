@@ -44,6 +44,6 @@ jobs:
         uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: ${{ secrets.HOSTING_PROVIDER_ACCESS_KEY == '' && 'playwright-report-local' || format('playwright-report-{0}', job.environment) }}
+          name: ${{ inputs.base_url == '' && 'playwright-report-local' || 'playwright-report-prod' }}
           path: playwright-report/
           retention-days: 7
