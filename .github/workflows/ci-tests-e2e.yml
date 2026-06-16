@@ -3,7 +3,7 @@ name: e2e tests
 on:
   workflow_call:
     secrets:
-      HOSTING_PROVIDER_ACCESS_KEY:
+      HOSTING_PROVIDER_BASE_URL:
         required: false
 
 jobs:
