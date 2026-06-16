@@ -13,7 +13,7 @@ jobs:
   playwright:
     name: Playwright
     runs-on: ubuntu-latest
-    environment: ${{ inputs.base_url == '' && 'post-build' || '' }}
+    environment: ${{ inputs.base_url == '' && 'post-build' || 'preview' }}
     timeout-minutes: 5
     steps:
       - name: Checkout repository
