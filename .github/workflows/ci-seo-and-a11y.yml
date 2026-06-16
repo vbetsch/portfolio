@@ -7,6 +7,7 @@ jobs:
   lighthouse:
     name: Lighthouse
     runs-on: ubuntu-latest
+    environment: preview
     timeout-minutes: 5
     steps:
       - name: Checkout repository

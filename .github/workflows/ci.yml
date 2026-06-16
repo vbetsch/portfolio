@@ -26,13 +26,11 @@ jobs:
   run-e2e-tests:
     name: E2E Tests
     needs: run-build
-    environment: preview
     uses: ./.github/workflows/ci-tests-e2e.yml
 
   run-a11y-and-seo:
     name: SEO & Accessibility
     needs: run-build
-    environment: preview
     uses: ./.github/workflows/ci-seo-and-a11y.yml
 
   run-deployment:
