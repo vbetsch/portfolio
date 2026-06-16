@@ -49,4 +49,4 @@ jobs:
     needs: run-deploy
     uses: ./.github/workflows/ci-tests-e2e.yml
     secrets:
-      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+      SMOKE_TEST_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
