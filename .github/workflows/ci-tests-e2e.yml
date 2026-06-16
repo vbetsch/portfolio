@@ -5,12 +5,18 @@ on:
     secrets:
       HOSTING_PROVIDER_BASE_URL:
         required: false
+    inputs:
+      base_url:
+        description: 'Target URL (keep empty for local tests)'
+        required: false
+        type: string
+        default: ''
 
 jobs:
   playwright:
     name: Playwright
     runs-on: ubuntu-latest
-    environment: ${{ secrets.HOSTING_PROVIDER_BASE_URL && 'preview' || 'post-build' }}
+    environment: ${{ inputs.base_url == '' && 'post-build' || '' }}
     timeout-minutes: 5
     steps:
       - name: Checkout repository
@@ -20,7 +26,7 @@ jobs:
         uses: ./.github/actions/setup-project
 
       - name: Download Build Artifact
-        if: ${{ job.environment == 'post-build' }}
+        if: ${{ inputs.base_url == '' }}
         uses: actions/download-artifact@v8
         with:
           name: astro-build-folder
@@ -33,7 +39,7 @@ jobs:
         run: npm run test:e2e
         env:
           CI: true
-          PLAYWRIGHT_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+          PLAYWRIGHT_BASE_URL: ${{ inputs.base_url || secrets.HOSTING_PROVIDER_BASE_URL }}
           APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
           APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
           APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
@@ -44,6 +50,6 @@ jobs:
         uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: ${{ job.environment == 'post-build' && 'playwright-report-local' || format('playwright-report-{0}', job.environment) }}
+          name: ${{ inputs.base_url == '' && 'playwright-report-local' || format('playwright-report-{0}', job.environment) }}
           path: playwright-report/
           retention-days: 7
