@@ -2,9 +2,6 @@ name: e2e tests
 
 on:
   workflow_call:
-    secrets:
-      SMOKE_TEST_URL:
-        required: false
     inputs:
       base_url:
         description: 'Target URL (keep empty for local tests)'
@@ -39,7 +36,7 @@ jobs:
         run: npm run test:e2e
         env:
           CI: true
-          PLAYWRIGHT_BASE_URL: ${{ inputs.base_url || secrets.SMOKE_TEST_URL }}
+          PLAYWRIGHT_BASE_URL: ${{ inputs.base_url }}
           APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
           APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
           APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
