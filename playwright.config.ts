@@ -4,6 +4,9 @@ import path from 'path';
 
 dotenv.config({ path: path.resolve(import.meta.dirname, '.env') });
 
+const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:4321/';
+const isPostDeploy = !!process.env.PLAYWRIGHT_BASE_URL;
+
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
@@ -13,7 +16,7 @@ export default defineConfig({
   reporter: 'html',
 
   use: {
-    baseURL: 'http://localhost:4321/',
+    baseURL: baseURL,
     trace: 'on-first-retry',
   },
 
@@ -32,7 +35,7 @@ export default defineConfig({
     },
   ],
 
-  webServer: {
+  webServer: isPostDeploy ? undefined : {
     command: 'npm run start:prod',
     url: 'http://localhost:4321/',
     reuseExistingServer: !process.env.CI,
