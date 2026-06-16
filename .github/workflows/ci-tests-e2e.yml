@@ -8,6 +8,8 @@ jobs:
     name: Playwright
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    container:
+      image: mcr.microsoft.com/playwright:v1.60.0-noble
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -20,9 +22,6 @@ jobs:
         with:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
-
-      - name: Install Playwright Browsers & Linux System Deps
-        run: npx playwright install --with-deps
 
       - name: Run Playwright tests
         run: npm run test:e2e
