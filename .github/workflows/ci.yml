@@ -46,7 +46,6 @@ jobs:
   run-smoke-tests:
     name: Smoke E2E Tests
     needs: run-deploy
-    environment: preview
     uses: ./.github/workflows/ci-tests-e2e.yml
     with:
       base_url: ${{ vars.HOSTING_PROVIDER_BASE_URL }}
