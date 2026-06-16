@@ -33,8 +33,8 @@ jobs:
     needs: run-build
     uses: ./.github/workflows/ci-seo-and-a11y.yml
 
-  run-deployment:
-    name: Deployment
+  run-deploy:
+    name: Deploy
     needs: run-build
     uses: ./.github/workflows/ci-deploy.yml
     secrets:
