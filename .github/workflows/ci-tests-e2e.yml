@@ -47,6 +47,6 @@ jobs:
         uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: ${{ inputs.base_url != '' && 'playwright-report-prod' || 'playwright-report-local' }}
+          name: ${{ inputs.base_url == '' && 'playwright-report-local' || 'playwright-report-prod' }}
           path: playwright-report/
           retention-days: 7
