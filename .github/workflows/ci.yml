@@ -44,7 +44,7 @@ jobs:
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
 
   run-smoke-tests:
-    name: Smoke Tests
+    name: Smoke E2E Tests
     needs: run-deploy
     uses: ./.github/workflows/ci-tests-e2e.yml
     with:
