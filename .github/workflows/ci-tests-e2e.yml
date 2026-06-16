@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       base_url:
-        description: 'target URL (keep empty for local tests)'
+        description: 'Target URL (keep empty for local tests)'
         required: false
         type: string
         default: ''
