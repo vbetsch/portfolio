@@ -28,6 +28,11 @@ jobs:
         run: npm run test:e2e
         env:
           CI: true
+          CV_PDF_NAME_FILE: ${{ vars.CV_PDF_NAME_FILE }}
+          ID_GITHUB: ${{ vars.ID_GITHUB }}
+          ID_LINKEDIN: ${{ vars.ID_LINKEDIN }}
+          MAILTO_EMAIL: ${{ vars.MAILTO_EMAIL }}
+          PHONE_NUMBER: ${{ vars.PHONE_NUMBER }}
 
       - name: Upload Playwright Report (On Failure Only)
         uses: actions/upload-artifact@v7
