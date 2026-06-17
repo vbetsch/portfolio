@@ -33,15 +33,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v8
+      - name: Deploy with Composite Action
+        uses: ./.github/actions/s3-deploy
         with:
-          name: astro-build-folder
-          path: ${{ env.BUILD_FOLDER }}
-
-      - name: Deploy on Develop environment
-        run: |
-          aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url $ENDPOINT_URL --delete
+          aws_access_key_id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          endpoint_url: ${{ env.ENDPOINT_URL }}
+          aws_default_region: ${{ env.AWS_DEFAULT_REGION }}
+          bucket_name: ${{ env.BUCKET_NAME }}
+          build_folder: ${{ env.BUILD_FOLDER }}
 
   prod:
     name: Production
@@ -53,12 +53,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v8
+      - name: Deploy with Composite Action
+        uses: ./.github/actions/s3-deploy
         with:
-          name: astro-build-folder
-          path: ${{ env.BUILD_FOLDER }}
-
-      - name: Deploy on Production environment
-        run: |
-          aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url $ENDPOINT_URL --delete
+          aws_access_key_id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          endpoint_url: ${{ env.ENDPOINT_URL }}
+          aws_default_region: ${{ env.AWS_DEFAULT_REGION }}
+          bucket_name: ${{ env.BUCKET_NAME }}
+          build_folder: ${{ env.BUILD_FOLDER }}

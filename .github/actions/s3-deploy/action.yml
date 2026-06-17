@@ -1,0 +1,40 @@
+name: 'S3 Deployment'
+description: 'Download artifact and synchronize build with s3 bucket'
+
+inputs:
+  aws_access_key_id:
+    description: 'The AWS access key ID used to authenticate with the hosting provider'
+    required: true
+  aws_secret_access_key:
+    description: 'The AWS secret access key used to authenticate with the hosting provider'
+    required: true
+  endpoint_url:
+    description: 'The custom endpoint URL of the object storage service'
+    required: true
+  aws_default_region:
+    description: 'The default region where the storage bucket is located'
+    required: true
+  bucket_name:
+    description: 'The name of the target S3/Object Storage bucket for the deployment'
+    required: true
+  build_folder:
+    description: 'The local path of the build directory to sync with the bucket'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v8
+      with:
+        name: astro-build-folder
+        path: ${{ inputs.build_folder }}
+
+    - name: Deploy to S3
+      shell: bash
+      env:
+        AWS_ACCESS_KEY_ID: ${{ inputs.aws_access_key_id }}
+        AWS_SECRET_ACCESS_KEY: ${{ inputs.aws_secret_access_key }}
+        AWS_DEFAULT_REGION: ${{ inputs.aws_default_region }}
+      run: |
+        aws s3 sync ${{ inputs.build_folder }}/ s3://${{ inputs.bucket_name }} --endpoint-url ${{ inputs.endpoint_url }} --delete
