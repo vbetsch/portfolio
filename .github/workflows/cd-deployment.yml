@@ -11,6 +11,8 @@ on:
         required: true
       HOSTING_PROVIDER_DEFAULT_REGION:
         required: true
+      HOSTING_PROVIDER_BUCKET_NAME:
+        required: true
 
 env:
   AWS_ACCESS_KEY_ID: ${{ secrets.HOSTING_PROVIDER_ACCESS_KEY }}
@@ -18,7 +20,7 @@ env:
   AWS_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
   BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
   ENDPOINT_URL: ${{ secrets.HOSTING_PROVIDER_ENDPOINT_URL }}
-  BUCKET_NAME: ${{ vars.HOSTING_PROVIDER_BUCKET_NAME }}
+  BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_NAME }}
 
 jobs:
   develop:
