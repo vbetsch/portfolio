@@ -24,7 +24,7 @@ env:
 
 jobs:
   develop:
-    name: Deploy on Develop
+    name: Develop
     if: github.ref == 'refs/heads/develop' && success()
     runs-on: ubuntu-latest
     environment: develop
@@ -44,7 +44,7 @@ jobs:
           aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url $ENDPOINT_URL --delete
 
   prod:
-    name: Deploy on Production
+    name: Production
     if: github.ref == 'refs/heads/master' && success()
     runs-on: ubuntu-latest
     environment: production
