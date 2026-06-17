@@ -47,5 +47,3 @@ jobs:
     name: Smoke E2E Tests
     needs: run-deploy
     uses: ./.github/workflows/ci-tests-e2e-smoke.yml
-    secrets:
-      HOSTING_PROVIDER_BASE_URL_PREVIEW: ${{ secrets.HOSTING_PROVIDER_BASE_URL_PREVIEW }}

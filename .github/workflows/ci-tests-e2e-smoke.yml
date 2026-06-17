@@ -2,14 +2,12 @@ name: smoke e2e tests
 
 on:
   workflow_call:
-    secrets:
-      HOSTING_PROVIDER_BASE_URL_PREVIEW:
-        required: true
 
 jobs:
   playwright:
     name: Playwright
     runs-on: ubuntu-latest
+    environment: preview
     timeout-minutes: 5
     steps:
       - name: Checkout repository
@@ -25,7 +23,7 @@ jobs:
         run: npm run test:e2e
         env:
           CI: true
-          PLAYWRIGHT_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL_PREVIEW }}
+          PLAYWRIGHT_BASE_URL: ${{ vars.HOSTING_PROVIDER_BASE_URL }}
           APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
           APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
           APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
