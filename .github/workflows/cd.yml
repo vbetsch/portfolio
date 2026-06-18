@@ -31,3 +31,8 @@ jobs:
       HOSTING_PROVIDER_ENDPOINT_URL: ${{ secrets.HOSTING_PROVIDER_ENDPOINT_URL }}
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
       HOSTING_PROVIDER_BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_NAME }}
+
+  run-web-vitals:
+    name: Web Vitals
+    needs: run-deployment
+    uses: ./.github/workflows/cd-web-vitals.yml
