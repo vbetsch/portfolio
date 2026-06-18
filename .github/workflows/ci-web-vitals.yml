@@ -1,4 +1,4 @@
-name: SEO and a11y
+name: web vitals
 
 on:
   workflow_call:
@@ -22,7 +22,7 @@ jobs:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
 
-      - name: Audit SEO & Performance (Lighthouse)
+      - name: Audit SEO, Accessibility and Performance
         run: npm run lighthouse
 
       - name: Upload Lighthouse Report (On Failure Only)

@@ -32,10 +32,10 @@ jobs:
     needs: run-build
     uses: ./.github/workflows/ci-tests-seo.yml
 
-  run-seo-and-a11y:
-    name: SEO & Accessibility
+  run-web-vitals:
+    name: Web Vitals
     needs: run-build
-    uses: ./.github/workflows/ci-seo-and-a11y.yml
+    uses: ./.github/workflows/ci-web-vitals.yml
 
   run-deploy:
     name: Deploy
