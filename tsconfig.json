@@ -20,7 +20,8 @@
       "@components/*": ["./src/components/*"],
       "@data/*": ["./src/data/*"],
       "@enums/*": ["./src/enums/*"],
-      "@t/*": ["./src/types/*"]
+      "@t/*": ["./src/types/*"],
+      "@utils/*": ["./src/utils/*"]
     },
     "plugins": [{ "name": "@astrojs/ts-plugin" }]
   },
