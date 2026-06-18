@@ -2,7 +2,6 @@
   "extends": ["html-validate:recommended"],
   "elements": ["html5"],
   "rules": {
-    "trailing-slash": "never",
-    "void-style": "selfclose"
+    "void-style": ["error", { "style": "selfclose" }]
   }
 }
