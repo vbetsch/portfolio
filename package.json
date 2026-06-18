@@ -39,7 +39,7 @@
   "name": "portfolio",
   "scripts": {
     "build": "astro build",
-    "check": "npm run check:tsc && npm run check:astro && npm run lint",
+    "check": "npm run lint:ox && npm run check:tsc && npm run check:astro && npm run lint:es:strict",
     "check:astro": "astro check",
     "check:lint": "npm run lint",
     "check:tsc": "tsc",
