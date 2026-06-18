@@ -4,11 +4,7 @@ import path from 'path';
 
 dotenv.config({ path: path.resolve(import.meta.dirname, '.env') });
 
-const localURL: string = 'http://localhost:4321/';
-const baseURL: string = process.env.PLAYWRIGHT_BASE_URL || localURL;
-const isPostDeploy: boolean = !!process.env.PLAYWRIGHT_BASE_URL;
-
-const config = defineConfig({
+export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
@@ -17,7 +13,7 @@ const config = defineConfig({
   reporter: 'html',
 
   use: {
-    baseURL: baseURL,
+    baseURL: 'http://localhost:4321/',
     trace: 'on-first-retry',
   },
 
@@ -35,15 +31,11 @@ const config = defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
   ],
-});
 
-if (!isPostDeploy) {
-  config.webServer = {
+  webServer: {
     command: 'npm run start:prod',
-    url: localURL,
+    url: 'http://localhost:4321/',
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-  };
-}
-
-export default config;
+  },
+});
