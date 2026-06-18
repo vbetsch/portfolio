@@ -50,6 +50,7 @@
     "lint:es": "eslint",
     "lint:es:strict": "eslint --max-warnings=0",
     "lint:ox": "oxlint",
+    "playwright": "npm run build && npm run test:e2e:ui",
     "start:dev": "astro dev --host",
     "start:prod": "astro preview",
     "start:prod:expose": "astro preview --host",
