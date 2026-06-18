@@ -27,6 +27,11 @@ jobs:
     needs: run-build
     uses: ./.github/workflows/ci-tests-e2e.yml
 
+  run-tests-seo:
+    name: SEO Tests
+    needs: run-build
+    uses: ./.github/workflows/ci-tests-seo.yml
+
   run-seo-and-a11y:
     name: SEO & Accessibility
     needs: run-build
