@@ -6,9 +6,12 @@ test('The homepage complies with WCAG standards', async ({ page }) => {
   const scanResults = await new AxeBuilder({ page }).analyze();
 
   if (scanResults.violations.length > 0) {
-    const errorLog = scanResults.violations.map(violation =>
-      `❌ Rule: ${violation.id} (${violation.help})\n   Impact: ${violation.impact}\n   Elements concerned: ${violation.nodes.map(node => node.target).join(', ')}`
-    ).join('\n\n');
+    const errorLog = scanResults.violations
+      .map(
+        violation =>
+          `❌ Rule: ${violation.id} (${violation.help})\n   Impact: ${violation.impact}\n   Elements concerned: ${violation.nodes.map(node => node.target).join(', ')}`
+      )
+      .join('\n\n');
 
     throw new Error(`Accessibility violations detected :\n\n${errorLog}`);
   }
