@@ -1,3 +1,3 @@
-export function formatWithNonBreakingSpaces(value: string) {
+export function formatWithNonBreakingSpaces(value: string): string {
   return value.replaceAll(' ', '&nbsp;');
 }
