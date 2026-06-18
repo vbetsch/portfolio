@@ -12,22 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Restore Env & Node
-        uses: ./.github/actions/setup-project
-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: astro-build-folder
-          path: ${{ vars.APP_BUILD_FOLDER }}
-
-      - name: Audit SEO, Accessibility and Performance
-        run: npm run lighthouse
-
-      - name: Upload Lighthouse Report (On Failure Only)
-        uses: actions/upload-artifact@v7
-        if: failure()
-        with:
-          name: lighthouse-report
-          path: lighthouse-report/
-          retention-days: 7
+      - name: Run Composite Action
+        uses: ./.github/actions/web-vitals
+        env:
+          BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
