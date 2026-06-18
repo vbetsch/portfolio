@@ -1,4 +1,6 @@
 name: 'Setup Project'
+description: 'Set-up NodeJS and install dependencies if needed'
+
 runs:
   using: 'composite'
   steps:
