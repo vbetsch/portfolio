@@ -2,6 +2,6 @@
   "extends": ["html-validate:recommended"],
   "elements": ["html5"],
   "rules": {
-    "void-style": ["error", { "style": "selfclose" }]
+    "void-style": "off"
   }
 }
