@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import {formatWithNonBreakingSpaces} from "@utils/format-with-non-breaking-spaces.ts";
+import { formatWithNonBreakingSpaces } from '@utils/format-with-non-breaking-spaces.ts';
 
 describe('formatWithNonBreakingSpaces', () => {
   it('with a string with spaces, should return string with breaking spaces instead of spaces', () => {
@@ -14,4 +14,4 @@ describe('formatWithNonBreakingSpaces', () => {
     const input: string = 'this&nbsp;is&nbsp;an&nbsp;input';
     expect(formatWithNonBreakingSpaces(input)).toBe(input);
   });
-})
+});
