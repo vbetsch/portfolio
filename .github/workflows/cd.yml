@@ -1,41 +1,30 @@
-name: CI
+name: CD
 
 on:
-  pull_request:
+  push:
+    branches: ['master', 'develop']
     paths-ignore:
       - '.vscode/**'
       - 'docs/**'
+      - 'tests/**'
       - '.editorconfig'
       - '.gitignore'
+      - '.lighthouserc.json'
+      - '.prettier*'
       - 'README.md'
+      - 'eslint.config.mjs'
+      - 'playwright.config.ts'
+      - 'vitest.config.ts'
 
 jobs:
   run-build:
     name: Build
     uses: ./.github/workflows/build.yml
 
-  run-linter:
-    name: Linter
-    uses: ./.github/workflows/ci-linter.yml
-
-  run-tests-unit:
-    name: Unit Tests
-    uses: ./.github/workflows/ci-tests-unit.yml
-
-  run-tests-e2e:
-    name: E2E Tests
+  run-deployment:
+    name: Deployment
     needs: run-build
-    uses: ./.github/workflows/ci-tests-e2e.yml
-
-  run-seo-and-a11y:
-    name: SEO & Accessibility
-    needs: run-build
-    uses: ./.github/workflows/ci-seo-and-a11y.yml
-
-  run-deploy:
-    name: Deploy
-    needs: run-build
-    uses: ./.github/workflows/ci-deploy.yml
+    uses: ./.github/workflows/cd-deployment.yml
     secrets:
       HOSTING_PROVIDER_ACCESS_KEY: ${{ secrets.HOSTING_PROVIDER_ACCESS_KEY }}
       HOSTING_PROVIDER_SECRET_KEY: ${{ secrets.HOSTING_PROVIDER_SECRET_KEY }}

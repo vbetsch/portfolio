@@ -1,9 +1,9 @@
 type ImportMetaEnv = {
-  readonly CV_PDF_NAME_FILE: string;
-  readonly ID_GITHUB: string;
-  readonly ID_LINKEDIN: string;
-  readonly MAILTO_EMAIL: string;
-  readonly PHONE_NUMBER: string;
+  readonly APP_CV_PDF_NAME_FILE: string;
+  readonly APP_ID_GITHUB: string;
+  readonly APP_ID_LINKEDIN: string;
+  readonly APP_MAILTO_EMAIL: string;
+  readonly APP_PHONE_NUMBER: string;
 }
 
 type ImportMeta = {

@@ -1,0 +1,34 @@
+name: SEO and a11y
+
+on:
+  workflow_call:
+
+jobs:
+  lighthouse:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    environment: post-build
+    timeout-minutes: 5
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: astro-build-folder
+          path: ${{ vars.APP_BUILD_FOLDER }}
+
+      - name: Audit SEO & Performance (Lighthouse)
+        run: npm run lighthouse
+
+      - name: Upload Lighthouse Report (On Failure Only)
+        uses: actions/upload-artifact@v7
+        if: failure()
+        with:
+          name: lighthouse-report
+          path: lighthouse-report/
+          retention-days: 7
