@@ -36,7 +36,7 @@ test.describe('Hero', () => {
     test('the Contact Me CTA button should be a mailto link to the mail address', async () => {
       await expect(contactMeCTAButton).toHaveAttribute(
         'href',
-        `mailto:${process.env.MAILTO_EMAIL}`
+        `mailto:${process.env.APP_MAILTO_EMAIL}`
       );
     });
 
@@ -44,7 +44,7 @@ test.describe('Hero', () => {
       await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');
       await expect(downloadCVCTAButton).toHaveAttribute(
         'download',
-        `${process.env.CV_PDF_NAME_FILE}.pdf`
+        `${process.env.APP_CV_PDF_NAME_FILE}.pdf`
       );
     });
   });

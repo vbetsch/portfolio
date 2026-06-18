@@ -21,7 +21,10 @@ test.describe('Navbar', () => {
 
   test.describe('Contact Me', () => {
     test('should be a mailto link to the mail address', async () => {
-      await expect(contactMeElement).toHaveAttribute('href', `mailto:${process.env.MAILTO_EMAIL}`);
+      await expect(contactMeElement).toHaveAttribute(
+        'href',
+        `mailto:${process.env.APP_MAILTO_EMAIL}`
+      );
     });
   });
 });
