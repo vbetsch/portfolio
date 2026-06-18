@@ -1,4 +1,4 @@
-name: SEO and a11y
+name: web vitals
 
 on:
   workflow_call:
@@ -8,7 +8,6 @@ jobs:
     name: Lighthouse
     runs-on: ubuntu-latest
     environment: post-build
-    timeout-minutes: 5
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -22,7 +21,7 @@ jobs:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
 
-      - name: Audit SEO & Performance (Lighthouse)
+      - name: Audit SEO, Accessibility and Performance
         run: npm run lighthouse
 
       - name: Upload Lighthouse Report (On Failure Only)

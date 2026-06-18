@@ -1,0 +1,25 @@
+name: SEO
+
+on:
+  workflow_call:
+
+jobs:
+  html:
+    name: HTML Validate
+    runs-on: ubuntu-latest
+    environment: post-build
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Download Build Artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: astro-build-folder
+          path: ${{ vars.APP_BUILD_FOLDER }}
+
+      - name: Validate HTML structure
+        run: npm run test:html

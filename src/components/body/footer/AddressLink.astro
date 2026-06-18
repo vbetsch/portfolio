@@ -1,6 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
-import type { AddressLinkType } from '@t/address-link.type.ts';
+import type { AddressLinkType } from '@/types/address-link.type.ts';
+import { formatWithNonBreakingSpaces } from '@utils/format-with-non-breaking-spaces.ts';
 
 type Props = AddressLinkType & {};
 
@@ -15,7 +16,7 @@ const props: Props = { ...defaults, ...Astro.props };
   aria-label={props.ariaLabel}
 >
   <Icon name={props.iconName} />
-  <span>{props.label}</span>
+  <span set:html={formatWithNonBreakingSpaces(props.label)} />
 </a>
 
 <style>
