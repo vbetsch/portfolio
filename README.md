@@ -152,3 +152,7 @@ npm run test:html        # Run HTML tests
 npm run test:e2e:ui      # Run End-To-End tests
 npm run start:prod       # Check production execution
 ```
+
+## ➕ See more
+
+- [Test plan](docs/TESTS.md)
