@@ -126,7 +126,7 @@ npm run format           # Format code
 npm run check            # Type-checking, astro check and linters
 npm run test:units:cov   # Run all unit tests
 npm run build            # Run production build
+npm run test:html        # Run HTML tests
 npm run test:e2e:ui      # Run End-To-End tests
-npm run lighthouse       # Run Lighthouse checks
 npm run start:prod       # Check production execution
 ```
