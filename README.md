@@ -43,16 +43,30 @@ npm test
 
 ### End-To-End
 
-#### Run e2e tests in CLI
+#### Run all e2e tests in CLI
 
 ```bash
 npm run test:e2e
 ```
 
-#### Run e2e tests in UI
+#### Run all e2e tests in UI
 
 ```bash
 npm run test:e2e:ui
+```
+
+#### Run only e2e tests with tag @a11y
+
+##### in CLI
+
+```bash
+npm run test:e2e:tag -- @a11y
+```
+
+##### in UI
+
+```bash
+npm run test:e2e:ui:tag -- @a11y
 ```
 
 ### Units tests
