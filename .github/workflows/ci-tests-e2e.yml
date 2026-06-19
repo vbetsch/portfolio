@@ -7,8 +7,10 @@ jobs:
   setup-version:
     name: Get Playwright Version
     runs-on: ubuntu-latest
+
     outputs:
       playwright-version: ${{ steps.get-version.outputs.version }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
