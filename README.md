@@ -155,4 +155,4 @@ npm run start:prod       # Check production execution
 
 ## ➕ See more
 
-- [Test plan](docs/TESTS.md)
+- [Smoke Tests Strategy](docs/SMOKE_TESTS_STRATEGY.md)
