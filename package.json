@@ -57,7 +57,7 @@
     "start:prod": "astro preview",
     "start:prod:expose": "astro preview --host",
     "sync": "astro sync",
-    "test": "npm run test:units && npm run e2e",
+    "test": "npm run test:html && npm run test:units && npm run e2e",
     "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:html": "html-validate \"dist/**/*.html\"",
