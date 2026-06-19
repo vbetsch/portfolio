@@ -89,6 +89,14 @@ npm run test:e2e:tag -- @a11y
 npm run test:e2e:ui:tag -- @a11y
 ```
 
+### HTML
+
+#### Validate HTML structure
+
+```bash
+npm run test:html
+```
+
 ## 🧹 Linting & Formatting
 
 ### Run Oxlint in default mode
