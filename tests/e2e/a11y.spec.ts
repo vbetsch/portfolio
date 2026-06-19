@@ -1,7 +1,7 @@
 import { test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-test('The homepage complies with WCAG standards @a11y', async ({ page }) => {
+test('The homepage complies with WCAG standards @a11y @smoke-lv3', async ({ page }) => {
   await page.goto('/');
   const scanResults = await new AxeBuilder({ page }).analyze();
 

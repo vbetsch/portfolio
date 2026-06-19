@@ -12,7 +12,7 @@ test.describe('Hero', () => {
     downloadCVCTAButton = mainSection.getByRole('link', { name: 'Télécharger mon CV' });
   });
 
-  test('should have the role as first title', async () => {
+  test('should have the role as first title @main-title @smoke-lv1', async () => {
     const firstTitle = mainSection.locator('h1');
     await expect(firstTitle).toContainText('Développeur web full-stack');
   });

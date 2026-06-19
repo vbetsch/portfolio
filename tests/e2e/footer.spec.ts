@@ -6,7 +6,7 @@ test('should have the fullname', async ({ page }) => {
   await expect(_footer).toContainText('Victor BETSCH');
 });
 
-test.describe('Address links', () => {
+test.describe('Address links @a11y @smoke-lv3', () => {
   let footer: Locator;
   let phoneNumberLink: Locator;
   let mailAddressLink: Locator;
