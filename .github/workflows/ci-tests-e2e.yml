@@ -4,14 +4,35 @@ on:
   workflow_call:
 
 jobs:
-  playwright:
-    name: Playwright
+  setup-version:
+    name: Get Playwright Version
     runs-on: ubuntu-latest
-    environment: post-build
+
+    outputs:
+      playwright-version: ${{ steps.get-version.outputs.version }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+
+      - name: Get Playwright version
+        id: get-version
+        run: |
+          VERSION=$(node -p "require('./package.json').devDependencies['@playwright/test']" | sed 's/[^0-9.]//g')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+  playwright:
+    name: Playwright
+    needs: setup-version
+    runs-on: ubuntu-latest
+    environment: post-build
+
+    container:
+      image: mcr.microsoft.com/playwright:v${{ needs.setup-version.outputs.playwright-version }}-noble
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
 
       - name: Restore Env & Node
         uses: ./.github/actions/setup-project
@@ -22,13 +43,12 @@ jobs:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
 
-      - name: Install Playwright Browsers & Linux System Deps
-        run: npx playwright install --with-deps
-
       - name: Run Playwright tests
         run: npm run test:e2e
         env:
           CI: true
+          HOME: /root
+          DOCKER_CONFIG: /tmp/.docker
           APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
           APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
           APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
