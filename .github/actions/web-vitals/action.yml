@@ -14,6 +14,7 @@ runs:
         path: ${{ env.BUILD_FOLDER }}
 
     - name: Audit SEO, Accessibility and Performance
+      shell: bash
       run: npm run lighthouse
 
     - name: Upload Lighthouse Report (On Failure Only)
