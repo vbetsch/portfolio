@@ -41,6 +41,26 @@ npm run start:dev
 npm test
 ```
 
+### Units tests
+
+#### Run units tests in default mode
+
+```bash
+npm run test:units
+```
+
+#### Run units tests with coverage
+
+```bash
+npm run test:units:cov
+```
+
+#### Run units tests in watch mode
+
+```bash
+npm run test:units:watch
+```
+
 ### End-To-End
 
 #### Run all e2e tests in CLI
@@ -67,26 +87,6 @@ npm run test:e2e:tag -- @a11y
 
 ```bash
 npm run test:e2e:ui:tag -- @a11y
-```
-
-### Units tests
-
-#### Run units tests in default mode
-
-```bash
-npm run test:units
-```
-
-#### Run units tests with coverage
-
-```bash
-npm run test:units:cov
-```
-
-#### Run units tests in watch mode
-
-```bash
-npm run test:units:watch
 ```
 
 ## 🧹 Linting & Formatting
