@@ -7,7 +7,6 @@ jobs:
   setup-version:
     name: Get Playwright Version
     runs-on: ubuntu-latest
-    environment: post-build
 
     outputs:
       playwright-version: ${{ steps.get-version.outputs.version }}
