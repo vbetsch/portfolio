@@ -35,6 +35,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
       - name: Download Build Artifact
         uses: actions/download-artifact@v8
         with:
@@ -42,7 +45,7 @@ jobs:
           path: ${{ vars.APP_BUILD_FOLDER }}
 
       - name: Run Playwright tests
-        run: npx playwright test
+        run: npm run test:e2e
         env:
           CI: true
           HOME: /root
