@@ -46,6 +46,7 @@ jobs:
         env:
           CI: true
           HOME: /root
+          DOCKER_CONFIG: /tmp/.docker
           APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
           APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
           APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
