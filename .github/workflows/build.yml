@@ -12,8 +12,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
       - name: Build application
-        run: npx astro build
+        run: npm run build
         env:
           APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
           APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}

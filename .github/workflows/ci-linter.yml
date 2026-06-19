@@ -12,17 +12,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
       - name: Run Oxlint
-        run: npx oxlint
+        run: npm run lint:ox
 
       - name: Synchronize Astro Types
-        run: npx astro sync
+        run: npm run sync
 
       - name: Check TypeScript
-        run: npx tsc
+        run: npm run check:tsc
 
       - name: Check Astro
-        run: npx astro check
+        run: npm run check:astro
 
       - name: Run ESLint in strict mode
-        run: npx eslint --max-warnings=0
+        run: npm run lint:es:strict
