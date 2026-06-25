@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import { E2ETagsEnum } from '@tests/e2e/e2e-tags.enum';
+import { E2ETagsEnum } from '@tests/playwright/e2e-tags.enum.ts';
 import { StatusCodes } from 'http-status-codes';
 
 test.describe(

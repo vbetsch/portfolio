@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { E2ETagsEnum } from '@tests/e2e/e2e-tags.enum.ts';
+import { E2ETagsEnum } from '@tests/playwright/e2e-tags.enum.ts';
 
 test(
   'The homepage complies with WCAG standards',
