@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-import {StatusCodes} from "http-status-codes";
+import { StatusCodes } from 'http-status-codes';
 
 test.describe('Vitality Check @smoke-lv1', () => {
   test('Healthcheck - Should return HTTP 200 connectivity @healthcheck', async ({ request }) => {
