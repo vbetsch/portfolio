@@ -48,7 +48,11 @@ test.describe('Hero', () => {
     test(
       'the Download CV CTA button should be a download link to the CV',
       {
-        tag: [PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.PDF_FILE],
+        tag: [
+          PlaywrightTagsEnum.SMOKE_LEVEL_2,
+          PlaywrightTagsEnum.ASSETS,
+          PlaywrightTagsEnum.PDF_FILE,
+        ],
       },
       async () => {
         await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');
