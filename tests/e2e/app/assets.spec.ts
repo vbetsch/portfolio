@@ -43,13 +43,13 @@ test.describe(
           'The link tag from the Astro CSS cannot be found in the DOM'
         ).not.toBeNull();
 
-        if (cssMatch) {
-          const cssUrl = cssMatch[1];
-
-          const cssResponse = await request.get(cssUrl);
-          expect(cssResponse.status()).toBe(200);
-          expect(cssResponse.headers()['content-type']).toContain('text/css');
+        if (!cssMatch || !cssMatch[1]) {
+          return;
         }
+
+        const cssResponse = await request.get(cssMatch[1]);
+        expect(cssResponse.status()).toBe(200);
+        expect(cssResponse.headers()['content-type']).toContain('text/css');
       }
     );
   }
