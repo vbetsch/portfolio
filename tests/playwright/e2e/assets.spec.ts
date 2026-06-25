@@ -1,16 +1,16 @@
 import { test, expect } from '@playwright/test';
-import { E2ETagsEnum } from '@tests/playwright/e2e-tags.enum.ts';
+import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
 import { StatusCodes } from 'http-status-codes';
 
 test.describe(
   'Assets Integrity',
   {
-    tag: [E2ETagsEnum.SMOKE_LEVEL_2, E2ETagsEnum.ASSETS],
+    tag: [PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.ASSETS],
   },
   () => {
     test(
       'Favicon - Should return HTTP 200 and correct Content-Type',
-      { tag: [E2ETagsEnum.FAVICON] },
+      { tag: [PlaywrightTagsEnum.FAVICON] },
       async ({ request }) => {
         const response = await request.get('/favicon.ico');
         expect(response.status()).toBe(StatusCodes.OK);
@@ -20,7 +20,7 @@ test.describe(
 
     test(
       'CV PDF - Should return HTTP 200 and application/pdf',
-      { tag: [E2ETagsEnum.PDF_FILE] },
+      { tag: [PlaywrightTagsEnum.PDF_FILE] },
       async ({ request }) => {
         const response = await request.get(`/files/cv_fr.pdf`);
         expect(response.status()).toBe(StatusCodes.OK);
@@ -30,7 +30,7 @@ test.describe(
 
     test(
       'Compiled CSS - Should exist in DOM and return HTTP 200',
-      { tag: [E2ETagsEnum.CSS_FILE] },
+      { tag: [PlaywrightTagsEnum.CSS_FILE] },
       async ({ request }) => {
         const homeResponse = await request.get('/');
         expect(homeResponse.status()).toBe(StatusCodes.OK);

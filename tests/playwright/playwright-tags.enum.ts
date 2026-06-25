@@ -1,4 +1,4 @@
-export enum E2ETagsEnum {
+export enum PlaywrightTagsEnum {
   ACCESSIBILITY = '@a11y',
   ASSETS = '@assets',
   CSS_FILE = '@css-file',

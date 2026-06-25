@@ -1,5 +1,5 @@
 import { expect, type Locator, test } from '@playwright/test';
-import { E2ETagsEnum } from '@tests/playwright/e2e-tags.enum.ts';
+import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
 
 test('should have the fullname', async ({ page }) => {
   await page.goto('/');
@@ -9,7 +9,7 @@ test('should have the fullname', async ({ page }) => {
 
 test.describe(
   'Address links',
-  { tag: [E2ETagsEnum.ACCESSIBILITY, E2ETagsEnum.SMOKE_LEVEL_3] },
+  { tag: [PlaywrightTagsEnum.ACCESSIBILITY, PlaywrightTagsEnum.SMOKE_LEVEL_3] },
   () => {
     let footer: Locator;
     let phoneNumberLink: Locator;

@@ -1,9 +1,9 @@
 import { test, expect } from '@playwright/test';
-import { E2ETagsEnum } from '@tests/playwright/e2e-tags.enum.ts';
+import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
 
 test(
   'should have the fullname as website title',
-  { tag: [E2ETagsEnum.MAIN_TITLE, E2ETagsEnum.SMOKE_LEVEL_1] },
+  { tag: [PlaywrightTagsEnum.MAIN_TITLE, PlaywrightTagsEnum.SMOKE_LEVEL_1] },
   async ({ page }) => {
     await page.goto('/');
     await expect(page).toHaveTitle(/Victor BETSCH/);
@@ -12,7 +12,7 @@ test(
 
 test(
   'should have the global css import',
-  { tag: [E2ETagsEnum.ASSETS, E2ETagsEnum.SMOKE_LEVEL_2, E2ETagsEnum.CSS_FILE] },
+  { tag: [PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.CSS_FILE] },
   async ({ page }) => {
     await page.goto('/');
     const stylesheetLink = page.locator('link[rel="stylesheet"][href*="global"]');
@@ -22,7 +22,7 @@ test(
 
 test(
   'should have the main favicon import',
-  { tag: [E2ETagsEnum.ASSETS, E2ETagsEnum.SMOKE_LEVEL_2, E2ETagsEnum.FAVICON] },
+  { tag: [PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.FAVICON] },
   async ({ page }) => {
     await page.goto('/');
     const faviconLink = page.locator('link[rel="icon"][type="image/x-icon"][href*="favicon.ico"]');

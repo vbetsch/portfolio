@@ -1,5 +1,5 @@
 import { type Locator, test, expect } from '@playwright/test';
-import { E2ETagsEnum } from '@tests/playwright/e2e-tags.enum.ts';
+import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
 
 test.describe('Hero', () => {
   let mainSection: Locator;
@@ -15,7 +15,7 @@ test.describe('Hero', () => {
 
   test(
     'should have the role as first title',
-    { tag: [E2ETagsEnum.MAIN_TITLE, E2ETagsEnum.SMOKE_LEVEL_1] },
+    { tag: [PlaywrightTagsEnum.MAIN_TITLE, PlaywrightTagsEnum.SMOKE_LEVEL_1] },
     async () => {
       const firstTitle = mainSection.locator('h1');
       await expect(firstTitle).toContainText('Développeur web full-stack');
@@ -48,7 +48,7 @@ test.describe('Hero', () => {
     test(
       'the Download CV CTA button should be a download link to the CV',
       {
-        tag: [E2ETagsEnum.SMOKE_LEVEL_2, E2ETagsEnum.ASSETS, E2ETagsEnum.PDF_FILE],
+        tag: [PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.PDF_FILE],
       },
       async () => {
         await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');

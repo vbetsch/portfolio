@@ -1,10 +1,10 @@
 import { test } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
-import { E2ETagsEnum } from '@tests/playwright/e2e-tags.enum.ts';
+import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
 
 test(
   'The homepage complies with WCAG standards',
-  { tag: [E2ETagsEnum.ACCESSIBILITY, E2ETagsEnum.SMOKE_LEVEL_3] },
+  { tag: [PlaywrightTagsEnum.ACCESSIBILITY, PlaywrightTagsEnum.SMOKE_LEVEL_3] },
   async ({ page }) => {
     await page.goto('/');
     const scanResults = await new AxeBuilder({ page }).analyze();
