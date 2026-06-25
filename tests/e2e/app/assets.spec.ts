@@ -38,13 +38,9 @@ test.describe(
         const cssMatch = html.match(
           /<link[^>]+rel=["']stylesheet["'][^>]+href=["'](\/_astro\/[^"']+\.css)["']/i
         );
-        expect(
-          cssMatch,
-          'The link tag from the Astro CSS cannot be found in the DOM'
-        ).not.toBeNull();
 
         if (!cssMatch || !cssMatch[1]) {
-          throw new Error("CSS file not found");
+          throw new Error("The link tag from the Astro CSS cannot be found in the DOM");
         }
 
         const cssResponse = await request.get(cssMatch[1]);
