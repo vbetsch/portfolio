@@ -50,3 +50,10 @@ jobs:
     uses: ./.github/workflows/cd-tests-smoke-lv2.yml
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+
+  run-tests-smoke-lv3:
+    name: Smoke Tests Lv3
+    needs: run-deployment
+    uses: ./.github/workflows/cd-tests-smoke-lv3.yml
+    secrets:
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
