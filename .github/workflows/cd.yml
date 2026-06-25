@@ -36,3 +36,17 @@ jobs:
     name: Web Vitals
     needs: run-deployment
     uses: ./.github/workflows/cd-web-vitals.yml
+
+  run-tests-smoke-lv1:
+    name: Smoke Tests Lv1
+    needs: run-deployment
+    uses: ./.github/workflows/cd-tests-smoke-lv1.yml
+    secrets:
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+
+  run-tests-smoke-lv2:
+    name: Smoke Tests Lv2
+    needs: run-deployment
+    uses: ./.github/workflows/cd-tests-smoke-lv2.yml
+    secrets:
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
