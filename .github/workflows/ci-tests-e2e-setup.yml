@@ -5,7 +5,7 @@ on:
     outputs:
       playwright-version:
         description: "Playwright version from package.json"
-        value: ${{ jobs.get-playwright-version.playwright-version }}
+        value: ${{ jobs.get-playwright-version.outputs.playwright-version }}
 
 jobs:
   get-playwright-version:
