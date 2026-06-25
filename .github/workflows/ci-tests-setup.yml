@@ -1,4 +1,4 @@
-name: setup for local tests e2e
+name: setup for tests
 
 on:
   workflow_call:

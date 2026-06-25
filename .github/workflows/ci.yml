@@ -26,17 +26,17 @@ jobs:
     name: Unit Tests
     uses: ./.github/workflows/ci-tests-unit.yml
 
-  run-tests-e2e-setup:
-    name: Setup for Local E2E Tests
+  run-tests-setup:
+    name: Setup for tests
     needs: run-build
-    uses: ./.github/workflows/ci-tests-e2e-setup.yml
+    uses: ./.github/workflows/ci-tests-setup.yml
 
   run-tests-e2e:
     name: Local E2E Tests
-    needs: run-tests-e2e-setup
+    needs: run-tests-setup
     uses: ./.github/workflows/ci-tests-e2e.yml
     with:
-      playwright-version: ${{ needs.run-tests-e2e-setup.outputs.playwright-version }}
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
 
   run-tests-seo:
     name: SEO Tests
@@ -61,9 +61,9 @@ jobs:
 
   run-tests-smoke-lv1:
     name: Smoke Tests Lv1
-    needs: [run-tests-e2e-setup, run-deploy]
+    needs: [run-tests-setup, run-deploy]
     uses: ./.github/workflows/ci-tests-smoke-lv1.yml
     with:
-      playwright-version: ${{ needs.run-tests-e2e-setup.outputs.playwright-version }}
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL_PREVIEW }}
