@@ -47,7 +47,7 @@ jobs:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
 
-      - name: Run smoke lv1 e2e Playwright tests in preview environment
+      - name: Run smoke lv1 e2e Playwright tests in develop environment
         run: npm run test:e2e:tag -- @smoke-lv1
         env:
           CI: true
@@ -91,7 +91,7 @@ jobs:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
 
-      - name: Run smoke lv1 e2e Playwright tests in preview environment
+      - name: Run smoke lv1 e2e Playwright tests in production environment
         run: npm run test:e2e:tag -- @smoke-lv1
         env:
           CI: true
