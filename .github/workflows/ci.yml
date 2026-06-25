@@ -26,10 +26,17 @@ jobs:
     name: Unit Tests
     uses: ./.github/workflows/ci-tests-unit.yml
 
+  run-tests-e2e-setup:
+    name: Setup for Local E2E Tests
+    needs: run-build
+    uses: ./.github/workflows/ci-tests-e2e-setup.yml
+
   run-tests-e2e:
     name: Local E2E Tests
-    needs: run-build
+    needs: run-tests-e2e-setup
     uses: ./.github/workflows/ci-tests-e2e.yml
+    with:
+      playwright-version: ${{ needs.run-tests-e2e-setup.outputs.playwright-version }}
 
   run-tests-seo:
     name: SEO Tests
