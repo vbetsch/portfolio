@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { E2ETagsEnum } from '@tests/e2e/e2e-tags.enum';
+import { StatusCodes } from 'http-status-codes';
 
 test.describe(
   'Assets Integrity',
@@ -12,7 +13,7 @@ test.describe(
       { tag: [E2ETagsEnum.FAVICON] },
       async ({ request }) => {
         const response = await request.get('/favicon.ico');
-        expect(response.status()).toBe(200);
+        expect(response.status()).toBe(StatusCodes.OK);
         expect(response.headers()['content-type']).toContain('image/');
       }
     );
@@ -22,7 +23,7 @@ test.describe(
       { tag: [E2ETagsEnum.PDF_FILE] },
       async ({ request }) => {
         const response = await request.get(`/files/cv_fr.pdf`);
-        expect(response.status()).toBe(200);
+        expect(response.status()).toBe(StatusCodes.OK);
         expect(response.headers()['content-type']).toContain('application/pdf');
       }
     );
@@ -32,7 +33,7 @@ test.describe(
       { tag: [E2ETagsEnum.CSS_FILE] },
       async ({ request }) => {
         const homeResponse = await request.get('/');
-        expect(homeResponse.status()).toBe(200);
+        expect(homeResponse.status()).toBe(StatusCodes.OK);
         const html = await homeResponse.text();
 
         const cssMatch = html.match(
@@ -40,11 +41,11 @@ test.describe(
         );
 
         if (!cssMatch || !cssMatch[1]) {
-          throw new Error("The link tag from the Astro CSS cannot be found in the DOM");
+          throw new Error('The link tag from the Astro CSS cannot be found in the DOM');
         }
 
         const cssResponse = await request.get(cssMatch[1]);
-        expect(cssResponse.status()).toBe(200);
+        expect(cssResponse.status()).toBe(StatusCodes.OK);
         expect(cssResponse.headers()['content-type']).toContain('text/css');
       }
     );
