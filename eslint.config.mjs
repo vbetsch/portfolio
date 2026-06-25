@@ -31,7 +31,7 @@ export default [
       'playwright-report/',
       'src/env.d.ts',
       'test-results/',
-      'tests/vitest/astro-env.mock.ts',
+      'tests/astro-env.mock.ts',
       'vitest-report/',
     ],
   },
