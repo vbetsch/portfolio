@@ -44,7 +44,7 @@ test.describe(
         ).not.toBeNull();
 
         if (!cssMatch || !cssMatch[1]) {
-          return;
+          throw new Error("CSS file not found");
         }
 
         const cssResponse = await request.get(cssMatch[1]);
