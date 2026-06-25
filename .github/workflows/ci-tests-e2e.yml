@@ -1,4 +1,4 @@
-name: e2e tests
+name: local e2e tests
 
 on:
   workflow_call:
@@ -43,7 +43,7 @@ jobs:
           name: astro-build-folder
           path: ${{ vars.APP_BUILD_FOLDER }}
 
-      - name: Run Playwright tests
+      - name: Run Playwright tests in local environment
         run: npm run test:e2e
         env:
           CI: true

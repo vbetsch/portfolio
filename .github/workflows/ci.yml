@@ -27,7 +27,7 @@ jobs:
     uses: ./.github/workflows/ci-tests-unit.yml
 
   run-tests-e2e:
-    name: E2E Tests
+    name: Local E2E Tests
     needs: run-build
     uses: ./.github/workflows/ci-tests-e2e.yml
 
