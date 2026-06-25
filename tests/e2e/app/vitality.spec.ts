@@ -1,7 +1,6 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Vitality Check @smoke-lv1', () => {
-
   test('Healthcheck - Should return HTTP 200 connectivity @healthcheck', async ({ request }) => {
     const response = await request.get('/');
     expect(response.status()).toBe(200);
