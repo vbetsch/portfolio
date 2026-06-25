@@ -14,7 +14,7 @@ test.describe('Vitality Check', { tag: [E2eTagsEnum.SMOKE_LEVEL_1] }, () => {
 
   test(
     'Root DOM Elements - Should mount root elements',
-    { tag: [E2eTagsEnum.ROOT_ELEMENTS] },
+    { tag: [E2eTagsEnum.ROOT_DOM_ELEMENTS] },
     async ({ page }) => {
       const response = await page.goto('/');
       expect(response?.status()).toBe(StatusCodes.OK);
