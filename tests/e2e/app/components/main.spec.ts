@@ -1,4 +1,5 @@
 import { type Locator, test, expect } from '@playwright/test';
+import { E2eTagsEnum } from '../../e2e-tags.enum.ts';
 
 test.describe('Hero', () => {
   let mainSection: Locator;
@@ -12,10 +13,14 @@ test.describe('Hero', () => {
     downloadCVCTAButton = mainSection.getByRole('link', { name: 'Télécharger mon CV' });
   });
 
-  test('should have the role as first title @main-title @smoke-lv1', async () => {
-    const firstTitle = mainSection.locator('h1');
-    await expect(firstTitle).toContainText('Développeur web full-stack');
-  });
+  test(
+    'should have the role as first title',
+    { tag: [E2eTagsEnum.MAIN_TITLE, E2eTagsEnum.SMOKE_LEVEL_1] },
+    async () => {
+      const firstTitle = mainSection.locator('h1');
+      await expect(firstTitle).toContainText('Développeur web full-stack');
+    }
+  );
 
   test('should have the status as second title', async () => {
     const secondTitle = mainSection.locator('h2');
