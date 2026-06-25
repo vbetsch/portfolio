@@ -10,17 +10,17 @@ pipeline, mapped across different deployment environments (`preview`, `develop`,
 To optimize execution speed and resource usage, tests are categorized into three incremental levels
 based on complexity and scope:
 
-* **Smoke Level 1** (Vitality Check)
-  * **Healthcheck:** Verifies HTTP 200 connectivity to ensure the server is responsive.
-  * **Root DOM Elements:** Ensures basic HTML structures are mounted and parsing correctly.
-  * **Main Title:** Validates the title and that the primary page header loads with the correct
+- **Smoke Level 1** (Vitality Check)
+  - **Healthcheck:** Verifies HTTP 200 connectivity to ensure the server is responsive.
+  - **Root DOM Elements:** Ensures basic HTML structures are mounted and parsing correctly.
+  - **Main Title:** Validates the title and that the primary page header loads with the correct
     content.
-* **Smoke Level 2** (Functional & Assets Verification)
-  * **Dynamic Components:** Tests critical client-side interactivity and interactive blocks.
-  * **Assets Integrity:** Programmatically checks crucial static assets for a successful HTTP 200
+- **Smoke Level 2** (Functional & Assets Verification)
+  - **Dynamic Components:** Tests critical client-side interactivity and interactive blocks.
+  - **Assets Integrity:** Programmatically checks crucial static assets for a successful HTTP 200
     response.
-* **Smoke Level 3** (Full Compliance)
-  * **a11y:** Executes deeper automated accessibility checks across the DOM structure.
+- **Smoke Level 3** (Full Compliance)
+  - **a11y:** Executes deeper automated accessibility checks across the DOM structure.
 
 ---
 
@@ -30,10 +30,10 @@ The table below describes which testing suites are triggered depending on the ta
 environment:
 
 | Level             |  Preview   |  Develop   | Production |
-|:------------------|:----------:|:----------:|:----------:|
+| :---------------- | :--------: | :--------: | :--------: |
 | **Smoke Level 1** | 🔄 Enabled | 🔄 Enabled | 🔄 Enabled |
-| **Smoke Level 2** | ❌ Skipped  | 🔄 Enabled | 🔄 Enabled |
-| **Smoke Level 3** | ❌ Skipped  | ❌ Skipped  | 🔄 Enabled |
+| **Smoke Level 2** | ❌ Skipped | 🔄 Enabled | 🔄 Enabled |
+| **Smoke Level 3** | ❌ Skipped | ❌ Skipped | 🔄 Enabled |
 
 ### 🛠️ Execution Rules Summary
 
