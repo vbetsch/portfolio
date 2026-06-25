@@ -61,7 +61,9 @@ jobs:
 
   run-tests-smoke-lv1:
     name: Smoke Tests Lv1
-    needs: run-deploy
+    needs: [run-tests-e2e-setup, run-deploy]
     uses: ./.github/workflows/ci-tests-smoke-lv1.yml
+    with:
+      playwright-version: ${{ needs.run-tests-e2e-setup.outputs.playwright-version }}
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL_PREVIEW }}
