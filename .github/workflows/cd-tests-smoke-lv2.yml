@@ -2,37 +2,23 @@ name: smoke tests lv2
 
 on:
   workflow_call:
+    inputs:
+      playwright-version:
+        required: true
+        type: string
     secrets:
       HOSTING_PROVIDER_BASE_URL:
         required: true
 
 jobs:
-  setup-version:
-    name: Get Playwright Version
-    runs-on: ubuntu-latest
-
-    outputs:
-      playwright-version: ${{ steps.get-version.outputs.version }}
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Get Playwright version
-        id: get-version
-        run: |
-          VERSION=$(node -p "require('./package.json').devDependencies['@playwright/test']" | sed 's/[^0-9.]//g')
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
   develop:
     name: Develop
     if: github.ref == 'refs/heads/develop' && success()
-    needs: setup-version
     runs-on: ubuntu-latest
     environment: develop
 
     container:
-      image: mcr.microsoft.com/playwright:v${{ needs.setup-version.outputs.playwright-version }}-noble
+      image: mcr.microsoft.com/playwright:v${{ inputs.playwright-version }}-noble
 
     steps:
       - name: Checkout repository
@@ -71,12 +57,11 @@ jobs:
   prod:
     name: Production
     if: github.ref == 'refs/heads/master' && success()
-    needs: setup-version
     runs-on: ubuntu-latest
     environment: production
 
     container:
-      image: mcr.microsoft.com/playwright:v${{ needs.setup-version.outputs.playwright-version }}-noble
+      image: mcr.microsoft.com/playwright:v${{ inputs.playwright-version }}-noble
 
     steps:
       - name: Checkout repository

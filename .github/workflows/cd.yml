@@ -37,23 +37,33 @@ jobs:
     needs: run-deployment
     uses: ./.github/workflows/cd-web-vitals.yml
 
+  run-tests-setup:
+    name: Setup for tests
+    uses: ./.github/workflows/tests-setup.yml
+
   run-tests-smoke-lv1:
     name: Smoke Tests Lv1
-    needs: run-deployment
+    needs: [run-build, run-tests-setup, run-deployment]
     uses: ./.github/workflows/cd-tests-smoke-lv1.yml
+    with:
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
 
   run-tests-smoke-lv2:
     name: Smoke Tests Lv2
-    needs: run-deployment
+    needs: [run-build, run-tests-setup, run-deployment]
     uses: ./.github/workflows/cd-tests-smoke-lv2.yml
+    with:
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
 
   run-tests-smoke-lv3:
     name: Smoke Tests Lv3
-    needs: run-deployment
+    needs: [run-build, run-tests-setup, run-deployment]
     uses: ./.github/workflows/cd-tests-smoke-lv3.yml
+    with:
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
