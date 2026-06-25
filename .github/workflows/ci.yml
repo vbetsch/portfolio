@@ -55,6 +55,6 @@ jobs:
   run-tests-smoke-lv1:
     name: Smoke Tests Lv1
     needs: run-deploy
-    uses: ./.github/workflows/tests-smoke-lv1.yml
+    uses: ./.github/workflows/ci-tests-smoke-lv1.yml
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
