@@ -28,7 +28,6 @@ jobs:
     name: Playwright
     needs: setup-version
     runs-on: ubuntu-latest
-    environment: preview
 
     container:
       image: mcr.microsoft.com/playwright:v${{ needs.setup-version.outputs.playwright-version }}-noble

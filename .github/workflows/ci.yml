@@ -57,4 +57,4 @@ jobs:
     needs: run-deploy
     uses: ./.github/workflows/ci-tests-smoke-lv1.yml
     secrets:
-      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL_PREVIEW }}
