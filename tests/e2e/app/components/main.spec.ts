@@ -1,5 +1,5 @@
 import { type Locator, test, expect } from '@playwright/test';
-import { E2eTagsEnum } from '@tests/e2e/e2e-tags.enum.ts';
+import { E2ETagsEnum } from '@tests/e2e/e2e-tags.enum.ts';
 
 test.describe('Hero', () => {
   let mainSection: Locator;
@@ -15,7 +15,7 @@ test.describe('Hero', () => {
 
   test(
     'should have the role as first title',
-    { tag: [E2eTagsEnum.MAIN_TITLE, E2eTagsEnum.SMOKE_LEVEL_1] },
+    { tag: [E2ETagsEnum.MAIN_TITLE, E2ETagsEnum.SMOKE_LEVEL_1] },
     async () => {
       const firstTitle = mainSection.locator('h1');
       await expect(firstTitle).toContainText('Développeur web full-stack');

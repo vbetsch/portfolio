@@ -1,4 +1,4 @@
-export enum E2eTagsEnum {
+export enum E2ETagsEnum {
   ACCESSIBILITY = '@a11y',
   ASSETS = '@assets',
   HEALTHCHECK = '@healthcheck',
