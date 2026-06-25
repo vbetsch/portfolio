@@ -12,7 +12,7 @@ test(
 
 test(
   'should have the global css import',
-  { tag: [E2ETagsEnum.ASSETS, E2ETagsEnum.SMOKE_LEVEL_2] },
+  { tag: [E2ETagsEnum.ASSETS, E2ETagsEnum.SMOKE_LEVEL_2, E2ETagsEnum.CSS_FILE] },
   async ({ page }) => {
     await page.goto('/');
     const stylesheetLink = page.locator('link[rel="stylesheet"][href*="global"]');
@@ -22,7 +22,7 @@ test(
 
 test(
   'should have the main favicon import',
-  { tag: [E2ETagsEnum.ASSETS, E2ETagsEnum.SMOKE_LEVEL_2] },
+  { tag: [E2ETagsEnum.ASSETS, E2ETagsEnum.SMOKE_LEVEL_2, E2ETagsEnum.FAVICON] },
   async ({ page }) => {
     await page.goto('/');
     const faviconLink = page.locator('link[rel="icon"][type="image/x-icon"][href*="favicon.ico"]');

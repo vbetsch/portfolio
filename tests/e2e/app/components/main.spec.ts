@@ -45,12 +45,18 @@ test.describe('Hero', () => {
       );
     });
 
-    test('the Download CV CTA button should be a download link to the CV', async () => {
-      await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');
-      await expect(downloadCVCTAButton).toHaveAttribute(
-        'download',
-        `${process.env.APP_CV_PDF_NAME_FILE}.pdf`
-      );
-    });
+    test(
+      'the Download CV CTA button should be a download link to the CV',
+      {
+        tag: [E2ETagsEnum.SMOKE_LEVEL_2, E2ETagsEnum.ASSETS, E2ETagsEnum.PDF_FILE],
+      },
+      async () => {
+        await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');
+        await expect(downloadCVCTAButton).toHaveAttribute(
+          'download',
+          `${process.env.APP_CV_PDF_NAME_FILE}.pdf`
+        );
+      }
+    );
   });
 });
