@@ -1,5 +1,5 @@
 import { expect, type Locator, test } from '@playwright/test';
-import { E2eTagsEnum } from '../../e2e-tags.enum.ts';
+import { E2eTagsEnum } from '@tests/e2e/e2e-tags.enum.ts';
 
 test('should have the fullname', async ({ page }) => {
   await page.goto('/');

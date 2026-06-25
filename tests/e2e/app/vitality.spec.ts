@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { StatusCodes } from 'http-status-codes';
-import { E2eTagsEnum } from '../e2e-tags.enum.ts';
+import { E2eTagsEnum } from '@tests/e2e/e2e-tags.enum.ts';
 
 test.describe('Vitality Check', { tag: [E2eTagsEnum.SMOKE_LEVEL_1] }, () => {
   test(
