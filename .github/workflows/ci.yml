@@ -16,7 +16,7 @@ concurrency:
 jobs:
   run-build:
     name: Build
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/_build.yml
 
   run-linter:
     name: Linter
@@ -28,7 +28,7 @@ jobs:
 
   run-tests-setup:
     name: Setup for tests
-    uses: ./.github/workflows/tests-setup.yml
+    uses: ./.github/workflows/_tests-setup.yml
 
   run-tests-e2e:
     name: Local E2E Tests

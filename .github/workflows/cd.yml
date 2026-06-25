@@ -19,7 +19,7 @@ on:
 jobs:
   run-build:
     name: Build
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/_build.yml
 
   run-deployment:
     name: Deployment
@@ -39,7 +39,7 @@ jobs:
 
   run-tests-setup:
     name: Setup for tests
-    uses: ./.github/workflows/tests-setup.yml
+    uses: ./.github/workflows/_tests-setup.yml
 
   run-tests-smoke-lv1:
     name: Smoke Tests Lv1
