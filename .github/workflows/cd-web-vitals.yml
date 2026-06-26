@@ -6,9 +6,6 @@ on:
       HOSTING_PROVIDER_BASE_URL:
         required: true
 
-env:
-  BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
-
 jobs:
   prod:
     name: Production
