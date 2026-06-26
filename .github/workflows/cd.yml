@@ -17,10 +17,16 @@ on:
       - 'vitest.config.ts'
 
 jobs:
+  # First layer
   run-build:
     name: Build
     uses: ./.github/workflows/_build.yml
 
+  run-tests-setup:
+    name: Setup for tests
+    uses: ./.github/workflows/_tests-setup.yml
+
+  # Second layer
   run-deployment:
     name: Deployment
     needs: run-build
@@ -32,20 +38,20 @@ jobs:
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
       HOSTING_PROVIDER_BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_NAME }}
 
-  run-web-vitals:
-    name: Web Vitals
-    needs: run-deployment
-    uses: ./.github/workflows/cd-web-vitals.yml
-
-  run-tests-setup:
-    name: Setup for tests
-    uses: ./.github/workflows/_tests-setup.yml
-
+  # Third Layer
   run-tests-smoke:
     name: Smoke Tests
     needs: [run-build, run-tests-setup, run-deployment]
     uses: ./.github/workflows/cd-tests-smoke.yml
     with:
       playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
+    secrets:
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+
+  run-web-vitals:
+    name: Web Vitals
+    needs: run-deployment
+    if: github.ref == 'refs/heads/master' && success()
+    uses: ./.github/workflows/cd-web-vitals.yml
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}

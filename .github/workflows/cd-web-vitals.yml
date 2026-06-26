@@ -1,25 +1,12 @@
-name: web vitals
+name: external web vitals
 
 on:
   workflow_call:
-
-env:
-  BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
+    secrets:
+      HOSTING_PROVIDER_BASE_URL:
+        required: true
 
 jobs:
-  develop:
-    name: Develop
-    if: github.ref == 'refs/heads/develop' && success()
-    runs-on: ubuntu-latest
-    environment: develop
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-
-      - name: Run Composite Action
-        uses: ./.github/actions/web-vitals
-
   prod:
     name: Production
     if: github.ref == 'refs/heads/master' && success()
@@ -32,3 +19,5 @@ jobs:
 
       - name: Run Composite Action
         uses: ./.github/actions/web-vitals
+        with:
+          base-url: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}

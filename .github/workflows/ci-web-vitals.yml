@@ -1,4 +1,4 @@
-name: web vitals
+name: local web vitals
 
 on:
   workflow_call:
