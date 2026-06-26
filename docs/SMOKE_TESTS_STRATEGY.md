@@ -41,6 +41,5 @@ environment:
    broken builds instantly without incurring heavy compute times.
 2. **Develop Environment (Staging):** Intermediate gate. Runs **Level 1** and **Level 2** to
    thoroughly validate functionality and static assets before staging pushes.
-3. **Production Environment (Live):** Full regression guard. Executes the entire suite (**Levels 1,
-   2, and 3**) to guarantee the highest quality
-   before final delivery.
+3. **Production Environment (Live):** Executes all levels (**Levels 1,
+   2, and 3**) to guarantee the highest quality before final delivery.
