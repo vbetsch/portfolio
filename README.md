@@ -61,21 +61,21 @@ npm run test:units:cov
 npm run test:units:watch
 ```
 
-### End-To-End
+### Playwright
 
-#### Run all e2e tests in CLI
+#### Run all Playwright tests in CLI
 
 ```bash
 npm run test:playwright
 ```
 
-#### Run all e2e tests in UI
+#### Run all Playwright tests in UI
 
 ```bash
 npm run test:playwright:ui
 ```
 
-#### Run only e2e tests with tag @a11y
+#### Run only Playwright tests with tag @a11y
 
 ##### in CLI
 
@@ -149,7 +149,7 @@ npm run check               # Type-checking, astro check and linters
 npm run test:units:cov      # Run all unit tests
 npm run build               # Run production build
 npm run test:html           # Run HTML tests
-npm run test:playwright:ui  # Run Playwright tests
+npm run test:playwright:ui  # Run all Playwright tests
 npm run start:prod          # Check production execution
 ```
 
