@@ -25,7 +25,9 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Run Smoke Tests Lv1 in develop environment
-        uses: ./.github/actions/tests-smoke-lv1
+        uses: ./.github/actions/tests-smoke
+        with:
+          playwright-tag: '@smoke-lv1'
         env:
           BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
           CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
@@ -49,7 +51,9 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Run Smoke Tests Lv1 in production environment
-        uses: ./.github/actions/tests-smoke-lv1
+        uses: ./.github/actions/tests-smoke
+        with:
+          playwright-tag: '@smoke-lv1'
         env:
           BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
           CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
