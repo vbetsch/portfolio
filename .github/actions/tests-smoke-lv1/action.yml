@@ -1,5 +1,10 @@
-name: 'Smoke Tests Lv1'
-description: 'Run Smoke Lv1 E2E Playwright Tests'
+name: 'Smoke Tests'
+description: 'Run Smoke E2E Playwright Tests'
+
+inputs:
+  playwright-tag:
+    description: 'Playwright tag used to filter E2E tests to run'
+    required: true
 
 runs:
   using: 'composite'
@@ -13,8 +18,8 @@ runs:
         name: astro-build-folder
         path: ${{ env.BUILD_FOLDER }}
 
-    - name: Run Smoke Lv1 E2E Playwright Tests
-      run: npm run test:e2e:tag -- @smoke-lv1
+    - name: Run ${{ inputs.playwright-tag }} E2E Playwright Tests with tag
+      run: npm run test:e2e:tag -- ${{ inputs.playwright-tag }}
       shell: bash
       env:
         CI: true
