@@ -24,35 +24,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Restore Env & Node
-        uses: ./.github/actions/setup-project
-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: astro-build-folder
-          path: ${{ vars.APP_BUILD_FOLDER }}
-
-      - name: Run smoke lv1 e2e Playwright tests in develop environment
-        run: npm run test:e2e:tag -- @smoke-lv1
+      - name: Run Smoke Tests Lv1 in develop environment
+        uses: ./.github/actions/tests-smoke-lv1
         env:
-          CI: true
-          HOME: /root
-          DOCKER_CONFIG: /tmp/.docker
-          APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
-          APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
-          APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
-          APP_MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
-          APP_PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
-          PLAYWRIGHT_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
-
-      - name: Upload Playwright Report (On Failure Only)
-        uses: actions/upload-artifact@v7
-        if: failure()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+          BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
+          CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
+          ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
+          ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
+          MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+          PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
+          BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
 
   prod:
     name: Production
@@ -67,32 +48,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Restore Env & Node
-        uses: ./.github/actions/setup-project
-
-      - name: Download Build Artifact
-        uses: actions/download-artifact@v8
-        with:
-          name: astro-build-folder
-          path: ${{ vars.APP_BUILD_FOLDER }}
-
-      - name: Run smoke lv1 e2e Playwright tests in production environment
-        run: npm run test:e2e:tag -- @smoke-lv1
+      - name: Run Smoke Tests Lv1 in production environment
+        uses: ./.github/actions/tests-smoke-lv1
         env:
-          CI: true
-          HOME: /root
-          DOCKER_CONFIG: /tmp/.docker
-          APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
-          APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
-          APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
-          APP_MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
-          APP_PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
-          PLAYWRIGHT_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
-
-      - name: Upload Playwright Report (On Failure Only)
-        uses: actions/upload-artifact@v7
-        if: failure()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+          BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
+          CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
+          ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
+          ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
+          MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+          PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
+          BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
