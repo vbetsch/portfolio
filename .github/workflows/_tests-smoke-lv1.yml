@@ -11,6 +11,31 @@ on:
         required: true
 
 jobs:
+  playwright:
+    name: Playwright
+    if: github.ref != 'refs/heads/develop' && github.ref != 'refs/heads/master'
+    runs-on: ubuntu-latest
+
+    container:
+      image: mcr.microsoft.com/playwright:v${{ inputs.playwright-version }}-noble
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Run Smoke Tests Lv1 in preview environment
+        uses: ./.github/actions/tests-playwright
+        with:
+          playwright-tag: '@smoke-lv1'
+        env:
+          BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
+          CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
+          ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
+          ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
+          MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+          PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
+          BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+
   develop:
     name: Develop
     if: github.ref == 'refs/heads/develop' && success()
