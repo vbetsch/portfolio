@@ -1,4 +1,5 @@
 import { type Locator, test, expect } from '@playwright/test';
+import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
 
 test.describe('Hero', () => {
   let mainSection: Locator;
@@ -12,10 +13,14 @@ test.describe('Hero', () => {
     downloadCVCTAButton = mainSection.getByRole('link', { name: 'Télécharger mon CV' });
   });
 
-  test('should have the role as first title', async () => {
-    const firstTitle = mainSection.locator('h1');
-    await expect(firstTitle).toContainText('Développeur web full-stack');
-  });
+  test(
+    'should have the role as first title',
+    { tag: [PlaywrightTagsEnum.MAIN_TITLE, PlaywrightTagsEnum.SMOKE_LEVEL_1] },
+    async () => {
+      const firstTitle = mainSection.locator('h1');
+      await expect(firstTitle).toContainText('Développeur web full-stack');
+    }
+  );
 
   test('should have the status as second title', async () => {
     const secondTitle = mainSection.locator('h2');
@@ -40,12 +45,22 @@ test.describe('Hero', () => {
       );
     });
 
-    test('the Download CV CTA button should be a download link to the CV', async () => {
-      await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');
-      await expect(downloadCVCTAButton).toHaveAttribute(
-        'download',
-        `${process.env.APP_CV_PDF_NAME_FILE}.pdf`
-      );
-    });
+    test(
+      'the Download CV CTA button should be a download link to the CV',
+      {
+        tag: [
+          PlaywrightTagsEnum.PDF_FILE,
+          PlaywrightTagsEnum.ASSETS,
+          PlaywrightTagsEnum.SMOKE_LEVEL_2,
+        ],
+      },
+      async () => {
+        await expect(downloadCVCTAButton).toHaveAttribute('href', '/files/cv_fr.pdf');
+        await expect(downloadCVCTAButton).toHaveAttribute(
+          'download',
+          `${process.env.APP_CV_PDF_NAME_FILE}.pdf`
+        );
+      }
+    );
   });
 });

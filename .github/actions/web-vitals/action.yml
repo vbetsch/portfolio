@@ -1,0 +1,35 @@
+name: 'Web Vitals'
+description: 'Audit SEO, Accessibility and Performance'
+
+inputs:
+  base-url:
+    description: 'URL to audit'
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: ./.github/actions/setup-project
+
+    - uses: actions/download-artifact@v8
+      if: ${{ inputs.base-url == '' }}
+      with:
+        name: astro-build-folder
+        path: ${{ env.BUILD_FOLDER }}
+
+    - run: npm run lighthouse:local
+      if: ${{ inputs.base-url == '' }}
+      shell: bash
+
+    - run: npm run lighthouse:external
+      if: ${{ inputs.base-url != '' }}
+      shell: bash
+      env:
+        LIGHTHOUSE_URL: ${{ inputs.base-url }}
+
+    - uses: actions/upload-artifact@v7
+      if: failure()
+      with:
+        name: lighthouse-report
+        path: lighthouse-report/
+        retention-days: 7

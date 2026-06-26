@@ -4,14 +4,12 @@ description: 'Download artifact and synchronize build with s3 bucket'
 runs:
   using: 'composite'
   steps:
-    - name: Download Build Artifact
-      uses: actions/download-artifact@v8
+    - uses: actions/download-artifact@v8
       with:
         name: astro-build-folder
         path: ${{ env.BUILD_FOLDER }}
 
-    - name: Deploy to S3
-      shell: bash
+    - shell: bash
       env:
         AWS_ACCESS_KEY_ID: ${{ env.ACCESS_KEY }}
         AWS_SECRET_ACCESS_KEY: ${{ env.SECRET_KEY }}

@@ -41,20 +41,6 @@ npm run start:dev
 npm test
 ```
 
-### End-To-End
-
-#### Run e2e tests in CLI
-
-```bash
-npm run test:e2e
-```
-
-#### Run e2e tests in UI
-
-```bash
-npm run test:e2e:ui
-```
-
 ### Units tests
 
 #### Run units tests in default mode
@@ -73,6 +59,42 @@ npm run test:units:cov
 
 ```bash
 npm run test:units:watch
+```
+
+### Playwright
+
+#### Run all Playwright tests in CLI
+
+```bash
+npm run test:playwright
+```
+
+#### Run all Playwright tests in UI
+
+```bash
+npm run test:playwright:ui
+```
+
+#### Run only Playwright tests with tag @a11y
+
+##### in CLI
+
+```bash
+npm run test:playwright:grep -- @a11y
+```
+
+##### in UI
+
+```bash
+npm run test:playwright:ui:grep -- @a11y
+```
+
+### HTML
+
+#### Validate HTML structure
+
+```bash
+npm run test:html
 ```
 
 ## 🧹 Linting & Formatting
@@ -120,13 +142,17 @@ npm run start:prod
 Validate your setup by running the following commands in order:
 
 ```bash
-npm clean-install        # Update dependencies
-npm run start:dev        # Check development execution
-npm run format           # Format code
-npm run check            # Type-checking, astro check and linters
-npm run test:units:cov   # Run all unit tests
-npm run build            # Run production build
-npm run test:html        # Run HTML tests
-npm run test:e2e:ui      # Run End-To-End tests
-npm run start:prod       # Check production execution
+npm clean-install           # Update dependencies
+npm run start:dev           # Check development execution
+npm run format              # Format code
+npm run check               # Type-checking, astro check and linters
+npm run test:units:cov      # Run all unit tests
+npm run build               # Run production build
+npm run test:html           # Run HTML tests
+npm run test:playwright:ui  # Run all Playwright tests
+npm run start:prod          # Check production execution
 ```
+
+## ➕ See more
+
+- [Smoke Tests Strategy](docs/SMOKE_TESTS_STRATEGY.md)

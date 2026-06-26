@@ -4,8 +4,11 @@ import path from 'path';
 
 dotenv.config({ path: path.resolve(import.meta.dirname, '.env') });
 
-export default defineConfig({
-  testDir: './tests/e2e',
+const localURL: string = 'http://localhost:4321/';
+const isPostDeploy: boolean = !!process.env.PLAYWRIGHT_BASE_URL;
+
+const config = defineConfig({
+  testDir: './tests/playwright',
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -13,7 +16,7 @@ export default defineConfig({
   reporter: 'html',
 
   use: {
-    baseURL: 'http://localhost:4321/',
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || localURL,
     trace: 'on-first-retry',
   },
 
@@ -31,11 +34,15 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
   ],
+});
 
-  webServer: {
+if (!isPostDeploy) {
+  config.webServer = {
     command: 'npm run start:prod',
-    url: 'http://localhost:4321/',
+    url: localURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
-  },
-});
+  };
+}
+
+export default config;
