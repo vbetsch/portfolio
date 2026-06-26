@@ -25,7 +25,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Run Smoke Tests Lv2 in develop environment
-        uses: ./.github/actions/tests-smoke
+        uses: ./.github/actions/tests-playwright
         with:
           playwright-tag: '@smoke-lv2'
         env:
@@ -51,7 +51,7 @@ jobs:
         uses: actions/checkout@v7
 
       - name: Run Smoke Tests Lv2 in production environment
-        uses: ./.github/actions/tests-smoke
+        uses: ./.github/actions/tests-playwright
         with:
           playwright-tag: '@smoke-lv2'
         env:
