@@ -1,0 +1,36 @@
+name: 'Smoke Tests Lv1'
+description: 'Run Smoke Lv1 E2E Playwright Tests'
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Restore Env & Node
+      uses: ./.github/actions/setup-project
+
+    - name: Download Build Artifact
+      uses: actions/download-artifact@v8
+      with:
+        name: astro-build-folder
+        path: ${{ vars.APP_BUILD_FOLDER }}
+
+    - name: Run Smoke Lv1 E2E Playwright Tests
+      run: npm run test:e2e:tag -- @smoke-lv1
+      shell: bash
+      env:
+        CI: true
+        HOME: /root
+        DOCKER_CONFIG: /tmp/.docker
+        APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
+        APP_ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
+        APP_ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
+        APP_MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+        APP_PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
+        PLAYWRIGHT_BASE_URL: ${{ env.BASE_URL }}
+
+    - name: Upload Playwright Report (On Failure Only)
+      uses: actions/upload-artifact@v7
+      if: failure()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7
