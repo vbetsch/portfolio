@@ -27,6 +27,8 @@ export default [
   {
     ignores: [
       '.astro/',
+      '.lighthouserc.external.cjs',
+      '.lighthouserc.local.cjs',
       'playwright.config.ts',
       'playwright-report/',
       'src/env.d.ts',

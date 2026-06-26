@@ -1,0 +1,23 @@
+name: external web vitals
+
+on:
+  workflow_call:
+    secrets:
+      HOSTING_PROVIDER_BASE_URL:
+        required: true
+
+jobs:
+  prod:
+    name: Production
+    if: github.ref == 'refs/heads/master' && success()
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Run Composite Action
+        uses: ./.github/actions/web-vitals
+        with:
+          base-url: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}

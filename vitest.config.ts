@@ -25,8 +25,8 @@ export default defineConfig({
       reporter: ['text', 'json', 'html'],
     },
     environment: 'node',
-    exclude: ['tests/e2e/**', 'node_modules/**', 'dist/**'],
+    exclude: ['tests/playwright/**', 'node_modules/**', 'dist/**'],
     globals: true,
-    include: ['tests/units/**/*.test.ts'],
+    include: ['tests/vitest/**/*.test.ts'],
   },
 });
