@@ -1,0 +1,31 @@
+name: linter
+
+on:
+  workflow_call:
+
+jobs:
+  local:
+    name: Local Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Restore Env & Node
+        uses: ./.github/actions/setup-project
+
+      - name: Run Oxlint
+        run: npm run lint:ox
+
+      - name: Synchronize Astro Types
+        run: npm run sync
+
+      - name: Check TypeScript
+        run: npm run check:tsc
+
+      - name: Check Astro
+        run: npm run check:astro
+
+      - name: Run ESLint in strict mode
+        run: npm run lint:es:strict

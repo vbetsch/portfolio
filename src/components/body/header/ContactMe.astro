@@ -1,0 +1,22 @@
+---
+import { APP_MAILTO_EMAIL } from 'astro:env/client';
+---
+
+<a class="animate-colors rounded" href={`mailto:${APP_MAILTO_EMAIL}`}>Me contacter</a>
+
+<style>
+  a {
+    width: auto;
+    background-color: var(--color-green);
+    border: solid 1px var(--color-green);
+    padding: 4px var(--size-16);
+    cursor: pointer;
+    font-size: var(--size-14);
+    white-space: nowrap;
+  }
+
+  a:hover {
+    background-color: var(--color-white);
+    border-color: var(--color-black);
+  }
+</style>

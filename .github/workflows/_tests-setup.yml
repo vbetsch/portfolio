@@ -1,0 +1,26 @@
+name: setup for tests
+
+on:
+  workflow_call:
+    outputs:
+      playwright-version:
+        description: 'Playwright version from package.json'
+        value: ${{ jobs.get-playwright-version.outputs.playwright-version }}
+
+jobs:
+  get-playwright-version:
+    name: Get Playwright Version
+    runs-on: ubuntu-latest
+
+    outputs:
+      playwright-version: ${{ steps.get-version.outputs.version }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Get Playwright version
+        id: get-version
+        run: |
+          VERSION=$(node -p "require('./package.json').devDependencies['@playwright/test']" | sed 's/[^0-9.]//g')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT

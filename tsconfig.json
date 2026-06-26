@@ -1,5 +1,12 @@
 {
-  "exclude": ["**/node_modules/**", "**/dist/**", "**/coverage/**"],
+  "exclude": [
+    "**/coverage/**",
+    "**/dist/**",
+    "**/node_modules/**",
+    "**/playwright-report/**",
+    "**/test-results/**",
+    "**/vitest-report/**"
+  ],
   "extends": [
     "@vbetsch/config-tsconfig/base",
     "@vbetsch/config-tsconfig/strict",
@@ -8,10 +15,15 @@
   ],
   /* Overrides */
   "compilerOptions": {
-    // "baseUrl": ".",
     "paths": {
-      // "@src/*": ["src/*"],
-    }
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@data/*": ["./src/data/*"],
+      "@enums/*": ["./src/enums/*"],
+      "@tests/*": ["./tests/*"],
+      "@utils/*": ["./src/utils/*"]
+    },
+    "plugins": [{ "name": "@astrojs/ts-plugin" }]
   },
   "include": [".astro/types.d.ts", "**/*"]
 }

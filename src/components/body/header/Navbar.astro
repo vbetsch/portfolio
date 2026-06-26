@@ -1,0 +1,38 @@
+---
+import ContactMe from '@components/body/header/ContactMe.astro';
+---
+
+<nav>
+  <div>
+    <a href="#header">
+      Victor <b>BETSCH</b>
+    </a>
+    <ContactMe />
+  </div>
+</nav>
+
+<style>
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  a {
+    font-size: var(--size-16);
+    white-space: nowrap;
+  }
+
+  @media screen and (min-width: 380px) {
+    a {
+      font-size: var(--size-18);
+    }
+  }
+</style>

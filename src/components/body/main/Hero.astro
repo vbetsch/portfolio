@@ -1,0 +1,45 @@
+---
+import CTAButton from '@/components/shared/CTAButton.astro';
+import { VariantEnum } from '@enums/variant.enum.ts';
+import { APP_CV_PDF_NAME_FILE, APP_MAILTO_EMAIL } from 'astro:env/client';
+import HeroTitlesGroup from '@components/body/main/HeroTitlesGroup.astro';
+---
+
+<HeroTitlesGroup />
+<div>
+  <CTAButton
+    label="Me contacter"
+    variant={VariantEnum.PRIMARY}
+    href={`mailto:${APP_MAILTO_EMAIL}`}
+  />
+  <CTAButton
+    label="Télécharger mon CV"
+    variant={VariantEnum.SECONDARY}
+    href="/files/cv_fr.pdf"
+    download=`${APP_CV_PDF_NAME_FILE}.pdf`
+  />
+</div>
+
+<style>
+  div {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--size-18);
+  }
+
+  div > * {
+    width: 100%;
+  }
+
+  @media screen and (min-width: 580px) {
+    div {
+      flex-direction: row;
+    }
+
+    div > * {
+      width: auto;
+      padding-inline: var(--size-28);
+    }
+  }
+</style>

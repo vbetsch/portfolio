@@ -1,0 +1,26 @@
+---
+import FooterAddress from '@components/body/footer/FooterAddress.astro';
+---
+
+<footer>
+  <span>Victor BETSCH</span>
+  <FooterAddress />
+</footer>
+
+<style>
+  footer {
+    background-color: var(--color-grey-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: var(--size-24);
+    padding-bottom: var(--size-24);
+  }
+
+  span {
+    white-space: nowrap;
+    font-family: var(--font-mono), sans-serif;
+    font-size: var(--size-12);
+    font-weight: 300;
+  }
+</style>

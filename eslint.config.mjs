@@ -13,7 +13,6 @@ export default [
   jsxVbetsch,
   ...prettierVbetsch,
 
-  /* IMPORTANT: You have to add these lines only for the strict module ! */
   {
     languageOptions: {
       parserOptions: {
@@ -26,7 +25,17 @@ export default [
   /* --- Overrides --- */
   ...eslintPluginAstro.configs.recommended,
   {
-    ignores: ['.astro/'],
+    ignores: [
+      '.astro/',
+      '.lighthouserc.external.cjs',
+      '.lighthouserc.local.cjs',
+      'playwright.config.ts',
+      'playwright-report/',
+      'src/env.d.ts',
+      'test-results/',
+      'tests/astro-env.mock.ts',
+      'vitest-report/',
+    ],
   },
   {
     files: ['**/*.astro'],
@@ -39,15 +48,39 @@ export default [
         tsconfigRootDir: import.meta.dirname,
       },
     },
+    rules: {
+      'max-lines': [
+        'error',
+        {
+          max: 50,
+          skipBlankLines: true,
+          skipComments: true,
+        },
+      ],
+    },
   },
-  // {
-  //   settings: {
-  //     'import/resolver': {
-  //       typescript: {
-  //         alwaysTryTypes: true,
-  //         project: './tsconfig.json',
-  //       },
-  //     },
-  //   },
-  // }
+  {
+    rules: {
+      '@typescript-eslint/naming-convention': [
+        'warn',
+        /** Variables use camelCase or PascalCase */
+        {
+          selector: ['variable'],
+          format: ['camelCase', 'PascalCase'],
+          leadingUnderscore: 'allow',
+        },
+      ],
+    },
+  },
+  {
+    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: './tsconfig.json',
+        },
+      },
+      'import/core-modules': ['astro:env/client', 'astro:env/server', 'astro:content'],
+    },
+  },
 ];

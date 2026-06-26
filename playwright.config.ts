@@ -1,0 +1,48 @@
+import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'path';
+
+dotenv.config({ path: path.resolve(import.meta.dirname, '.env') });
+
+const localURL: string = 'http://localhost:4321/';
+const isPostDeploy: boolean = !!process.env.PLAYWRIGHT_BASE_URL;
+
+const config = defineConfig({
+  testDir: './tests/playwright',
+  fullyParallel: true,
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  ...(process.env.CI ? { workers: 1 } : {}),
+  reporter: 'html',
+
+  use: {
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || localURL,
+    trace: 'on-first-retry',
+  },
+
+  projects: [
+    {
+      name: 'chromium',
+      use: { ...devices['Desktop Chrome'] },
+    },
+    {
+      name: 'firefox',
+      use: { ...devices['Desktop Firefox'] },
+    },
+    {
+      name: 'webkit',
+      use: { ...devices['Desktop Safari'] },
+    },
+  ],
+});
+
+if (!isPostDeploy) {
+  config.webServer = {
+    command: 'npm run start:prod',
+    url: localURL,
+    reuseExistingServer: !process.env.CI,
+    timeout: 120_000,
+  };
+}
+
+export default config;

@@ -1,0 +1,18 @@
+name: 'S3 Deployment'
+description: 'Download artifact and synchronize build with s3 bucket'
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/download-artifact@v8
+      with:
+        name: astro-build-folder
+        path: ${{ env.BUILD_FOLDER }}
+
+    - shell: bash
+      env:
+        AWS_ACCESS_KEY_ID: ${{ env.ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ env.SECRET_KEY }}
+        AWS_DEFAULT_REGION: ${{ env.DEFAULT_REGION }}
+      run: |
+        aws s3 sync $BUILD_FOLDER/ s3://$BUCKET_NAME --endpoint-url $ENDPOINT_URL --delete

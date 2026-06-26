@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { AddressLinkType } from '@/types/address-link.type.ts';
+import { formatWithNonBreakingSpaces } from '@utils/format-with-non-breaking-spaces.ts';
+
+type Props = AddressLinkType & {};
+
+const defaults: Partial<Props> = { openNewTab: false };
+const props: Props = { ...defaults, ...Astro.props };
+---
+
+<a
+  href={props.href}
+  target={props.openNewTab ? '_blank' : null}
+  rel={props.openNewTab ? 'noopener noreferrer' : null}
+  aria-label={props.ariaLabel}
+>
+  <Icon name={props.iconName} />
+  <span set:html={formatWithNonBreakingSpaces(props.label)} />
+</a>
+
+<style>
+  a {
+    display: flex;
+    align-items: center;
+    gap: var(--size-6);
+  }
+
+  span {
+    display: none;
+  }
+
+  [data-icon] {
+    width: var(--size-14);
+  }
+
+  @media screen and (min-width: 1000px) {
+    span {
+      display: block;
+      font-family: var(--font-secondary), sans-serif;
+      font-size: var(--size-12);
+      font-weight: 400;
+      white-space: nowrap;
+    }
+  }
+</style>
