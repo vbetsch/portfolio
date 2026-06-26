@@ -30,10 +30,10 @@ jobs:
     name: Setup for tests
     uses: ./.github/workflows/_tests-setup.yml
 
-  run-tests-e2e:
-    name: Local E2E Tests
+  run-tests-playwright:
+    name: Local Playwright Tests
     needs: [run-build, run-tests-setup]
-    uses: ./.github/workflows/ci-tests-e2e.yml
+    uses: ./.github/workflows/ci-tests-playwright.yml
     with:
       playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
 

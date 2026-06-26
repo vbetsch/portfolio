@@ -1,4 +1,4 @@
-name: local e2e tests
+name: local playwright tests
 
 on:
   workflow_call:
@@ -8,8 +8,8 @@ on:
         type: string
 
 jobs:
-  playwright:
-    name: Playwright
+  all:
+    name: All
     runs-on: ubuntu-latest
     environment: post-build
 
