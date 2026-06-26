@@ -1,0 +1,51 @@
+name: 'Playwright Tests'
+description: 'Run Playwright Tests'
+
+inputs:
+  playwright-tags:
+    description: 'Playwright tags used to filter tests to run'
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - uses: ./.github/actions/setup-project
+
+    - uses: actions/download-artifact@v8
+      with:
+        name: astro-build-folder
+        path: ${{ env.BUILD_FOLDER }}
+
+    - run: npm run test:playwright
+      if: ${{ inputs.playwright-tags == '' }}
+      shell: bash
+      env:
+        CI: true
+        HOME: /root
+        DOCKER_CONFIG: /tmp/.docker
+        APP_CV_PDF_NAME_FILE: ${{ env.CV_PDF_NAME_FILE }}
+        APP_ID_GITHUB: ${{ env.ID_GITHUB }}
+        APP_ID_LINKEDIN: ${{ env.ID_LINKEDIN }}
+        APP_MAILTO_EMAIL: ${{ env.MAILTO_EMAIL }}
+        APP_PHONE_NUMBER: ${{ env.PHONE_NUMBER }}
+
+    - run: npm run test:playwright:grep -- '${{ inputs.playwright-tags }}'
+      if: ${{ inputs.playwright-tags != '' }}
+      shell: bash
+      env:
+        CI: true
+        HOME: /root
+        DOCKER_CONFIG: /tmp/.docker
+        APP_CV_PDF_NAME_FILE: ${{ env.CV_PDF_NAME_FILE }}
+        APP_ID_GITHUB: ${{ env.ID_GITHUB }}
+        APP_ID_LINKEDIN: ${{ env.ID_LINKEDIN }}
+        APP_MAILTO_EMAIL: ${{ env.MAILTO_EMAIL }}
+        APP_PHONE_NUMBER: ${{ env.PHONE_NUMBER }}
+        PLAYWRIGHT_BASE_URL: ${{ env.BASE_URL }}
+
+    - uses: actions/upload-artifact@v7
+      if: failure()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7

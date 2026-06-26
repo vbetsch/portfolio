@@ -16,7 +16,7 @@ concurrency:
 jobs:
   run-build:
     name: Build
-    uses: ./.github/workflows/build.yml
+    uses: ./.github/workflows/_build.yml
 
   run-linter:
     name: Linter
@@ -26,10 +26,16 @@ jobs:
     name: Unit Tests
     uses: ./.github/workflows/ci-tests-unit.yml
 
-  run-tests-e2e:
-    name: E2E Tests
-    needs: run-build
-    uses: ./.github/workflows/ci-tests-e2e.yml
+  run-tests-setup:
+    name: Setup for tests
+    uses: ./.github/workflows/_tests-setup.yml
+
+  run-tests-playwright:
+    name: Local Playwright Tests
+    needs: [run-build, run-tests-setup]
+    uses: ./.github/workflows/ci-tests-playwright.yml
+    with:
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
 
   run-tests-seo:
     name: SEO Tests
@@ -51,3 +57,12 @@ jobs:
       HOSTING_PROVIDER_ENDPOINT_URL: ${{ secrets.HOSTING_PROVIDER_ENDPOINT_URL }}
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
       HOSTING_PROVIDER_BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_NAME }}
+
+  run-tests-smoke:
+    name: Smoke Tests
+    needs: [run-build, run-tests-setup, run-deploy]
+    uses: ./.github/workflows/ci-tests-smoke.yml
+    with:
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
+    secrets:
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL_PREVIEW }}
