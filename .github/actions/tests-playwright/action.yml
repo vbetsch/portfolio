@@ -29,7 +29,7 @@ runs:
         APP_MAILTO_EMAIL: ${{ env.MAILTO_EMAIL }}
         APP_PHONE_NUMBER: ${{ env.PHONE_NUMBER }}
 
-    - run: npm run test:playwright:tag -- ${{ inputs.playwright-tags }}
+    - run: npm run test:playwright:tag -- '${{ inputs.playwright-tags }}'
       if: ${{ inputs.playwright-tags != '' }}
       shell: bash
       env:
