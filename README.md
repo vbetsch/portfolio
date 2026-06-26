@@ -66,13 +66,13 @@ npm run test:units:watch
 #### Run all e2e tests in CLI
 
 ```bash
-npm run test:e2e
+npm run test:playwright
 ```
 
 #### Run all e2e tests in UI
 
 ```bash
-npm run test:e2e:ui
+npm run test:playwright:ui
 ```
 
 #### Run only e2e tests with tag @a11y
@@ -80,13 +80,13 @@ npm run test:e2e:ui
 ##### in CLI
 
 ```bash
-npm run test:e2e:tag -- @a11y
+npm run test:playwright:tag -- @a11y
 ```
 
 ##### in UI
 
 ```bash
-npm run test:e2e:ui:tag -- @a11y
+npm run test:playwright:ui:tag -- @a11y
 ```
 
 ### HTML
@@ -142,15 +142,15 @@ npm run start:prod
 Validate your setup by running the following commands in order:
 
 ```bash
-npm clean-install        # Update dependencies
-npm run start:dev        # Check development execution
-npm run format           # Format code
-npm run check            # Type-checking, astro check and linters
-npm run test:units:cov   # Run all unit tests
-npm run build            # Run production build
-npm run test:html        # Run HTML tests
-npm run test:e2e:ui      # Run End-To-End tests
-npm run start:prod       # Check production execution
+npm clean-install           # Update dependencies
+npm run start:dev           # Check development execution
+npm run format              # Format code
+npm run check               # Type-checking, astro check and linters
+npm run test:units:cov      # Run all unit tests
+npm run build               # Run production build
+npm run test:html           # Run HTML tests
+npm run test:playwright:ui  # Run Playwright tests
+npm run start:prod          # Check production execution
 ```
 
 ## ➕ See more

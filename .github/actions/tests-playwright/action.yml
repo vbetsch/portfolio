@@ -16,7 +16,7 @@ runs:
         name: astro-build-folder
         path: ${{ env.BUILD_FOLDER }}
 
-    - run: npm run test:e2e
+    - run: npm run test:playwright
       if: ${{ inputs.playwright-tag == '' }}
       shell: bash
       env:
@@ -29,7 +29,7 @@ runs:
         APP_MAILTO_EMAIL: ${{ env.MAILTO_EMAIL }}
         APP_PHONE_NUMBER: ${{ env.PHONE_NUMBER }}
 
-    - run: npm run test:e2e:tag -- ${{ inputs.playwright-tag }}
+    - run: npm run test:playwright:tag -- ${{ inputs.playwright-tag }}
       if: ${{ inputs.playwright-tag != '' }}
       shell: bash
       env:
