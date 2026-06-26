@@ -11,7 +11,6 @@ on:
         required: true
 
 env:
-  BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
   CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
   ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
   ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
