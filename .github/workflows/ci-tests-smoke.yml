@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Run Smoke Tests Lv1 in preview environment
+      - name: Run Smoke Tests Lv1
         uses: ./.github/actions/tests-playwright
         with:
           playwright-tags: '@smoke-lv1'
