@@ -80,13 +80,13 @@ npm run test:playwright:ui
 ##### in CLI
 
 ```bash
-npm run test:playwright:tag -- @a11y
+npm run test:playwright:grep -- @a11y
 ```
 
 ##### in UI
 
 ```bash
-npm run test:playwright:ui:tag -- @a11y
+npm run test:playwright:ui:grep -- @a11y
 ```
 
 ### HTML
