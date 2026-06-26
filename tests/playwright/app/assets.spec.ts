@@ -8,7 +8,7 @@ test.describe(
   },
   () => {
     test(
-      'Favicon - Should return HTTP 200 and correct Content-Type',
+      'Favicon - Should return and correct Content-Type',
       { tag: [PlaywrightTagsEnum.FAVICON] },
       async ({ request }) => {
         const response = await request.get('/favicon.ico');
@@ -17,7 +17,7 @@ test.describe(
     );
 
     test(
-      'CV PDF - Should return HTTP 200 and application/pdf',
+      'CV PDF - Should return application/pdf Content-Type',
       { tag: [PlaywrightTagsEnum.PDF_FILE] },
       async ({ request }) => {
         const response = await request.get(`/files/cv_fr.pdf`);
@@ -26,7 +26,7 @@ test.describe(
     );
 
     test(
-      'Compiled CSS - Should exist in DOM and return HTTP 200',
+      'Compiled CSS - Should exist in DOM',
       { tag: [PlaywrightTagsEnum.CSS_FILE] },
       async ({ request }) => {
         const homeResponse = await request.get('/');
