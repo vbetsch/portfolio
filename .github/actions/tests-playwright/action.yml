@@ -12,6 +12,7 @@ runs:
     - uses: ./.github/actions/setup-project
 
     - uses: actions/download-artifact@v8
+      if: ${{ inputs.playwright-tags == '' }}
       with:
         name: astro-build-folder
         path: ${{ env.BUILD_FOLDER }}
