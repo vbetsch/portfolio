@@ -36,6 +36,8 @@ jobs:
     name: Web Vitals
     needs: run-deployment
     uses: ./.github/workflows/cd-web-vitals.yml
+    secrets:
+      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
 
   run-tests-setup:
     name: Setup for tests

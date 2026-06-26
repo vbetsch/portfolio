@@ -2,6 +2,9 @@ name: web vitals
 
 on:
   workflow_call:
+    secrets:
+      HOSTING_PROVIDER_BASE_URL:
+        required: true
 
 env:
   BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
@@ -19,6 +22,8 @@ jobs:
 
       - name: Run Composite Action
         uses: ./.github/actions/web-vitals
+        with:
+          base-url: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
 
   prod:
     name: Production
@@ -32,3 +37,5 @@ jobs:
 
       - name: Run Composite Action
         uses: ./.github/actions/web-vitals
+        with:
+          base-url: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
