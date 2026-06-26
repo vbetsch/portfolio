@@ -25,12 +25,12 @@ runs:
         CI: true
         HOME: /root
         DOCKER_CONFIG: /tmp/.docker
-        APP_CV_PDF_NAME_FILE: ${{ env.APP_CV_PDF_NAME_FILE }}
+        APP_CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
         APP_ID_GITHUB: ${{ env.APP_ID_GITHUB }}
         APP_ID_LINKEDIN: ${{ env.APP_ID_LINKEDIN }}
-        APP_MAILTO_EMAIL: ${{ env.APP_MAILTO_EMAIL }}
-        APP_PHONE_NUMBER: ${{ env.APP_PHONE_NUMBER }}
-        PLAYWRIGHT_BASE_URL: ${{ env.HOSTING_PROVIDER_BASE_URL }}
+        APP_MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+        APP_PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
+        PLAYWRIGHT_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
 
     - name: Upload Playwright Report (On Failure Only)
       uses: actions/upload-artifact@v7
