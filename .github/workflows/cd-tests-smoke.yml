@@ -10,6 +10,15 @@ on:
       HOSTING_PROVIDER_BASE_URL:
         required: true
 
+env:
+  BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
+  CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
+  ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
+  ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
+  MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
+  PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
+  BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
+
 jobs:
   develop:
     name: Develop
@@ -28,14 +37,6 @@ jobs:
         uses: ./.github/actions/tests-playwright
         with:
           playwright-tags: '@smoke-lv1|@smoke-lv2'
-        env:
-          BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
-          CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
-          ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
-          ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
-          MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
-          PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
-          BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
 
   prod:
     name: Production
@@ -54,11 +55,3 @@ jobs:
         uses: ./.github/actions/tests-playwright
         with:
           playwright-tags: '@smoke-lv1|@smoke-lv2|@smoke-lv3'
-        env:
-          BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
-          CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
-          ID_GITHUB: ${{ vars.APP_ID_GITHUB }}
-          ID_LINKEDIN: ${{ vars.APP_ID_LINKEDIN }}
-          MAILTO_EMAIL: ${{ vars.APP_MAILTO_EMAIL }}
-          PHONE_NUMBER: ${{ vars.APP_PHONE_NUMBER }}
-          BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
