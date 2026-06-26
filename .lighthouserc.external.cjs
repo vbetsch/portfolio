@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       url: [process.env.LIGHTHOUSE_URL],
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       settings: {
         report: ['html'],
         chromeFlags: '--no-sandbox --disable-dev-shm-usage',
