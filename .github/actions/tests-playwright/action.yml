@@ -2,8 +2,8 @@ name: 'Playwright Tests'
 description: 'Run Playwright Tests'
 
 inputs:
-  playwright-tag:
-    description: 'Playwright tag used to filter tests to run'
+  playwright-tags:
+    description: 'Playwright tags used to filter tests to run'
     required: false
 
 runs:
@@ -17,7 +17,7 @@ runs:
         path: ${{ env.BUILD_FOLDER }}
 
     - run: npm run test:playwright
-      if: ${{ inputs.playwright-tag == '' }}
+      if: ${{ inputs.playwright-tags == '' }}
       shell: bash
       env:
         CI: true
@@ -29,8 +29,8 @@ runs:
         APP_MAILTO_EMAIL: ${{ env.MAILTO_EMAIL }}
         APP_PHONE_NUMBER: ${{ env.PHONE_NUMBER }}
 
-    - run: npm run test:playwright:tag -- ${{ inputs.playwright-tag }}
-      if: ${{ inputs.playwright-tag != '' }}
+    - run: npm run test:playwright:tag -- ${{ inputs.playwright-tags }}
+      if: ${{ inputs.playwright-tags != '' }}
       shell: bash
       env:
         CI: true

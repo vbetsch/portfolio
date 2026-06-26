@@ -25,7 +25,7 @@ jobs:
       - name: Run Smoke Tests Lv1 in preview environment
         uses: ./.github/actions/tests-playwright
         with:
-          playwright-tag: '@smoke-lv1'
+          playwright-tags: '@smoke-lv1'
         env:
           BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
           CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
