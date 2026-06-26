@@ -21,7 +21,7 @@ runs:
       if: ${{ inputs.base-url == '' }}
       shell: bash
 
-    - run: npm run lighthouse:prod
+    - run: npm run lighthouse:external
       if: ${{ inputs.base-url != '' }}
       shell: bash
       env:
