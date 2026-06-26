@@ -4,7 +4,7 @@
     "@fontsource/azeret-mono": "^5.2.11",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
-    "astro": "^6.4.6",
+    "astro": "^7.0.3",
     "astro-icon": "^1.1.5"
   },
   "description": "My official personal website",
@@ -31,7 +31,6 @@
     "http-status-codes": "^2.3.0",
     "oxlint": "^1.71.0",
     "prettier-plugin-astro": "0.14.1",
-    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.9"
   },
   "engines": {
