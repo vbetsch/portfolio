@@ -51,6 +51,7 @@ jobs:
   run-web-vitals:
     name: Web Vitals
     needs: run-deployment
+    if: github.ref == 'refs/heads/master' && success()
     uses: ./.github/workflows/cd-web-vitals.yml
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
