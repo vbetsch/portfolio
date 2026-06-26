@@ -1,4 +1,4 @@
-name: smoke tests lv2 and lv3
+name: smoke tests
 
 on:
   workflow_call:
@@ -24,10 +24,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Run Smoke Tests Lv2 in develop environment
+      - name: Run Smoke Tests Lv1 and Lv2 in develop environment
         uses: ./.github/actions/tests-playwright
         with:
-          playwright-tag: '@smoke-lv2'
+          playwright-tags: '@smoke-lv1|@smoke-lv2'
         env:
           BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
           CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}
@@ -50,10 +50,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v7
 
-      - name: Run Smoke Tests Lv2 and Lv3 in production environment
+      - name: Run Smoke Tests Lv1, Lv2 and Lv3 in production environment
         uses: ./.github/actions/tests-playwright
         with:
-          playwright-tag: '@smoke-lv2|@smoke-lv3'
+          playwright-tags: '@smoke-lv1|@smoke-lv2|@smoke-lv3'
         env:
           BUILD_FOLDER: ${{ vars.APP_BUILD_FOLDER }}
           CV_PDF_NAME_FILE: ${{ vars.APP_CV_PDF_NAME_FILE }}

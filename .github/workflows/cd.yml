@@ -41,19 +41,10 @@ jobs:
     name: Setup for tests
     uses: ./.github/workflows/_tests-setup.yml
 
-  run-tests-smoke-lv1:
-    name: Smoke Tests Lv1
+  run-tests-smoke:
+    name: Smoke Tests
     needs: [run-build, run-tests-setup, run-deployment]
-    uses: ./.github/workflows/cd-tests-smoke-lv1.yml
-    with:
-      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
-    secrets:
-      HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
-
-  run-tests-smoke-lv2-3:
-    name: Smoke Tests Lv2
-    needs: [run-build, run-tests-setup, run-deployment]
-    uses: ./.github/workflows/cd-tests-smoke-lv2-3.yml
+    uses: ./.github/workflows/cd-tests-smoke.yml
     with:
       playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
     secrets:
