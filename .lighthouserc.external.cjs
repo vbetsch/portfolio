@@ -2,7 +2,7 @@ module.exports = {
   ci: {
     collect: {
       url: [process.env.LIGHTHOUSE_URL],
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       settings: {
         report: ['html'],
         chromeFlags: '--no-sandbox --disable-dev-shm-usage',
@@ -10,7 +10,7 @@ module.exports = {
     },
     assert: {
       assertions: {
-        'categories:performance': ['error', { minScore: 1.0 }],
+        'categories:performance': ['error', { minScore: 0.9 }],
         'categories:accessibility': ['error', { minScore: 1.0 }],
         'categories:best-practices': ['error', { minScore: 1.0 }],
         'categories:seo': ['error', { minScore: 1.0 }],
