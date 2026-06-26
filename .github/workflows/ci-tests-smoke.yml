@@ -1,4 +1,4 @@
-name: smoke tests lv1
+name: smoke tests
 
 on:
   workflow_call:

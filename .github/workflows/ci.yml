@@ -61,7 +61,7 @@ jobs:
   run-tests-smoke-lv1:
     name: Smoke Tests Lv1
     needs: [run-build, run-tests-setup, run-deploy]
-    uses: ./.github/workflows/ci-tests-smoke-lv1.yml
+    uses: ./.github/workflows/ci-tests-smoke.yml
     with:
       playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
     secrets:
