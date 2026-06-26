@@ -4,7 +4,7 @@
     "@fontsource/azeret-mono": "^5.2.11",
     "@fontsource/inter": "^5.2.8",
     "@fontsource/poppins": "^5.2.7",
-    "astro": "^6.4.6",
+    "astro": "^7.0.3",
     "astro-icon": "^1.1.5"
   },
   "description": "My official personal website",
