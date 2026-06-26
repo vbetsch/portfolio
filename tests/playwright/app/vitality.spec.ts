@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { StatusCodes } from 'http-status-codes';
 import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
 
-test.describe('Vitality Check', { tag: [PlaywrightTagsEnum.SMOKE_LEVEL_1] }, () => {
+test.describe('Vitality Checks', { tag: [PlaywrightTagsEnum.SMOKE_LEVEL_1] }, () => {
   test(
     'Healthcheck - Should return HTTP 200 connectivity',
     { tag: [PlaywrightTagsEnum.HEALTHCHECK] },

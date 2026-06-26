@@ -8,7 +8,7 @@ test.describe(
   },
   () => {
     test(
-      'Favicon - Should return and correct Content-Type',
+      'Favicon - Should return correct Content-Type',
       { tag: [PlaywrightTagsEnum.FAVICON] },
       async ({ request }) => {
         const response = await request.get('/favicon.ico');
@@ -17,7 +17,7 @@ test.describe(
     );
 
     test(
-      'CV PDF - Should return application/pdf Content-Type',
+      'CV PDF - Should return correct Content-Type',
       { tag: [PlaywrightTagsEnum.PDF_FILE] },
       async ({ request }) => {
         const response = await request.get(`/files/cv_fr.pdf`);
