@@ -17,10 +17,16 @@ on:
       - 'vitest.config.ts'
 
 jobs:
+  # First layer
   run-build:
     name: Build
     uses: ./.github/workflows/_build.yml
 
+  run-tests-setup:
+    name: Setup for tests
+    uses: ./.github/workflows/_tests-setup.yml
+
+  # Second layer
   run-deployment:
     name: Deployment
     needs: run-build
@@ -32,16 +38,13 @@ jobs:
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
       HOSTING_PROVIDER_BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_NAME }}
 
+  # Third Layer
   run-web-vitals:
     name: Web Vitals
     needs: run-deployment
     uses: ./.github/workflows/cd-web-vitals.yml
     secrets:
       HOSTING_PROVIDER_BASE_URL: ${{ secrets.HOSTING_PROVIDER_BASE_URL }}
-
-  run-tests-setup:
-    name: Setup for tests
-    uses: ./.github/workflows/_tests-setup.yml
 
   run-tests-smoke:
     name: Smoke Tests

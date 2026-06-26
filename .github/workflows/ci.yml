@@ -14,9 +14,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  # First layer
   run-build:
     name: Build
     uses: ./.github/workflows/_build.yml
+
+  run-tests-setup:
+    name: Setup for tests
+    uses: ./.github/workflows/_tests-setup.yml
 
   run-linter:
     name: Linter
@@ -26,17 +31,7 @@ jobs:
     name: Unit Tests
     uses: ./.github/workflows/ci-tests-unit.yml
 
-  run-tests-setup:
-    name: Setup for tests
-    uses: ./.github/workflows/_tests-setup.yml
-
-  run-tests-playwright:
-    name: Local Playwright Tests
-    needs: [run-build, run-tests-setup]
-    uses: ./.github/workflows/ci-tests-playwright.yml
-    with:
-      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
-
+  # Second layer
   run-tests-seo:
     name: SEO Tests
     needs: run-build
@@ -46,6 +41,13 @@ jobs:
     name: Web Vitals
     needs: run-build
     uses: ./.github/workflows/ci-web-vitals.yml
+
+  run-tests-playwright:
+    name: Local Playwright Tests
+    needs: [ run-build, run-tests-setup ]
+    uses: ./.github/workflows/ci-tests-playwright.yml
+    with:
+      playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
 
   run-deploy:
     name: Deploy
@@ -58,9 +60,10 @@ jobs:
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
       HOSTING_PROVIDER_BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_NAME }}
 
+  # Third Layer
   run-tests-smoke:
     name: Smoke Tests
-    needs: [run-build, run-tests-setup, run-deploy]
+    needs: [ run-build, run-tests-setup, run-deploy ]
     uses: ./.github/workflows/ci-tests-smoke.yml
     with:
       playwright-version: ${{ needs.run-tests-setup.outputs.playwright-version }}
