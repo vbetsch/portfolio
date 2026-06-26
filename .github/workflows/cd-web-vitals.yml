@@ -1,4 +1,4 @@
-name: web vitals
+name: external web vitals
 
 on:
   workflow_call:
