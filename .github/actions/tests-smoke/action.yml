@@ -9,17 +9,14 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - name: Restore Env & Node
-      uses: ./.github/actions/setup-project
+    - uses: ./.github/actions/setup-project
 
-    - name: Download Build Artifact
-      uses: actions/download-artifact@v8
+    - uses: actions/download-artifact@v8
       with:
         name: astro-build-folder
         path: ${{ env.BUILD_FOLDER }}
 
-    - name: Run ${{ inputs.playwright-tag }} E2E Playwright Tests with tag
-      run: npm run test:e2e:tag -- ${{ inputs.playwright-tag }}
+    - run: npm run test:e2e:tag -- ${{ inputs.playwright-tag }}
       shell: bash
       env:
         CI: true
@@ -32,8 +29,7 @@ runs:
         APP_PHONE_NUMBER: ${{ env.PHONE_NUMBER }}
         PLAYWRIGHT_BASE_URL: ${{ env.BASE_URL }}
 
-    - name: Upload Playwright Report (On Failure Only)
-      uses: actions/upload-artifact@v7
+    - uses: actions/upload-artifact@v7
       if: failure()
       with:
         name: playwright-report
