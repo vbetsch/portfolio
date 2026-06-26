@@ -12,7 +12,7 @@ runs:
         path: ${{ env.BUILD_FOLDER }}
 
     - shell: bash
-      run: npm run lighthouse
+      run: npm run lighthouse:local
 
     - uses: actions/upload-artifact@v7
       if: failure()
