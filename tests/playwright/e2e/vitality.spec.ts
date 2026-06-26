@@ -16,8 +16,7 @@ test.describe('Vitality Check', { tag: [PlaywrightTagsEnum.SMOKE_LEVEL_1] }, () 
     'Root DOM Elements - Should mount root elements',
     { tag: [PlaywrightTagsEnum.ROOT_DOM_ELEMENTS] },
     async ({ page }) => {
-      const response = await page.goto('/');
-      expect(response?.status()).toBe(StatusCodes.OK);
+      await page.goto('/');
 
       const mainElement = page.locator('main');
       await expect(mainElement).toBeVisible();

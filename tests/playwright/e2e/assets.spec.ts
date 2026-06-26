@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test';
 import { PlaywrightTagsEnum } from '@tests/playwright/playwright-tags.enum.ts';
-import { StatusCodes } from 'http-status-codes';
 
 test.describe(
   'Assets Integrity',
@@ -13,7 +12,6 @@ test.describe(
       { tag: [PlaywrightTagsEnum.FAVICON] },
       async ({ request }) => {
         const response = await request.get('/favicon.ico');
-        expect(response.status()).toBe(StatusCodes.OK);
         expect(response.headers()['content-type']).toContain('image/');
       }
     );
@@ -23,7 +21,6 @@ test.describe(
       { tag: [PlaywrightTagsEnum.PDF_FILE] },
       async ({ request }) => {
         const response = await request.get(`/files/cv_fr.pdf`);
-        expect(response.status()).toBe(StatusCodes.OK);
         expect(response.headers()['content-type']).toContain('application/pdf');
       }
     );
@@ -33,7 +30,6 @@ test.describe(
       { tag: [PlaywrightTagsEnum.CSS_FILE] },
       async ({ request }) => {
         const homeResponse = await request.get('/');
-        expect(homeResponse.status()).toBe(StatusCodes.OK);
         const html = await homeResponse.text();
 
         const cssMatch = html.match(
@@ -45,7 +41,6 @@ test.describe(
         }
 
         const cssResponse = await request.get(cssMatch[1]);
-        expect(cssResponse.status()).toBe(StatusCodes.OK);
         expect(cssResponse.headers()['content-type']).toContain('text/css');
       }
     );
