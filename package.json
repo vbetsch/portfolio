@@ -31,7 +31,6 @@
     "http-status-codes": "^2.3.0",
     "oxlint": "^1.71.0",
     "prettier-plugin-astro": "0.14.1",
-    "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.9"
   },
   "engines": {
