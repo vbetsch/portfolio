@@ -58,8 +58,8 @@ jobs:
       HOSTING_PROVIDER_DEFAULT_REGION: ${{ secrets.HOSTING_PROVIDER_DEFAULT_REGION }}
       HOSTING_PROVIDER_BUCKET_NAME: ${{ secrets.HOSTING_PROVIDER_BUCKET_NAME }}
 
-  run-tests-smoke-lv1:
-    name: Smoke Tests Lv1
+  run-tests-smoke:
+    name: Smoke Tests
     needs: [run-build, run-tests-setup, run-deploy]
     uses: ./.github/workflows/ci-tests-smoke.yml
     with:
