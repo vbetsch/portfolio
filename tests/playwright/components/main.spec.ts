@@ -49,9 +49,9 @@ test.describe('Hero', () => {
       'the Download CV CTA button should be a download link to the CV',
       {
         tag: [
-          PlaywrightTagsEnum.SMOKE_LEVEL_2,
-          PlaywrightTagsEnum.ASSETS,
           PlaywrightTagsEnum.PDF_FILE,
+          PlaywrightTagsEnum.ASSETS,
+          PlaywrightTagsEnum.SMOKE_LEVEL_2,
         ],
       },
       async () => {

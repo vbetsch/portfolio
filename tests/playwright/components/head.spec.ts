@@ -13,7 +13,7 @@ test(
 test(
   'should have the global css import',
   {
-    tag: [PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.CSS_FILE],
+    tag: [PlaywrightTagsEnum.CSS_FILE, PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.SMOKE_LEVEL_2],
   },
   async ({ page }) => {
     await page.goto('/');
@@ -25,7 +25,7 @@ test(
 test(
   'should have the main favicon import',
   {
-    tag: [PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.FAVICON],
+    tag: [PlaywrightTagsEnum.FAVICON, PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.SMOKE_LEVEL_2],
   },
   async ({ page }) => {
     await page.goto('/');

@@ -5,7 +5,7 @@ import { StatusCodes } from 'http-status-codes';
 test.describe(
   'Assets Integrity',
   {
-    tag: [PlaywrightTagsEnum.SMOKE_LEVEL_2, PlaywrightTagsEnum.ASSETS],
+    tag: [PlaywrightTagsEnum.ASSETS, PlaywrightTagsEnum.SMOKE_LEVEL_2],
   },
   () => {
     test(
